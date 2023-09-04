@@ -1,7 +1,7 @@
 import Image from "next/image";
 import ActorLineItem from "@/components/ActorLineItem/ActorLineItem";
 
-export default function idPage() {
+export default function idPage({ params }) {
   return (
     <>
       <div
@@ -18,6 +18,7 @@ export default function idPage() {
           />
         </div>
         <div id="film-title" className="flex flex-col items-center">
+          <h1>ID no: {params.id}</h1>
           <h2 className="text-blue-400 text-xl">Film title</h2>
           <h3 className="text-pink-200">Release date</h3>
           <h3 className="text-pink-200">Rating</h3>

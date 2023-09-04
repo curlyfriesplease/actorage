@@ -2,7 +2,11 @@ import Image from "next/image";
 
 export default function ActorLineItem(props) {
   return (
-    <div className="flex grow gap-3 px-4 py-4 border-2 border-sky-500 rounded-md">
+    <div
+      className="
+    flex grow gap-3 px-4 py-4 border-2 border-sky-500 bg-zinc-950 rounded-md hover:bg-zinc-900
+    "
+    >
       <Image
         src="/images/PlaceholderActor.jpg"
         alt="Actor poster"

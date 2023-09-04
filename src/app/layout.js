@@ -1,10 +1,9 @@
 import "./globals.css";
-import 'tailwindcss/tailwind.css';
+import "tailwindcss/tailwind.css";
 import { Inter } from "next/font/google";
 import NavBar from "@/components/NavBar/NavBar";
 import Footer from "@/components/Footer/Footer";
-
-const inter = Inter({ subsets: ["latin"] });
+import { dosis } from "./fonts";
 
 export const metadata = {
   title: "Create Next App",
@@ -13,9 +12,9 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" className={dosis.variable}>
       <body
-        className={`${inter.className} flex flex-col px-4 py-2 min-h-screen`}
+        className={`${dosis.className} flex flex-col px-4 py-2 min-h-screen`}
       >
         <header>
           <NavBar />

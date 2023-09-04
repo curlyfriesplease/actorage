@@ -11,7 +11,7 @@ export default function NavBar() {
           </Link>
         </li>
         <li>
-          <Link href="/id" className="hover:underline">
+          <Link href="/movie/1234" className="hover:underline">
             {" "}
             Result{" "}
           </Link>

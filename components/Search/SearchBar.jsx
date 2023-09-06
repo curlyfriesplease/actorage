@@ -28,7 +28,7 @@ export default function SearchBar({ setResults }) {
           type={"search"}
           value={input}
           onChange={(e) => handleChange(e.target.value)}
-          className="bg-white h-10 px-5 pr-10 w-full rounded-full text-sm focus:outline-none"
+          className="bg-white h-10 px-5 py-4 pr-10 w-full rounded-full text-sm focus:outline-none"
         />
         <button type="submit" className="absolute right-0 top-0 mt-3 mr-4">
           <MagnifyingGlassIcon />

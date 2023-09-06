@@ -6,12 +6,14 @@ import { SearchResultsList } from "./SearchResultsList";
 
 export default function SearchContainer() {
   const [results, setResults] = useState([]);
-
+  console.dir(results);
   return (
     <div className="h-200">
       <div>search:</div>
       <SearchBar setResults={setResults} />
-      {results && results.length > 0 && <SearchResultsList results={results} />}
+      {results && results.results?.length > 0 && (
+        <SearchResultsList results={results} />
+      )}
     </div>
   );
 }

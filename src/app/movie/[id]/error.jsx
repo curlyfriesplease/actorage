@@ -1,5 +1,5 @@
 "use client";
 
-export default function Loading() {
+export default function Error() {
   return <h1>Error!!</h1>;
 }

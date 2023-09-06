@@ -8,7 +8,8 @@ export const SearchResultsList = ({ results }) => {
   const transformResults = (results) => {
     return results.results.map((result) => {
       const { media_type, title, name, release_date, id } = result;
-      const transformedTitle = media_type === "person" ? name : title;
+      const transformedTitle =
+        media_type === "person" ? name : media_type === "tv" ? name : title;
       const transformedReleaseDate = release_date
         ? release_date.slice(0, 4)
         : null;

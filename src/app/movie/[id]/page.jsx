@@ -1,7 +1,34 @@
 import Image from "next/image";
 import ActorLineItem from "@/components/ActorLineItem/ActorLineItem";
+import { fetchMovieData } from "./fetchMovieData";
 
-export default function idPage({ params }) {
+export async function getServerSideProps(context) {
+  const { params } = context;
+  console.log(`params.id is ${params.id}`);
+  try {
+    const movieData = await fetchMovieData(params.id);
+    console.dir({ movieData });
+    return {
+      props: {
+        movieData,
+      },
+    };
+  } catch (error) {
+    console.error(error);
+    return {
+      props: {
+        movieData: null,
+        error: "Failed to fetch movie data",
+      },
+    };
+  }
+}
+
+export default function idPage({ movieData }) {
+  if (!movieData) {
+    return <div>Failed to fetch movie data</div>;
+  }
+  console.log("OH NO");
   return (
     <>
       <div
@@ -18,12 +45,12 @@ export default function idPage({ params }) {
           />
         </div>
         <div id="film-title" className="flex flex-col items-center">
-          <h1>ID no: {params.id}</h1>
-          <h2 className="text-blue-400 text-xl">Film title</h2>
-          <h3 className="text-pink-200">Release date</h3>
-          <h3 className="text-pink-200">Rating</h3>
-          <h3 className="text-pink-200">Runtime</h3>
-          <h3 className="text-pink-200">Genres</h3>
+          <h1>ID no: {movieData.id}</h1>
+          <h2 className="text-blue-400 text-xl">{movieData.title}</h2>
+          <h3 className="text-pink-200">{movieData.release_date}</h3>
+          <h3 className="text-pink-200">{movieData.rating}</h3>
+          <h3 className="text-pink-200">{movieData.runtime}</h3>
+          <h3 className="text-pink-200">{movieData.genres}</h3>
         </div>
       </div>
       <div

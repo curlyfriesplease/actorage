@@ -1,4 +1,4 @@
-export async function fetchData(value, setError, setResults) {
+export async function fetchSearchData(value, setError, setResults) {
   if (value.length) {
     console.log("value: " + value);
     try {

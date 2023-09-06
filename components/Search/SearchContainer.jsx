@@ -9,7 +9,6 @@ export default function SearchContainer() {
   console.dir(results);
   return (
     <div className="h-200">
-      <div>search:</div>
       <SearchBar setResults={setResults} />
       {results && results.results?.length > 0 && (
         <SearchResultsList results={results} />

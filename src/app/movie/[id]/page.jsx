@@ -2,33 +2,14 @@ import Image from "next/image";
 import ActorLineItem from "@/components/ActorLineItem/ActorLineItem";
 import { fetchMovieData } from "./fetchMovieData";
 
-export async function getServerSideProps(context) {
-  const { params } = context;
-  console.log(`params.id is ${params.id}`);
-  try {
-    const movieData = await fetchMovieData(params.id);
-    console.dir({ movieData });
-    return {
-      props: {
-        movieData,
-      },
-    };
-  } catch (error) {
-    console.error(error);
-    return {
-      props: {
-        movieData: null,
-        error: "Failed to fetch movie data",
-      },
-    };
+export default async function IdPage({params}) {
+  const id = params.id;
+  console.log(`Id is ${id}`);
+  if (id) {
+    const movieData = await fetchMovieData(id);
   }
-}
 
-export default function idPage({ movieData }) {
-  if (!movieData) {
-    return <div>Failed to fetch movie data</div>;
-  }
-  console.log("OH NO");
+  console.log("Rendering idPage");
   return (
     <>
       <div
@@ -65,3 +46,29 @@ export default function idPage({ movieData }) {
     </>
   );
 }
+
+// export async function getServerSideProps(context) {
+//   const { params } = context;
+//   console.log(`params.id is ${params.id}`);
+//   const rubbishData = "fsvjdijfiodsfji";
+//   try {
+//     const movieData = await fetchMovieData(params.id);
+//     console.log("Moviedata:");
+//     console.log({ movieData });
+//     return {
+//       props: {
+//         rubbishData,
+//         movieData,
+//       },
+//     };
+//   } catch (error) {
+//     console.error(error);
+//     return {
+//       props: {
+//         rubbishData,
+//         movieData: null,
+//         error: "Failed to fetch movie data",
+//       },
+//     };
+//   }
+// }

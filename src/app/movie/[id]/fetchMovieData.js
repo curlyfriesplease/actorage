@@ -1,6 +1,6 @@
 export async function fetchMovieData(value) {
   if (value.length) {
-    console.log("value: " + value);
+    console.log("fetchMovieData value received: " + value);
     try {
       const response = await fetch(`/api/movie?query=${value}`);
       const data = await response.json();

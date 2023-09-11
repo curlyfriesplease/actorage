@@ -1,6 +1,6 @@
 export async function fetchSearchData(value, setError, setResults) {
   if (value.length) {
-    console.log("value: " + value);
+    console.log('fetchSearchData value: ' + value);
     try {
       const response = await fetch(`/api/search?query=${value}`);
       const data = await response.json();

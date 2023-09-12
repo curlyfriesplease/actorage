@@ -1,14 +1,13 @@
 import { checkEnvironment } from "../../functions/checkEnv";
 
-export async function fetchMovieData(value) {
+export async function fetchCreditsData(value) {
   if (value.length) {
-    console.log("fetchMovieData value received: " + value);
+    console.log("fetchCreditsData value received: " + value);
     try {
       const response = await fetch(
-        checkEnvironment().concat(`/api/movie?query=${value}`)
+        checkEnvironment().concat(`/api/movie?query=${value}/credits`)
       );
       const data = await response.json();
-      console.log({ data });
       return data;
     } catch (error) {
       console.error(error);

@@ -1,12 +1,12 @@
-"use client";
+'use client';
 
-import { useState, useCallback } from "react";
-import { fetchSearchData } from "./fetchSearchData";
-import { MagnifyingGlassIcon } from "./icons";
+import { useState, useCallback } from 'react';
+import { fetchSearchData } from './fetchSearchData';
+import { MagnifyingGlassIcon } from './icons';
 
 export default function SearchBar({ setResults }) {
-  const [input, setInput] = useState("");
-  const [error, setError] = useState("");
+  const [input, setInput] = useState('');
+  const [error, setError] = useState('');
 
   const debouncedFetchData = useCallback(
     debounce((value) => {
@@ -22,10 +22,10 @@ export default function SearchBar({ setResults }) {
 
   return (
     <>
-      <div className="w-96 text-indigo-950 py-4">
+      <div className="w-100 text-indigo-950 py-4">
         <input
           placeholder="Enter search..."
-          type={"search"}
+          type={'search'}
           value={input}
           onChange={(e) => handleChange(e.target.value)}
           className="bg-white h-10 px-5 py-4 w-full rounded-full text-sm focus:outline-none"

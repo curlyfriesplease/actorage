@@ -2,25 +2,40 @@ import Image from 'next/image';
 import { Suspense } from 'react';
 import { fetchActorData } from './fetchActorData';
 
-export default async function ActorLineItem({ actor, releaseDate }) {
+export default async function ActorLineItem({
+  actor,
+  releaseDate,
+  tvFirstAirDate,
+  tvLastAirDate,
+}) {
   const actorId = actor.id;
   console.log(`ActorId is ${actorId}:`);
   const actorDetails = await fetchActorData(actorId);
   console.log(`actorDetails is ${actorDetails}`);
+
   const getActorAge = (beeeeeeeerthday) => {
     console.log(`beeeeeeeerthday is ${beeeeeeeerthday}`);
     if (beeeeeeeerthday) {
       const birthday = new Date(actorDetails.birthday);
-      const release = new Date(releaseDate);
-      const age = release.getFullYear() - birthday.getFullYear();
-      const monthDifference = release.getMonth() - birthday.getMonth();
-      if (
-        monthDifference < 0 ||
-        (monthDifference === 0 && release.getDate() < birthday.getDate())
-      ) {
-        return `Was ${age - 1}`;
+
+      if (releaseDate) {
+        const movieRelease = new Date(releaseDate);
+        const age = movieRelease.getFullYear() - birthday.getFullYear();
+        const monthDifference = movieRelease.getMonth() - birthday.getMonth();
+        if (
+          monthDifference < 0 ||
+          (monthDifference === 0 && movieRelease.getDate() < birthday.getDate())
+        ) {
+          return `Was ${age - 1}`;
+        }
+        return `Was ${age}`;
+      } else {
+        const tvStartDate = new Date(tvFirstAirDate);
+        const tvEndDate = tvLastAirDate ? new Date(tvLastAirDate) : new Date(); // IS THIS CORRECT FOR GETCURRENTYEAR
+        const ageFrom = tvStartDate.getFullYear() - birthday.getFullYear();
+        const ageTo = tvEndDate.getFullYear() - birthday.getFullYear();
+        return `Was ${ageFrom} to ${ageTo}`;
       }
-      return `Was ${age}`;
     } else {
       return 'Age unknown';
     }

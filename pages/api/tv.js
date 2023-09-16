@@ -1,7 +1,6 @@
 export default async function handler(req, res) {
-  console.log('ACTOR API CALLED');
   const { query } = req.query;
-  const actorEndpoint = `https://api.themoviedb.org/3/person/${query}`;
+  const searchEndpoint = `https://api.themoviedb.org/3/tv/${query}?language=en-US`;
   const key = process.env.REACT_APP_TMDB_BEARER_TOKEN;
   const options = {
     method: 'GET',
@@ -12,8 +11,9 @@ export default async function handler(req, res) {
   };
 
   try {
-    const response = await fetch(actorEndpoint, options);
+    const response = await fetch(searchEndpoint, options);
     const data = await response.json();
+    console.log({ data });
     res.status(200).json(data);
   } catch (error) {
     console.error(error);

@@ -1,5 +1,4 @@
-import SearchContainer from "@/components/Search/SearchContainer";
-import Image from "next/image";
+import SearchContainer from '@/components/Search/SearchContainer';
 
 export default function Home() {
   return (

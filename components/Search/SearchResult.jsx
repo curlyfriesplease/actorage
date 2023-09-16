@@ -105,7 +105,7 @@ export const SearchResult = ({ result }) => {
           {result.release_date}
         </h4>
       </div>
-      <h3>{result.title}</h3>
+      <h3 className="text-right">{result.title}</h3>
     </div>
   );
 };

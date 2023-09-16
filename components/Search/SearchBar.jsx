@@ -11,7 +11,7 @@ export default function SearchBar({ setResults }) {
   const debouncedFetchData = useCallback(
     debounce((value) => {
       fetchSearchData(value, setError, setResults);
-    }, 1000),
+    }, 500),
     []
   );
 

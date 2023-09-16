@@ -71,7 +71,9 @@ export default async function ActorLineItem({
           <h3 className="text-pink-200">{actor.character}</h3>
         </div>
         <Suspense fallback={<p>Loading actor age...</p>}>
-          <h3>{getActorAge(actorDetails?.birthday)}</h3>
+          <h3 className="text-pink-200">
+            {getActorAge(actorDetails?.birthday)}
+          </h3>
         </Suspense>
       </div>
     </div>

@@ -1,6 +1,7 @@
-import Image from 'next/image';
-import { Suspense } from 'react';
-import { fetchActorData } from './fetchActorData';
+import Image from "next/image";
+import { Suspense } from "react";
+import { fetchActorData } from "./fetchActorData";
+import { getActorAge } from "@/src/app/functions/getActorAge";
 
 export default async function ActorLineItem({
   actor,
@@ -12,34 +13,7 @@ export default async function ActorLineItem({
   console.log(`ActorId is ${actorId}:`);
   const actorDetails = await fetchActorData(actorId);
   console.log(`actorDetails is ${actorDetails}`);
-
-  const getActorAge = (beeeeeeeerthday) => {
-    console.log(`beeeeeeeerthday is ${beeeeeeeerthday}`);
-    if (beeeeeeeerthday) {
-      const birthday = new Date(actorDetails.birthday);
-
-      if (releaseDate) {
-        const movieRelease = new Date(releaseDate);
-        const age = movieRelease.getFullYear() - birthday.getFullYear();
-        const monthDifference = movieRelease.getMonth() - birthday.getMonth();
-        if (
-          monthDifference < 0 ||
-          (monthDifference === 0 && movieRelease.getDate() < birthday.getDate())
-        ) {
-          return `Was ${age - 1}`;
-        }
-        return `Was ${age}`;
-      } else {
-        const tvStartDate = new Date(tvFirstAirDate);
-        const tvEndDate = tvLastAirDate ? new Date(tvLastAirDate) : new Date(); // IS THIS CORRECT FOR GETCURRENTYEAR
-        const ageFrom = tvStartDate.getFullYear() - birthday.getFullYear();
-        const ageTo = tvEndDate.getFullYear() - birthday.getFullYear();
-        return `Was ${ageFrom} to ${ageTo}`;
-      }
-    } else {
-      return 'Age unknown';
-    }
-  };
+  const birthday = new Date(actorDetails.birthday);
 
   return (
     <div
@@ -51,7 +25,7 @@ export default async function ActorLineItem({
         src={
           actorDetails?.profile_path
             ? `https://image.tmdb.org/t/p/w200${actorDetails.profile_path}`
-            : '/images/PlaceholderActor.jpg'
+            : "/images/PlaceholderActor.jpg"
         }
         alt="Actor poster"
         width={100}
@@ -72,7 +46,7 @@ export default async function ActorLineItem({
         </div>
         <Suspense fallback={<p>Loading actor age...</p>}>
           <h3 className="text-pink-200">
-            {getActorAge(actorDetails?.birthday)}
+            {getActorAge(birthday, releaseDate, tvFirstAirDate, tvLastAirDate)}
           </h3>
         </Suspense>
       </div>
@@ -81,7 +55,7 @@ export default async function ActorLineItem({
 }
 
 ActorLineItem.defaultProps = {
-  actor: 'Actor name',
-  character: 'Character name',
-  age: 'a curious number of',
+  actor: "Actor name",
+  character: "Character name",
+  age: "a curious number of",
 };

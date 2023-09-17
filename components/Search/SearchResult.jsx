@@ -1,10 +1,10 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faFilm,
   faUser,
   faTv,
   faStarOfLife,
-} from '@fortawesome/free-solid-svg-icons';
+} from "@fortawesome/free-solid-svg-icons";
 
 export const SearchResult = ({ result }) => {
   console.log(`SearchResult compo for`);
@@ -13,16 +13,16 @@ export const SearchResult = ({ result }) => {
   const getIcon = (type) => {
     const iconSize = 30;
     const iconColor =
-      type === 'movie'
-        ? 'text-pink-600'
-        : type === 'person'
-        ? 'text-emerald-500'
-        : type === 'tv'
-        ? 'text-sky-400'
-        : 'text-yellow-300';
+      type === "movie"
+        ? "text-pink-600"
+        : type === "person"
+        ? "text-emerald-500"
+        : type === "tv"
+        ? "text-sky-400"
+        : "text-yellow-300";
 
     switch (type) {
-      case 'movie':
+      case "movie":
         return (
           <div
             className={`w-${iconSize} h-${iconSize} flex justify-center items-center w-30`}
@@ -35,7 +35,7 @@ export const SearchResult = ({ result }) => {
             />
           </div>
         );
-      case 'person':
+      case "person":
         return (
           <div
             className={`w-${iconSize} h-${iconSize} flex justify-center items-center w-30`}
@@ -48,7 +48,7 @@ export const SearchResult = ({ result }) => {
             />
           </div>
         );
-      case 'tv':
+      case "tv":
         return (
           <div
             className={`w-${iconSize} h-${iconSize} flex justify-center items-center w-30`}
@@ -79,13 +79,13 @@ export const SearchResult = ({ result }) => {
 
   const handleOnClick = () => {
     switch (result.media_type) {
-      case 'movie':
+      case "movie":
         window.location.href = `/movie/${result.id}`;
         break;
-      case 'tv':
+      case "tv":
         window.location.href = `/tv/${result.id}`;
         break;
-      case 'person':
+      case "person":
         window.location.href = `/actor/${result.id}`;
         break;
       default:
@@ -94,11 +94,7 @@ export const SearchResult = ({ result }) => {
   };
 
   return (
-    <div
-      // className="search-result"
-      onClick={handleOnClick}
-      className="flex justify-between px-3 py-2"
-    >
+    <div onClick={handleOnClick} className="flex justify-between px-3 py-2">
       <div id="icon_and_year_container" className="flex items-center">
         {getIcon(result.media_type)}
         <h4 className="text-amber-300 px-7 text-center">

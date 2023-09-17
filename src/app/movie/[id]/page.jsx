@@ -1,10 +1,10 @@
-import Image from 'next/image';
-import ActorLineItem from '@/components/ActorLineItem/ActorLineItem';
-import { fetchMovieData } from './fetchMovieData';
-import { fetchCreditsData } from './fetchCreditsData';
+import Image from "next/image";
+import ActorLineItem from "@/components/ActorLineItem/ActorLineItem";
+import { fetchMovieData } from "./fetchMovieData";
+import { fetchCreditsData } from "./fetchCreditsData";
 
 let movieData = {
-  poster_path: '/images/PlaceholderFilmPoster.png',
+  poster_path: "/images/PlaceholderFilmPoster.png",
 };
 
 let creditsData = {};
@@ -35,7 +35,7 @@ export default async function IdPage({ params }) {
             src={
               movieData.poster_path
                 ? `https://image.tmdb.org/t/p/w200/${movieData.poster_path}`
-                : '/images/PlaceholderFilmPoster.png'
+                : "/images/PlaceholderFilmPoster.png"
             }
             alt="Film poster"
             width={200}
@@ -44,19 +44,21 @@ export default async function IdPage({ params }) {
           />
         </div>
         <div id="film-title" className="flex flex-col items-center">
-          <h2 className="text-blue-400 text-xl">{movieData.title}</h2>
+          <h2 id="movie-year" className="text-blue-400 text-xl">
+            {movieData.title}
+          </h2>
           <h3 className="text-pink-200">
-            {' '}
-            {new Date(movieData.release_date).toLocaleDateString('en-GB', {
-              day: 'numeric',
-              month: 'long',
-              year: 'numeric',
+            {" "}
+            {new Date(movieData.release_date).toLocaleDateString("en-GB", {
+              day: "numeric",
+              month: "long",
+              year: "numeric",
             })}
           </h3>
           <h3 className="text-pink-200">{movieData.runtime} mins</h3>
           <h3 className="text-pink-200">
-            {' '}
-            {movieData.genres.map((genre) => genre.name).join(', ')}
+            {" "}
+            {movieData.genres.map((genre) => genre.name).join(", ")}
           </h3>
         </div>
       </div>

@@ -51,7 +51,7 @@ export default async function IdPage({ params }) {
             {tvData.number_of_seasons} Seasons
           </h3>
           <h3 className="text-pink-200 py-5">
-            {'When Released between '}
+            {'When broadcast between '}
             {tvData?.first_air_date?.slice(0, 4)}
             {' and '}
             {tvData?.last_air_date

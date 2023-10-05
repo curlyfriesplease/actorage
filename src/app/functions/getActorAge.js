@@ -24,9 +24,9 @@ export const getActorAge = (
       const ageFrom = tvStartDate.getFullYear() - beeeeeeeerthday.getFullYear();
       const ageTo = tvEndDate.getFullYear() - beeeeeeeerthday.getFullYear();
       if (ageFrom === ageTo) {
-        return `Was ${ageFrom}`;
+        return `was ${ageFrom}`;
       } else {
-        return `Was ${ageFrom} to ${ageTo}`;
+        return `was ${ageFrom} to ${ageTo}`;
       }
     }
   } else {

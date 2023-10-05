@@ -1,6 +1,6 @@
-import Image from "next/image";
-import { Suspense } from "react";
-import { getActorAge } from "@/src/app/functions/getActorAge";
+import Image from 'next/image';
+import { Suspense } from 'react';
+import { getActorAge } from '@/src/app/functions/getActorAge';
 
 export default function MediaLineItem({
   key,
@@ -12,7 +12,7 @@ export default function MediaLineItem({
   mediaType,
 }) {
   const handleOnClick = () => {
-    if (mediaType === "movie") {
+    if (mediaType === 'movie') {
       // REDIRECT TO /movie/${Key}
     }
   };
@@ -28,7 +28,7 @@ export default function MediaLineItem({
         src={
           imagePath
             ? `https://image.tmdb.org/t/p/w200${imagePath}`
-            : "/images/PlaceholderFilmPoster.jpg"
+            : '/images/PlaceholderFilmPoster.jpg'
         }
         alt="Media poster"
         width={100}
@@ -41,7 +41,7 @@ export default function MediaLineItem({
         className="flex flex-col items-center justify-center"
       >
         <Suspense fallback={<p>Loading media title...</p>}>
-          <h2 className="text-blue-400 text-xl">{mediaTitle}</h2>
+          <h2 className="text-blue-400 text-2xl py-2">{mediaTitle}</h2>
         </Suspense>
         {character && (
           <div className="flex gap-2">
@@ -50,7 +50,7 @@ export default function MediaLineItem({
           </div>
         )}
         <Suspense fallback={<p>Loading actor age...</p>}>
-          <h3 className="text-pink-200">
+          <h3 className="text-pink-200 text-3xl py-2">
             {getActorAge(actorBirthday, releaseDate)}
           </h3>
         </Suspense>
@@ -60,5 +60,5 @@ export default function MediaLineItem({
 }
 
 MediaLineItem.defaultProps = {
-  mediaTitle: "Media Title",
+  mediaTitle: 'Media Title',
 };

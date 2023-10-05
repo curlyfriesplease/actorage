@@ -28,9 +28,9 @@ export default async function IdPage({ params }) {
     <>
       <div
         id="tv-title-poster-and-title"
-        className="flex items-center py-7 px-8 gap-5"
+        className="flex items-center justify-center py-7 px-8 gap-5"
       >
-        <div id="tv-title-poster">
+        <div id="tv-title-poster" className="px-4">
           <Image
             src={
               tvData.poster_path
@@ -44,21 +44,34 @@ export default async function IdPage({ params }) {
           />
         </div>
         <div id="tv-title" className="flex flex-col items-center">
-          <h2 className="text-blue-400 text-xl">{tvData.original_name}</h2>
-          <h3 className="text-pink-200">
-            {' '}
-            {tvData?.first_air_date?.slice(0, 4)} -{' '}
+          <h2 className="text-blue-400 text-5xl py-3">
+            {tvData.original_name}
+          </h2>
+          <h3 className="text-pink-200 py-3">
+            {tvData.number_of_seasons} Seasons
+          </h3>
+          <h3 className="text-pink-200 py-5">
+            {'When Released between '}
+            {tvData?.first_air_date?.slice(0, 4)}
+            {' and '}
             {tvData?.last_air_date
               ? tvData?.last_air_date.slice(0, 4)
               : 'present'}
+            {':'}
           </h3>
-          <h3 className="text-pink-200">{tvData.number_of_seasons} Seasons</h3>
         </div>
       </div>
       <div
         id="actors-list"
         className="
-      flex flex-col items-center py-5 px-5 gap-5 border-t-2"
+        flex
+        flex-row
+        flex-wrap
+        items-center
+        py-5
+        px-5
+        gap-5
+        border-t-2"
       >
         {firstTwentyCastResults.map((actor) => (
           <ActorLineItem

@@ -1,10 +1,10 @@
-import Image from "next/image";
-import ActorLineItem from "@/components/ActorLineItem/ActorLineItem";
-import { fetchMovieData } from "./fetchMovieData";
-import { fetchCreditsData } from "./fetchCreditsData";
+import Image from 'next/image';
+import ActorLineItem from '@/components/ActorLineItem/ActorLineItem';
+import { fetchMovieData } from './fetchMovieData';
+import { fetchCreditsData } from './fetchCreditsData';
 
 let movieData = {
-  poster_path: "/images/PlaceholderFilmPoster.png",
+  poster_path: '/images/PlaceholderFilmPoster.png',
 };
 
 let creditsData = {};
@@ -28,14 +28,22 @@ export default async function IdPage({ params }) {
     <>
       <div
         id="film-title-poster-and-title"
-        className="flex items-center py-7 px-8 gap-5"
+        className="
+        flex 
+        items-center
+        justify-center
+        py-7
+        px-8
+        gap-5
+        border-2
+        border-sky-500"
       >
-        <div id="film-title-poster">
+        <div id="film-title-poster" className="px-4">
           <Image
             src={
               movieData.poster_path
                 ? `https://image.tmdb.org/t/p/w200/${movieData.poster_path}`
-                : "/images/PlaceholderFilmPoster.png"
+                : '/images/PlaceholderFilmPoster.png'
             }
             alt="Film poster"
             width={200}
@@ -44,28 +52,36 @@ export default async function IdPage({ params }) {
           />
         </div>
         <div id="film-title" className="flex flex-col items-center">
-          <h2 id="movie-year" className="text-blue-400 text-xl">
+          <h2 id="movie-year" className="text-blue-400 text-5xl py-2">
             {movieData.title}
           </h2>
+          <h3 className="text-pink-200 py-2">{movieData.runtime} mins</h3>
           <h3 className="text-pink-200">
-            {" "}
-            {new Date(movieData.release_date).toLocaleDateString("en-GB", {
-              day: "numeric",
-              month: "long",
-              year: "numeric",
-            })}
+            {' '}
+            {movieData.genres.map((genre) => genre.name).join(', ')}
           </h3>
-          <h3 className="text-pink-200">{movieData.runtime} mins</h3>
-          <h3 className="text-pink-200">
-            {" "}
-            {movieData.genres.map((genre) => genre.name).join(", ")}
+          <h3 className="text-pink-200 text-xl py-5">
+            {'At the time of release on '}
+            {new Date(movieData.release_date).toLocaleDateString('en-GB', {
+              day: 'numeric',
+              month: 'long',
+              year: 'numeric',
+            })}
+            {':'}
           </h3>
         </div>
       </div>
       <div
         id="actors-list"
         className="
-      flex flex-col items-center py-5 px-5 gap-5 border-t-2"
+          flex
+          flex-row
+          flex-wrap
+          items-center
+          py-5
+          px-5
+          gap-5
+          border-t-2"
       >
         {firstTwentyCastResults.map((actor) => (
           <ActorLineItem

@@ -28,7 +28,7 @@ export default async function IdPage({ params }) {
     <>
       <div
         id="tv-title-poster-and-title"
-        className="flex items-center justify-center py-7 px-8 gap-5"
+        className="flex items-center justify-center py-7 px-8 gap-5 text-center"
       >
         <div id="tv-title-poster" className="px-4">
           <Image

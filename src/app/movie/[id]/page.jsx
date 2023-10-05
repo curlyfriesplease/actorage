@@ -32,6 +32,7 @@ export default async function IdPage({ params }) {
         flex 
         items-center
         justify-center
+        text-center
         py-7
         px-8
         gap-5

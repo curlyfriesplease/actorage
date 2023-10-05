@@ -53,7 +53,7 @@ export default async function IdPage({ params }) {
     <>
       <div
         id="actor-name-and-details"
-        className="flex items-center py-7 px-8 gap-5"
+        className="flex items-center py-7 px-8 gap-5 text-center"
       >
         <div id="actor-portrait">
           <Image

@@ -23,9 +23,13 @@ export const getActorAge = (
       const tvEndDate = tvLastAirDate ? new Date(tvLastAirDate) : new Date(); // IS THIS CORRECT FOR GETCURRENTYEAR
       const ageFrom = tvStartDate.getFullYear() - beeeeeeeerthday.getFullYear();
       const ageTo = tvEndDate.getFullYear() - beeeeeeeerthday.getFullYear();
-      return `Was ${ageFrom} to ${ageTo}`;
+      if (ageFrom === ageTo) {
+        return `Was ${ageFrom}`;
+      } else {
+        return `Was ${ageFrom} to ${ageTo}`;
+      }
     }
   } else {
-    return "Age unknown";
+    return 'Age unknown';
   }
 };

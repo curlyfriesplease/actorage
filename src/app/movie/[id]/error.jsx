@@ -1,5 +1,5 @@
-"use client";
+'use client';
 
-export default function Error() {
-  return <h1>Error!!</h1>;
+export default function Error(error) {
+  return <h1>Movie page error!! {error}</h1>;
 }

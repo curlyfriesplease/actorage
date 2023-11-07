@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import { Suspense, useMemo } from 'react';
 import { SearchResult } from './SearchResult';
 
 export const SearchResultsList = ({ results }) => {
@@ -32,10 +32,12 @@ export const SearchResultsList = ({ results }) => {
   console.dir(memoizedTransformedResults);
 
   return (
-    <div id="results-list">
-      {memoizedTransformedResults.map((result, id) => {
-        return <SearchResult result={result} key={id} />;
-      })}
-    </div>
+    <Suspense fallback={<div>Loading...</div>}>
+      <div id="results-list">
+        {memoizedTransformedResults.map((result, id) => {
+          return <SearchResult result={result} key={id} />;
+        })}
+      </div>
+    </Suspense>
   );
 };

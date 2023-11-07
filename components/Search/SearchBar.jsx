@@ -24,7 +24,7 @@ export default function SearchBar({ setResults }) {
     <>
       <div className="w-100 text-indigo-950 py-4">
         <input
-          placeholder="Enter search..."
+          placeholder="Enter movie, TV show, or actor name"
           type={'search'}
           value={input}
           onChange={(e) => handleChange(e.target.value)}

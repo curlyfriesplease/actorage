@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { Suspense, useState } from 'react';
 import SearchBar from './SearchBar';
 import { SearchResultsList } from './SearchResultsList';
 
@@ -10,9 +10,11 @@ export default function SearchContainer() {
   return (
     <div className="h-200 w-full max-w-md">
       <SearchBar setResults={setResults} />
-      {results && results.results?.length > 0 && (
-        <SearchResultsList results={results} />
-      )}
+      <Suspense fallback={<div>Loading...</div>}>
+        {results && results.results?.length > 0 && (
+          <SearchResultsList results={results} />
+        )}
+      </Suspense>
     </div>
   );
 }

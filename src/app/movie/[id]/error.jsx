@@ -1,6 +1,8 @@
 'use client';
 
+import { GenericError } from '@/components/Misc/errorCompo';
+
 export default function Error({ error }) {
   console.log(error);
-  return <h1>Movie page error!! {error.error}</h1>;
+  return <GenericError />;
 }

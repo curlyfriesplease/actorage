@@ -5,8 +5,10 @@ export const getActorAge = (
   tvLastAirDate
 ) => {
   if (beeeeeeeerthday) {
+    console.log(`birthday is ${beeeeeeeerthday} and truthy`);
     if (releaseDate) {
       const movieRelease = new Date(releaseDate);
+      console.log(beeeeeeeerthday);
       const age = movieRelease.getFullYear() - beeeeeeeerthday.getFullYear();
       const monthDifference =
         movieRelease.getMonth() - beeeeeeeerthday.getMonth();
@@ -30,6 +32,7 @@ export const getActorAge = (
       }
     }
   } else {
+    console.log(`birthday value  ${beeeeeeeerthday} is falsy`);
     return 'Age unknown';
   }
 };

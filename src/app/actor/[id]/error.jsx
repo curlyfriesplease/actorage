@@ -1,5 +1,7 @@
-"use client";
+'use client';
+import { GenericError } from '@/components/Misc/errorCompo';
 
-export default function Error() {
-  return <h1>Actor page error!!</h1>;
+export default function Error({ error }) {
+  console.log(error);
+  return <GenericError />;
 }

@@ -12,8 +12,9 @@ export default async function ActorLineItem({
   const actorId = actor.id;
   console.log(`ActorId is ${actorId}:`);
   const actorDetails = await fetchActorData(actorId);
-  console.log(`actorDetails is ${actorDetails}`);
-  const birthday = new Date(actorDetails?.birthday);
+  const birthday = actorDetails?.birthday
+    ? new Date(actorDetails?.birthday)
+    : null;
 
   return (
     <div

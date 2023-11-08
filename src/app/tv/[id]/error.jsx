@@ -1,5 +1,8 @@
 'use client';
 
-export default function Error() {
-  return <h1>TV page error!!</h1>;
+import { GenericError } from '@/components/Misc/errorCompo';
+
+export default function Error({ error }) {
+  console.log(error);
+  return <GenericError />;
 }

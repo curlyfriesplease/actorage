@@ -69,10 +69,9 @@ export default async function IdPage({ params }) {
           <h2 id="movie-year" className="text-blue-400 text-5xl py-2">
             {movieData.title}
           </h2>
-          <h3 className="text-pink-200 py-2">{movieData.runtime} mins</h3>
-          <h3 className="text-pink-200">
-            {" "}
-            {movieData.genres.map((genre) => genre.name).join(", ")}
+          <h3 className="text-pink-200 py-2">
+            {movieData.genres.map((genre) => genre.name).join(", ")},&nbsp;
+            {movieData.runtime} mins{" "}
           </h3>
           <DirectorDetails
             id={directorId}

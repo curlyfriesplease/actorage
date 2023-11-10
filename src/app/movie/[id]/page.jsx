@@ -37,6 +37,22 @@ export default async function IdPage({ params }) {
 
   const firstTwentyCastResults = creditsData.cast.slice(0, 20);
 
+  const dateString = movieData.release_date;
+  const date = new Date(dateString);
+  const formattedDate = (date) => {
+    if (isNaN(date)) {
+      // The date is invalid.
+      console.log("The date is invalid.");
+      return " ";
+    } else {
+      console.log("hey buddy");
+      return date.toLocaleDateString("en-GB", {
+        day: "numeric",
+        month: "long",
+        year: "numeric",
+      });
+    }
+  };
   return (
     <>
       <div
@@ -78,12 +94,8 @@ export default async function IdPage({ params }) {
             releaseDate={movieData.release_date}
           />
           <h3 className="text-pink-200 text-xl py-5">
-            {"At the time of release on "}
-            {new Date(movieData.release_date).toLocaleDateString("en-GB", {
-              day: "numeric",
-              month: "long",
-              year: "numeric",
-            })}
+            {`At the time of release ${formattedDate(date)}`}
+
             {":"}
           </h3>
         </div>

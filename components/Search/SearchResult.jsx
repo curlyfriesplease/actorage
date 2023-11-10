@@ -20,7 +20,7 @@ export const SearchResult = ({ result }) => {
         : type === "tv"
         ? "text-sky-400"
         : "text-yellow-300";
-
+    
     switch (type) {
       case "movie":
         return (

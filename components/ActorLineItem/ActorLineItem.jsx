@@ -1,7 +1,7 @@
-import Image from 'next/image';
-import { Suspense } from 'react';
-import { fetchActorData } from './fetchActorData';
-import { getActorAge } from '@/src/app/functions/getActorAge';
+import Image from "next/image";
+import { Suspense } from "react";
+import { fetchActorData } from "./fetchActorData";
+import { getActorAge } from "@/src/app/functions/getActorAge";
 
 export default async function ActorLineItem({
   actor,
@@ -22,6 +22,7 @@ export default async function ActorLineItem({
     flex 
     flex-col 
     items-center
+    max-w-xs
     grow
     gap-3
     px-4
@@ -37,7 +38,7 @@ export default async function ActorLineItem({
         src={
           actorDetails?.profile_path
             ? `https://image.tmdb.org/t/p/w200${actorDetails.profile_path}`
-            : '/images/PlaceholderActor.jpg'
+            : "/images/PlaceholderActor.jpg"
         }
         alt="Actor poster"
         width={150}
@@ -54,7 +55,7 @@ export default async function ActorLineItem({
         </Suspense>
         <div className="flex gap-2">
           <h3> as </h3>
-          <h3 className="text-pink-200">{actor.character}</h3>
+          <h3 className="text-pink-200 break-normal">{actor.character}</h3>
         </div>
         <Suspense fallback={<p>Loading actor age...</p>}>
           <h3 className="text-pink-200 text-3xl">
@@ -67,7 +68,7 @@ export default async function ActorLineItem({
 }
 
 ActorLineItem.defaultProps = {
-  actor: 'Actor name',
-  character: 'Character name',
-  age: 'a curious number of',
+  actor: "Actor name",
+  character: "Character name",
+  age: "a curious number of",
 };

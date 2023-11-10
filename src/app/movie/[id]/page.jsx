@@ -1,13 +1,25 @@
-import Image from 'next/image';
-import ActorLineItem from '@/components/ActorLineItem/ActorLineItem';
-import { fetchMovieData } from './fetchMovieData';
-import { fetchCreditsData } from './fetchCreditsData';
+import Image from "next/image";
+import ActorLineItem from "@/components/ActorLineItem/ActorLineItem";
+import { fetchMovieData } from "./fetchMovieData";
+import { fetchCreditsData } from "./fetchCreditsData";
+import DirectorDetails from "@/components/Misc/Director";
 
 let movieData = {
-  poster_path: '/images/PlaceholderFilmPoster.png',
+  poster_path: "/images/PlaceholderFilmPoster.png",
 };
 
 let creditsData = {};
+let directorId;
+
+function getDirectorId(crew) {
+  console.log("WHADDUP");
+  for (const crewMember of crew) {
+    if (crewMember.job === "Director") {
+      return crewMember.id;
+    }
+  }
+  return null;
+}
 
 export default async function IdPage({ params }) {
   const id = params.id;
@@ -16,6 +28,7 @@ export default async function IdPage({ params }) {
     console.log("Hi there, there's a movie id");
     movieData = await fetchMovieData(id);
     creditsData = await fetchCreditsData(id);
+    directorId = await getDirectorId(creditsData.crew);
   }
 
   if (!movieData) {
@@ -44,7 +57,7 @@ export default async function IdPage({ params }) {
             src={
               movieData.poster_path
                 ? `https://image.tmdb.org/t/p/w200/${movieData.poster_path}`
-                : '/images/PlaceholderFilmPoster.png'
+                : "/images/PlaceholderFilmPoster.png"
             }
             alt="Film poster"
             width={200}
@@ -58,17 +71,21 @@ export default async function IdPage({ params }) {
           </h2>
           <h3 className="text-pink-200 py-2">{movieData.runtime} mins</h3>
           <h3 className="text-pink-200">
-            {' '}
-            {movieData.genres.map((genre) => genre.name).join(', ')}
+            {" "}
+            {movieData.genres.map((genre) => genre.name).join(", ")}
           </h3>
+          <DirectorDetails
+            id={directorId}
+            releaseDate={movieData.release_date}
+          />
           <h3 className="text-pink-200 text-xl py-5">
-            {'At the time of release on '}
-            {new Date(movieData.release_date).toLocaleDateString('en-GB', {
-              day: 'numeric',
-              month: 'long',
-              year: 'numeric',
+            {"At the time of release on "}
+            {new Date(movieData.release_date).toLocaleDateString("en-GB", {
+              day: "numeric",
+              month: "long",
+              year: "numeric",
             })}
-            {':'}
+            {":"}
           </h3>
         </div>
       </div>

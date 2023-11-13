@@ -23,7 +23,7 @@ export default async function IdPage({ params }) {
   if (!tvData) {
     return <div className="text-pink-400">Loading...</div>;
   }
-
+  // TODO: CHANGE THIS BELOW FOR THE TITLEANDPOSTER COMPO
   return (
     <>
       <div
@@ -64,14 +64,15 @@ export default async function IdPage({ params }) {
       <div
         id="actors-list"
         className="
-        flex
-        flex-row
-        flex-wrap
-        items-center
-        py-5
-        px-5
-        gap-5
-        border-t-2"
+          flex
+          flex-row
+          flex-wrap
+          justify-center
+          items-center
+          py-5
+          px-5
+          gap-5
+          border-t-2"
       >
         {firstTwentyCastResults.map((actor) => (
           <ActorLineItem

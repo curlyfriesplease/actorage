@@ -16,21 +16,20 @@ export default async function ActorLineItem({
   const birthday = actorDetails?.birthday
     ? new Date(actorDetails?.birthday)
     : null;
-  const deathday = actorDetails.deathday;
+  const deathday = actorDetails?.deathday;
 
   return (
     <Link href={`/actor/${actor.id}`}>
       <div
         className="
       container 
-      flex 
-      flex-col 
+      relative
       justify-center
       items-center
       text-center
       w-60
       max-w-350
-      h-96
+      h-full
       gap-4
       px-4
       py-4
@@ -41,21 +40,50 @@ export default async function ActorLineItem({
       hover:bg-zinc-900
     "
       >
-        <Image
-          src={
-            actorDetails?.profile_path
-              ? `https://image.tmdb.org/t/p/w200${actorDetails.profile_path}`
-              : "/images/PlaceholderActor.jpg"
-          }
-          alt="Actor poster"
-          width={150}
-          height={150}
-          layout="fixed"
-          className="rounded-lg min-h-225"
-        />
         <div
-          id="actor-image-name-character-and-age"
-          className="flex flex-col items-center justify-center"
+          id="actorImageContainer"
+          className="
+        h-full
+        w-full
+        static
+        "
+        >
+          <Image
+            src={
+              actorDetails?.profile_path
+                ? `https://image.tmdb.org/t/p/w200${actorDetails.profile_path}`
+                : "/images/PlaceholderActor.jpg"
+            }
+            alt="Actor poster"
+            width={150}
+            height={150}
+            layout="responsive"
+            className="
+          rounded-lg 
+          "
+          />
+        </div>
+        <div
+          id="actor-name-character-and-age"
+          className="
+          flex 
+          flex-col
+          items-center
+          justify-center
+          absolute
+          bottom-5
+          left-0
+          right-0
+          mx-auto
+          py-2
+          px-2
+          w-10/12
+          rounded-lg
+          backdrop-blur-sm
+          backdrop-opacity-80
+          backdrop-contrast-200
+          backdrop-brightness-50
+          "
         >
           <Suspense fallback={<p>Loading actor name...</p>}>
             <h2 className="text-blue-400 text-2xl">{actorDetails?.name}</h2>

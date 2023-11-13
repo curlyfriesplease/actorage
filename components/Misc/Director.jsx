@@ -11,13 +11,14 @@ export default async function DirectorDetails({ id, releaseDate }) {
     ? new Date(DirectorDetails?.birthday)
     : null;
   const directorName = DirectorDetails?.name ?? "some wiseguy";
+// TODO: BRING BACK IN DIRECTOR AGE BELOW, CAUSING INFINITE LOOP A LOT OF THE TIME
 
   return (
     <>
       <h3 className="text-pink-200 break-normal text-lg">
         Director {directorName}
       </h3>{" "}
-      {getActorAge(birthday, releaseDate)}
+      {/* {getActorAge(birthday, releaseDate)} */}
     </>
   );
 }

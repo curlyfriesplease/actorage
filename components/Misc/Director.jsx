@@ -13,8 +13,11 @@ export default async function DirectorDetails({ id, releaseDate }) {
   const directorName = DirectorDetails?.name ?? "some wiseguy";
 
   return (
-    <h3 className="text-pink-200 break-normal">
-      Directed by {directorName}, who {getActorAge(birthday, releaseDate)}
-    </h3>
+    <>
+      <h3 className="text-pink-200 break-normal text-lg">
+        Director {directorName}
+      </h3>{" "}
+      {getActorAge(birthday, releaseDate)}
+    </>
   );
 }

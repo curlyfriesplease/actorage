@@ -80,7 +80,7 @@ export default async function IdPage({ params }) {
         <div id="actor-title" className="flex flex-col items-center">
           <h2 className="text-blue-400 text-3xl py-2">{personData.name}</h2>
           <h3 className="text-pink-200 py-5">{personData.place_of_birth}</h3>
-          <h2 className="text-amber-600 text-lg">{calculateCurrentAge()}</h2>
+          <h2 className="text-amber-600 text-2xl">{calculateCurrentAge()}</h2>
         </div>
       </div>
       <div

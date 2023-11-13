@@ -20,12 +20,12 @@ export default function MediaLineItem({
         className="
       flex
       space-between
-      max-w-lg
+      w-80
       gap-3
       px-4
       py-4
       border-2
-      border-sky-500
+      border-sky-900
       bg-zinc-950 rounded-md
       hover:bg-zinc-900
       text-center
@@ -62,9 +62,7 @@ export default function MediaLineItem({
             </div>
           )}
           <Suspense fallback={<p>Loading actor age...</p>}>
-            <h3 className="text-pink-200 text-3xl py-2">
-              {getActorAge(actorBirthday, releaseDate)}
-            </h3>
+            {getActorAge(actorBirthday, releaseDate)}
           </Suspense>
         </div>
       </div>

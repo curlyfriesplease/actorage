@@ -4,6 +4,8 @@ import { fetchMovieData } from "./fetchMovieData";
 import { fetchCreditsData } from "./fetchCreditsData";
 import DirectorDetails from "@/components/Misc/Director";
 
+const isMobile = typeof window !== "undefined" && window.innerWidth <= 768;
+
 let movieData = {
   poster_path: "/images/PlaceholderFilmPoster.png",
 };
@@ -41,11 +43,9 @@ export default async function IdPage({ params }) {
   const date = new Date(dateString);
   const formattedDate = (date) => {
     if (isNaN(date)) {
-      // The date is invalid.
       console.log("The date is invalid.");
       return " ";
     } else {
-      console.log("hey buddy");
       return date.toLocaleDateString("en-GB", {
         day: "numeric",
         month: "long",
@@ -57,18 +57,22 @@ export default async function IdPage({ params }) {
     <>
       <div
         id="film-title-poster-and-title"
-        className="
+        className={`
+        flex 
+        ${isMobile ? "flex-col" : "flex-row"}      
         flex 
         items-center
         justify-center
         text-center
+        max-h-96
         py-7
         px-8
         gap-5
         border-2
-        border-sky-500"
+        border-sky-500
+        `}
       >
-        <div id="film-title-poster" className="px-4">
+        <div id="film-title-poster" className="px 4">
           <Image
             src={
               movieData.poster_path
@@ -76,16 +80,16 @@ export default async function IdPage({ params }) {
                 : "/images/PlaceholderFilmPoster.png"
             }
             alt="Film poster"
-            width={200}
-            height={300}
+            width={isMobile ? 300 : 200}
+            height={isMobile ? 400 : 300}
             className="rounded-lg"
           />
         </div>
         <div id="film-title" className="flex flex-col items-center">
-          <h2 id="movie-year" className="text-blue-400 text-5xl py-2">
+          <h2 id="movie-year" className="text-blue-400 text-3xl py-2">
             {movieData.title}
           </h2>
-          <h3 className="text-pink-200 py-2">
+          <h3 className="text-pink-200 py-2 text-base">
             {movieData.genres.map((genre) => genre.name).join(", ")},&nbsp;
             {movieData.runtime} mins{" "}
           </h3>

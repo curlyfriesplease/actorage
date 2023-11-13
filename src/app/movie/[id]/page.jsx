@@ -104,6 +104,7 @@ export default async function IdPage({ params }) {
         id="actors-list"
         className="
           flex
+          justify-center
           flex-row
           flex-wrap
           items-center

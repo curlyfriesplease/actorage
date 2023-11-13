@@ -1,4 +1,4 @@
-import SearchContainer from '@/components/Search/SearchContainer';
+import SearchContainer from "@/components/Search/SearchContainer";
 
 export default function Home() {
   return (

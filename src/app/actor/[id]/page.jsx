@@ -1,7 +1,7 @@
-import Image from 'next/image';
-import { fetchPersonData } from './fetchPersonData';
-import { fetchPersonCombinedCreditsData } from './fetchPersonCombinedCreditsData';
-import MediaLineItem from '@/components/MediaLineItem/MediaLineItem';
+import Image from "next/image";
+import { fetchPersonData } from "./fetchPersonData";
+import { fetchPersonCombinedCreditsData } from "./fetchPersonCombinedCreditsData";
+import MediaLineItem from "@/components/MediaLineItem/MediaLineItem";
 
 let personData = {};
 let personCombinedCredits = {};
@@ -53,21 +53,23 @@ export default async function IdPage({ params }) {
     <>
       <div
         id="actor-name-and-details"
-        className="flex       
+        className="
+        flex       
         items-center
         justify-center  
         text-center
         py-7
         px-8
         gap-5 
-        text-center"
+        border-orange-800
+        "
       >
         <div id="actor-portrait">
           <Image
             src={
               personData.profile_path
                 ? `https://image.tmdb.org/t/p/w200/${personData.profile_path}`
-                : '/images/PlaceholderFilmPoster.png'
+                : "/images/PlaceholderFilmPoster.png"
             }
             alt="Film poster"
             width={200}
@@ -76,9 +78,9 @@ export default async function IdPage({ params }) {
           />
         </div>
         <div id="actor-title" className="flex flex-col items-center">
-          <h2 className="text-blue-400 text-5xl py-2">{personData.name}</h2>
+          <h2 className="text-blue-400 text-3xl py-2">{personData.name}</h2>
           <h3 className="text-pink-200 py-5">{personData.place_of_birth}</h3>
-          <h2 className="text-amber-600 text-xl">{calculateCurrentAge()}</h2>
+          <h2 className="text-amber-600 text-lg">{calculateCurrentAge()}</h2>
         </div>
       </div>
       <div
@@ -88,6 +90,7 @@ export default async function IdPage({ params }) {
         flex-row
         flex-wrap
         items-center
+        justify-center  
         py-5
         px-5
         gap-5
@@ -96,6 +99,7 @@ export default async function IdPage({ params }) {
         {firstFiftyCreditResults.map((credit) => (
           <MediaLineItem
             key={credit.id}
+            id={credit.id}
             imagePath={credit.poster_path}
             mediaTitle={credit.title || credit.original_title}
             releaseDate={credit.release_date}

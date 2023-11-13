@@ -6,6 +6,7 @@
   --foreground-rgb: 255, 255, 255;
   --background-start-rgb: 34, 38, 38;
   --background-end-rgb: 0, 0, 0;
+  font-size: 16px;
 }
 
 @media (prefers-color-scheme: dark) {

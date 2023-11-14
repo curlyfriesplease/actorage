@@ -30,6 +30,8 @@ export default async function ActorLineItem({
       text-center
       w-60
       max-w-350
+      h-[21rem]
+      min-h-full
       h-full
       gap-4
       px-4

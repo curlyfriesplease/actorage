@@ -9,7 +9,9 @@ export default function Home() {
     min-h-screen 
     items-center 
     justify-between 
-    p-24
+    p-9
+    w-screen
+    max-w-screen-md
     "
     >
       <SearchContainer />

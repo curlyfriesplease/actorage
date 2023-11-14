@@ -11,12 +11,6 @@ export default function NavBar() {
           </Link>
         </li>
         <li>
-          <Link href="/movie/1234" className="hover:underline">
-            {" "}
-            Result{" "}
-          </Link>
-        </li>
-        <li>
           <Link href="/about" className="hover:underline">
             {" "}
             About{" "}

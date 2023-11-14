@@ -52,7 +52,7 @@ export default async function IdPage({ params }) {
   return (
     <>
       <div
-        id="actor-name-and-details"
+        id="actor-main-details"
         className="
         flex       
         items-center
@@ -60,7 +60,7 @@ export default async function IdPage({ params }) {
         text-center
         py-7
         px-8
-        gap-5 
+        gap-7
         border-orange-800
         "
       >
@@ -80,7 +80,7 @@ export default async function IdPage({ params }) {
         <div id="actor-title" className="flex flex-col items-center">
           <h2 className="text-blue-400 text-3xl py-2">{personData.name}</h2>
           <h3 className="text-pink-200 py-5">{personData.place_of_birth}</h3>
-          <h2 className="text-amber-600 text-2xl">{calculateCurrentAge()}</h2>
+          <h2 className="text-amber-600 text-lg">{calculateCurrentAge()}</h2>
         </div>
       </div>
       <div

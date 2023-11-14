@@ -28,9 +28,11 @@ export default async function IdPage({ params }) {
   console.log(`Id is ${id}`);
   if (id) {
     console.log("Hi there, there's a movie id");
-    movieData = await fetchMovieData(id);
-    creditsData = await fetchCreditsData(id);
-    directorId = await getDirectorId(creditsData.crew);
+    [movieData, creditsData] = await Promise.all([
+      fetchMovieData(id),
+      fetchCreditsData(id)
+    ]);
+      directorId = await getDirectorId(creditsData.crew);
   }
 
   if (!movieData) {

@@ -1,7 +1,7 @@
 import ActorLineItem from '@/components/ActorLineItem/ActorLineItem';
 import { fetchMovieData } from './fetchMovieData';
 import { fetchCreditsData } from './fetchCreditsData';
-import { TitleAndPoster } from '@/components/common/titleAndPoster';
+import { TitleAndImage } from '@/components/common/titleAndImage';
 
 const isMobile = typeof window !== 'undefined' && window.innerWidth <= 768;
 
@@ -56,7 +56,7 @@ export default async function IdPage({ params }) {
   };
   return (
     <>
-      <TitleAndPoster
+      <TitleAndImage
         mediaType="movie"
         imagePath={movieData.poster_path}
         title={movieData.title}

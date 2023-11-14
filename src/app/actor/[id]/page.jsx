@@ -1,7 +1,9 @@
-import Image from 'next/image';
 import { fetchPersonData } from './fetchPersonData';
 import { fetchPersonCombinedCreditsData } from './fetchPersonCombinedCreditsData';
 import MediaLineItem from '@/components/MediaLineItem/MediaLineItem';
+import { TitleAndImage } from '@/components/common/titleAndImage';
+
+const isMobile = typeof window !== 'undefined' && window.innerWidth <= 768;
 
 let personData = {};
 let personCombinedCredits = {};
@@ -51,38 +53,16 @@ export default async function IdPage({ params }) {
 
   return (
     <>
-      <div
-        id="actor-main-details"
-        className="
-        flex       
-        items-center
-        justify-center  
-        text-center
-        py-7
-        px-8
-        gap-7
-        border-orange-800
-        "
-      >
-        <div id="actor-portrait">
-          <Image
-            src={
-              personData.profile_path
-                ? `https://image.tmdb.org/t/p/w200/${personData.profile_path}`
-                : '/images/PlaceholderFilmPoster.png'
-            }
-            alt="Film poster"
-            width={200}
-            height={300}
-            className="rounded-lg"
-          />
-        </div>
-        <div id="actor-title" className="flex flex-col items-center">
-          <h2 className="text-blue-400 text-3xl py-2">{personData.name}</h2>
-          <h3 className="text-pink-200 py-5">{personData.place_of_birth}</h3>
-          <h2 className="text-amber-600 text-lg">{calculateCurrentAge()}</h2>
-        </div>
-      </div>
+      <TitleAndImage
+        mediaType="person"
+        imagePath={personData.profile_path}
+        title={personData.name}
+        furtherData={personData}
+        isMobile={isMobile}
+        directorId={null}
+        formattedReleaseDate={null}
+        age={calculateCurrentAge()}
+      />
       <div
         id="actors-list"
         className="

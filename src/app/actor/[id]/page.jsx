@@ -1,7 +1,7 @@
-import Image from "next/image";
-import { fetchPersonData } from "./fetchPersonData";
-import { fetchPersonCombinedCreditsData } from "./fetchPersonCombinedCreditsData";
-import MediaLineItem from "@/components/MediaLineItem/MediaLineItem";
+import Image from 'next/image';
+import { fetchPersonData } from './fetchPersonData';
+import { fetchPersonCombinedCreditsData } from './fetchPersonCombinedCreditsData';
+import MediaLineItem from '@/components/MediaLineItem/MediaLineItem';
 
 let personData = {};
 let personCombinedCredits = {};
@@ -69,7 +69,7 @@ export default async function IdPage({ params }) {
             src={
               personData.profile_path
                 ? `https://image.tmdb.org/t/p/w200/${personData.profile_path}`
-                : "/images/PlaceholderFilmPoster.png"
+                : '/images/PlaceholderFilmPoster.png'
             }
             alt="Film poster"
             width={200}
@@ -94,7 +94,7 @@ export default async function IdPage({ params }) {
         py-5
         px-5
         gap-5
-        border-t-2"
+        "
       >
         {firstFiftyCreditResults.map((credit) => (
           <MediaLineItem

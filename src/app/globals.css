@@ -26,3 +26,41 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+#MediaLineItemOuterContainer::before,
+#MediaLineItemOuterContainer::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 20px;
+  height: 100%;
+}
+
+#MediaLineItemOuterContainer::before {
+  left: 0;
+  background: linear-gradient(to right, #202020 0%, transparent 100%);
+}
+
+#MediaLineItemOuterContainer::after {
+  right: 0;
+  background: linear-gradient(to left, #232222 0%, transparent 100%);
+}
+
+#ActorLineItemOuterContainer::before,
+#ActorLineItemOuterContainer::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 20px;
+  height: 100%;
+}
+
+#ActorLineItemOuterContainer::before {
+  left: 0;
+  background: linear-gradient(to right, #1b1a1a 0%, transparent 100%);
+}
+
+#ActorLineItemOuterContainer::after {
+  right: 0;
+  background: linear-gradient(to left, #2d2d2d 0%, transparent 100%);
+}

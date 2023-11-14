@@ -1,7 +1,7 @@
-import Image from "next/image";
-import Link from "next/link";
-import { Suspense } from "react";
-import { getActorAge } from "@/src/app/functions/getActorAge";
+import Image from 'next/image';
+import Link from 'next/link';
+import { Suspense } from 'react';
+import { getActorAge } from '@/src/app/functions/getActorAge';
 
 export default function MediaLineItem({
   id,
@@ -12,30 +12,34 @@ export default function MediaLineItem({
   actorBirthday,
   mediaType,
 }) {
-  const linkUrl = mediaType === "movie" ? `/movie/${id}` : `/tv/${id}`;
+  const linkUrl = mediaType === 'movie' ? `/movie/${id}` : `/tv/${id}`;
 
   return (
     <Link href={linkUrl}>
       <div
+        id="MediaLineItemOuterContainer"
         className="
-      flex
-      space-between
-      w-80
-      gap-3
-      px-4
-      py-4
-      border-2
-      border-sky-900
-      bg-zinc-950 rounded-md
-      hover:bg-zinc-900
-      text-center
-    "
+        relative
+        flex
+        space-between
+        w-80
+        gap-3
+        px-4
+        py-4
+        h-full
+        bg-zinc-950 rounded-md
+        hover:bg-zinc-900
+        rounded-xl
+        text-center
+        fade-edges
+        overflow-auto
+      "
       >
         <Image
           src={
             imagePath
               ? `https://image.tmdb.org/t/p/w200${imagePath}`
-              : "/images/PlaceholderFilmPoster.jpg"
+              : '/images/PlaceholderFilmPoster.jpg'
           }
           alt="Media poster"
           width={100}
@@ -71,5 +75,5 @@ export default function MediaLineItem({
 }
 
 MediaLineItem.defaultProps = {
-  mediaTitle: "Media Title",
+  mediaTitle: 'Media Title',
 };

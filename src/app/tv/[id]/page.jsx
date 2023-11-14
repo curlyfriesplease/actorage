@@ -72,7 +72,7 @@ export default async function IdPage({ params }) {
           py-5
           px-5
           gap-5
-          border-t-2"
+         "
       >
         {firstTwentyCastResults.map((actor) => (
           <ActorLineItem

@@ -1,8 +1,8 @@
-import Image from "next/image";
-import Link from "next/link";
-import { Suspense } from "react";
-import { fetchActorData } from "./fetchActorData";
-import { getActorAge } from "@/src/app/functions/getActorAge";
+import Image from 'next/image';
+import Link from 'next/link';
+import { Suspense } from 'react';
+import { fetchActorData } from './fetchActorData';
+import { getActorAge } from '@/src/app/functions/getActorAge';
 
 export default async function ActorLineItem({
   actor,
@@ -21,6 +21,7 @@ export default async function ActorLineItem({
   return (
     <Link href={`/actor/${actor.id}`}>
       <div
+        id="ActorLineItemOuterContainer"
         className="
       container 
       relative
@@ -33,11 +34,11 @@ export default async function ActorLineItem({
       gap-4
       px-4
       py-4
-      border-2
-      border-sky-100
       bg-zinc-950
       rounded-xl
       hover:bg-zinc-900
+      fade-edges
+      overflow-auto
     "
       >
         <div
@@ -52,7 +53,7 @@ export default async function ActorLineItem({
             src={
               actorDetails?.profile_path
                 ? `https://image.tmdb.org/t/p/w200${actorDetails.profile_path}`
-                : "/images/PlaceholderActor.jpg"
+                : '/images/PlaceholderActor.jpg'
             }
             alt="Actor poster"
             width={150}
@@ -86,11 +87,13 @@ export default async function ActorLineItem({
           "
         >
           <Suspense fallback={<p>Loading actor name...</p>}>
-            <h2 className="text-blue-400 text-2xl">{actorDetails?.name}</h2>
+            <h2 className="text-blue-200 text-2xl">{actorDetails?.name}</h2>
           </Suspense>
           <div className="flex gap-2">
             <h3> as </h3>
-            <h3 className="text-pink-200 break-normal">{actor.character}</h3>
+            <h3 className="text-pink-200 break-normal m-0 p-0">
+              {actor.character}
+            </h3>
           </div>
           <Suspense fallback={<p>Loading actor age...</p>}>
             {getActorAge(
@@ -108,7 +111,7 @@ export default async function ActorLineItem({
 }
 
 ActorLineItem.defaultProps = {
-  actor: "Actor name",
-  character: "Character name",
-  age: "a curious number of",
+  actor: 'Actor name',
+  character: 'Character name',
+  age: 'a curious number of',
 };

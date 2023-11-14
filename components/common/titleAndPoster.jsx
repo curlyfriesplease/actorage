@@ -24,7 +24,7 @@ export const TitleAndPoster = ({
     py-7
     px-3
     m-1
-    gap-5
+    gap-6
     rounded-lg
     max-w-1/2
     `}

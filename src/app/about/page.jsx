@@ -5,7 +5,7 @@ export default function aboutPage() {
     <div className="flex flex-col justify-center text-center">
       <h3>
         The ages shown are for the time the film is released, as the release
-        date is a data point that's available, whereas the exact dates a
+        date is a data point that`&apos;`s available, whereas the exact dates a
         production was made is not something widely recorded.
       </h3>
       <br />

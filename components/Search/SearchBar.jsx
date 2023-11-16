@@ -12,7 +12,7 @@ export default function SearchBar({ setResults }) {
     debounce((value) => {
       fetchSearchData(value, setError, setResults);
     }, 500),
-    []
+    [setError, setResults]
   );
 
   const handleChange = (value) => {

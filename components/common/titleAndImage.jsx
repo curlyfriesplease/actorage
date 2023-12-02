@@ -18,6 +18,7 @@ export const TitleAndImage = ({
     flex 
     ${isMobile ? 'flex-col' : 'flex-row'}      
     justify-center
+    items-center
     text-center
     max-h-96
     max-w-screen-md
@@ -99,7 +100,7 @@ export const TitleAndImage = ({
         backdrop-brightness-50
         py-2
         px-2
-        w-10/12
+        w-6/12
         rounded-lg
         backdrop-blur-sm
         backdrop-opacity-80

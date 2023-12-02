@@ -36,9 +36,9 @@ export default async function ActorLineItem({
       gap-4
       px-4
       py-4
-      bg-zinc-950
+      bg-gradient-to-b from-rose-200 via-indigo-100 to-violet-200
       rounded-xl
-      hover:bg-zinc-900
+      hover:bg-zinc-700
       fade-edges
       overflow-auto
     "
@@ -55,7 +55,7 @@ export default async function ActorLineItem({
             src={
               actorDetails?.profile_path
                 ? `https://image.tmdb.org/t/p/w200${actorDetails.profile_path}`
-                : '/images/PlaceholderActor.jpg'
+                : '/images/PlaceholderActor.png'
             }
             alt="Actor poster"
             width={150}

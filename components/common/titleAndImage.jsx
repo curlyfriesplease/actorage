@@ -17,7 +17,6 @@ export const TitleAndImage = ({
       className={`
     flex 
     ${isMobile ? 'flex-col' : 'flex-row'}      
-    items-center
     justify-center
     text-center
     max-h-96
@@ -27,7 +26,9 @@ export const TitleAndImage = ({
     m-1
     gap-6
     rounded-lg
-    max-w-1/2
+    max-w-1/2     
+    bg-gradient-to-b from-rose-200 via-indigo-100 to-violet-200
+        
     `}
     >
       <div id="film-title-poster" className="px 4">
@@ -47,7 +48,24 @@ export const TitleAndImage = ({
       {mediaType === 'movie' && (
         <div
           id="film-title-and-extra-details"
-          className="flex flex-col items-center"
+          className="
+          flex 
+          flex-col
+          items-center
+          justify-center
+           backdrop-blur-sm
+           backdrop-opacity-80
+           backdrop-contrast-200
+           backdrop-brightness-50
+           py-2
+           px-2
+            w-10/12
+          rounded-lg
+          backdrop-blur-sm
+          backdrop-opacity-80
+          backdrop-contrast-200
+          backdrop-brightness-50
+           "
         >
           <h2 id="movie-year" className="text-blue-400 text-3xl py-2">
             {title}
@@ -67,7 +85,28 @@ export const TitleAndImage = ({
       )}
 
       {mediaType === 'tv' && (
-        <div id="tv-title" className="flex flex-col items-center">
+        <div
+          id="tv-title"
+          className="
+        flex-grow
+        flex 
+        flex-col
+        items-center
+        justify-center
+        backdrop-blur-sm
+        backdrop-opacity-80
+        backdrop-contrast-200
+        backdrop-brightness-50
+        py-2
+        px-2
+        w-10/12
+        rounded-lg
+        backdrop-blur-sm
+        backdrop-opacity-80
+        backdrop-contrast-200
+        backdrop-brightness-50
+      "
+        >
           <h2 className="text-blue-400 text-5xl py-3">{title}</h2>
           <h3 className="text-pink-200 text-2xl py-3">
             {furtherData.number_of_seasons} Seasons
@@ -85,7 +124,28 @@ export const TitleAndImage = ({
       )}
 
       {mediaType === 'person' && (
-        <div id="actor-title" className="flex flex-col items-center">
+        <div
+          id="actor-title"
+          className="
+          flex-grow
+          flex 
+          flex-col
+          items-center
+          justify-center
+          backdrop-blur-sm
+          backdrop-opacity-80
+          backdrop-contrast-200
+          backdrop-brightness-50
+          py-2
+          px-2
+          w-10/12
+          rounded-lg
+          backdrop-blur-sm
+          backdrop-opacity-80
+          backdrop-contrast-200
+          backdrop-brightness-50
+        "
+        >
           <h2 className="text-blue-400 text-3xl py-2">{title}</h2>
           <h3 className="text-pink-200 py-5">{furtherData.place_of_birth}</h3>
           <h2 className="text-amber-600 text-lg px-2">{age}</h2>

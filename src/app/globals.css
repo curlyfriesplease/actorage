@@ -4,16 +4,16 @@
 
 :root {
   --foreground-rgb: 255, 255, 255;
-  --background-start-rgb: 34, 38, 38;
-  --background-end-rgb: 0, 0, 0;
+  --background-start-rgb: 255, 190, 147;
+  --background-end-rgb: 167, 199, 231;
   font-size: 16px;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 34, 38, 38;
-    --background-end-rgb: 0, 0, 0;
+    --background-start-rgb: 255, 190, 147;
+    --background-end-rgb: 167, 199, 231;
   }
 }
 
@@ -22,9 +22,10 @@ body {
   background: linear-gradient(
       to bottom,
       transparent,
-      rgb(var(--background-end-rgb))
+      rgb(var(--background-end-rgb)) 100vh
     )
     rgb(var(--background-start-rgb));
+  background-attachment: fixed;
 }
 
 #MediaLineItemOuterContainer::before,
@@ -38,12 +39,12 @@ body {
 
 #MediaLineItemOuterContainer::before {
   left: 0;
-  background: linear-gradient(to right, #202020 0%, transparent 100%);
+  background: linear-gradient(to right, #167, 199, 231 0%, transparent 100%);
 }
 
 #MediaLineItemOuterContainer::after {
   right: 0;
-  background: linear-gradient(to left, #232222 0%, transparent 100%);
+  background: linear-gradient(to left, #167, 199, 231 0%, transparent 100%);
 }
 
 #ActorLineItemOuterContainer::before,
@@ -57,10 +58,22 @@ body {
 
 #ActorLineItemOuterContainer::before {
   left: 0;
-  background: linear-gradient(to right, #1b1a1a 0%, transparent 100%);
+  background: linear-gradient(
+    to right,
+    rgb(7, 90, 106),
+    199,
+    231 0%,
+    transparent 100%
+  );
 }
 
 #ActorLineItemOuterContainer::after {
   right: 0;
-  background: linear-gradient(to left, #2d2d2d 0%, transparent 100%);
+  background: linear-gradient(
+    to left,
+    rgb(9, 158, 188),
+    199,
+    231 0%,
+    transparent 100%
+  );
 }

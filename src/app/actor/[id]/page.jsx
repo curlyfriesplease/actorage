@@ -81,8 +81,10 @@ export default async function IdPage({ params }) {
             key={credit.id}
             id={credit.id}
             imagePath={credit.poster_path}
-            mediaTitle={credit.title || credit.original_title}
+            mediaTitle={credit.title || credit.original_title || credit.name}
             releaseDate={credit.release_date}
+            tvFirstAirDate={credit.first_air_date}
+            tvLastAirDate={credit.last_air_date}
             character={credit.character}
             actorBirthday={birthday}
             mediaType={credit.media_type}

@@ -11,7 +11,6 @@ export default async function DirectorDetails({ id, releaseDate }) {
     ? new Date(DirectorDetails?.birthday)
     : null;
   const directorName = DirectorDetails?.name ?? 'some wiseguy';
-  // TODO: BRING BACK IN DIRECTOR AGE BELOW, CAUSING INFINITE LOOP A LOT OF THE TIME
 
   return (
     <>

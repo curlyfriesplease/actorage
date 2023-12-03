@@ -1,8 +1,8 @@
-import { checkEnvironment } from "../../functions/checkEnv";
+import { checkEnvironment } from '../../functions/checkEnv';
 
 export async function fetchPersonCombinedCreditsData(value) {
   if (value.length) {
-    console.log("fetchPersonCombinedCreditsData value received: " + value);
+    console.log('fetchPersonCombinedCreditsData value received: ' + value);
     try {
       const response = await fetch(
         checkEnvironment().concat(`/api/actor?query=${value}/combined_credits`)
@@ -12,7 +12,10 @@ export async function fetchPersonCombinedCreditsData(value) {
       const castData = data.cast || [];
       // console.log(castData);
       const filteredData = castData
-        .filter((credit) => credit.release_date?.length)
+        .filter(
+          (credit) =>
+            credit.release_date?.length || credit.first_air_date?.length
+        )
         .sort((a, b) => b.popularity - a.popularity);
       // const objectData = Object.fromEntries(
       //   filteredData.map((credit) => [credit.id, credit])

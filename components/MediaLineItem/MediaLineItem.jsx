@@ -8,6 +8,8 @@ export default function MediaLineItem({
   imagePath,
   mediaTitle,
   releaseDate,
+  tvFirstAirDate,
+  tvLastAirDate,
   character,
   actorBirthday,
   mediaType,
@@ -39,7 +41,7 @@ export default function MediaLineItem({
           src={
             imagePath
               ? `https://image.tmdb.org/t/p/w200${imagePath}`
-              : '/images/PlaceholderFilmPoster.jpg'
+              : '/images/PlaceholderFilmPoster.png'
           }
           alt="Media poster"
           width={100}
@@ -79,7 +81,12 @@ export default function MediaLineItem({
           )}
           <Suspense fallback={<p>Loading actor age...</p>}>
             <div className="text-rose-200">
-              {getActorAge(actorBirthday, releaseDate)}
+              {getActorAge(
+                actorBirthday,
+                releaseDate,
+                tvFirstAirDate,
+                tvLastAirDate
+              )}
             </div>
           </Suspense>
         </div>

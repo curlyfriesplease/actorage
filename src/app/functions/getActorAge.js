@@ -5,6 +5,7 @@ export const getActorAge = (
   tvLastAirDate,
   deathday
 ) => {
+  console.log({ beeeeeeeerthday, releaseDate, tvFirstAirDate, tvLastAirDate });
   if (deathday < releaseDate) {
     return (
       <>
@@ -28,7 +29,7 @@ export const getActorAge = (
       return <h3 className="text-3xl">was {age}</h3>;
     } else {
       const tvStartDate = new Date(tvFirstAirDate);
-      const tvEndDate = tvLastAirDate ? new Date(tvLastAirDate) : new Date(); // IS THIS CORRECT FOR GETCURRENTYEAR
+      const tvEndDate = tvLastAirDate ? new Date(tvLastAirDate) : new Date();
       const ageFrom = tvStartDate.getFullYear() - beeeeeeeerthday.getFullYear();
       const ageTo = tvEndDate.getFullYear() - beeeeeeeerthday.getFullYear();
       if (tvFirstAirDate && tvLastAirDate) {
@@ -45,8 +46,10 @@ export const getActorAge = (
           );
         }
       }
+      if (tvFirstAirDate) {
+        return <h3 className="text-3xl">was {ageFrom}</h3>;
+      }
     }
-    return <p>fdfd</p>;
   } else {
     console.log(`birthday value  ${beeeeeeeerthday} is falsy`);
     return <h3 className=" text-3xl">Age unknown</h3>;

@@ -78,7 +78,9 @@ export default function MediaLineItem({
             </div>
           )}
           <Suspense fallback={<p>Loading actor age...</p>}>
-            {getActorAge(actorBirthday, releaseDate)}
+            <div className="text-rose-200">
+              {getActorAge(actorBirthday, releaseDate)}
+            </div>
           </Suspense>
         </div>
       </div>

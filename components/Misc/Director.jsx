@@ -18,7 +18,7 @@ export default async function DirectorDetails({ id, releaseDate }) {
       <h3 className="text-pink-500 break-normal text-lg">
         Director {directorName}
       </h3>{' '}
-      {getActorAge(birthday, releaseDate)}
+      <div className="text-pink-500">{getActorAge(birthday, releaseDate)}</div>
     </>
   );
 }

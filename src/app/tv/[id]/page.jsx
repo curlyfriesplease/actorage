@@ -2,6 +2,7 @@ import ActorLineItem from '@/components/ActorLineItem/ActorLineItem';
 import { fetchTvData } from './fetchTvData';
 import { fetchCreditsData } from './fetchCreditsData';
 import { TitleAndImage } from '@/components/common/titleAndImage';
+import NavBar from '@/components/NavBar/NavBar';
 
 const isMobile = typeof window !== 'undefined' && window.innerWidth <= 768;
 
@@ -28,6 +29,9 @@ export default async function IdPage({ params }) {
 
   return (
     <>
+      <header className="w-full">
+        <NavBar />
+      </header>
       <TitleAndImage
         mediaType="tv"
         imagePath={tvData.poster_path}

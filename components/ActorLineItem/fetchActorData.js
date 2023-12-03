@@ -1,7 +1,6 @@
 import { checkEnvironment } from '@/src/app/functions/checkEnv';
 
 export async function fetchActorData(value, setError, setResults) {
-  console.log('🤪 🤨  fetchActorData value: ' + value);
   if (value) {
     try {
       const response = await fetch(

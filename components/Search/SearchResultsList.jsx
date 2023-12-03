@@ -2,8 +2,6 @@ import { Suspense, useMemo } from 'react';
 import { SearchResult } from './SearchResult';
 
 export const SearchResultsList = ({ results }) => {
-  console.log('search results list');
-  console.dir(results);
 
   const transformResults = (results) => {
     return results.results.map((result) => {
@@ -27,9 +25,6 @@ export const SearchResultsList = ({ results }) => {
   const memoizedTransformedResults = useMemo(() => {
     return transformResults(results);
   }, [results]);
-
-  console.log('memoizedTransformedResults:');
-  console.dir(memoizedTransformedResults);
 
   return (
     <Suspense fallback={<div>Loading...</div>}>

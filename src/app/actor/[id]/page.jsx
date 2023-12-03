@@ -2,6 +2,7 @@ import { fetchPersonData } from './fetchPersonData';
 import { fetchPersonCombinedCreditsData } from './fetchPersonCombinedCreditsData';
 import MediaLineItem from '@/components/MediaLineItem/MediaLineItem';
 import { TitleAndImage } from '@/components/common/titleAndImage';
+import NavBar from '@/components/NavBar/NavBar';
 
 const isMobile = typeof window !== 'undefined' && window.innerWidth <= 768;
 
@@ -10,9 +11,7 @@ let personCombinedCredits = {};
 
 export default async function IdPage({ params }) {
   const id = params.id;
-  console.log(`Id is ${id}`);
   if (id) {
-    console.log("Hi there, there's a person id");
     personData = await fetchPersonData(id);
     personCombinedCredits = await fetchPersonCombinedCreditsData(id);
   }
@@ -53,6 +52,9 @@ export default async function IdPage({ params }) {
 
   return (
     <>
+      <header className="w-full">
+        <NavBar />
+      </header>
       <TitleAndImage
         mediaType="person"
         imagePath={personData.profile_path}

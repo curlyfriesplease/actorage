@@ -25,6 +25,7 @@ export const TitleAndImage = ({
     py-7
     px-4
     m-1
+    mt-5
     gap-6
     rounded-2xl
     shadow-2xl

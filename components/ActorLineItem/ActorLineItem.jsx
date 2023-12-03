@@ -11,7 +11,6 @@ export default async function ActorLineItem({
   tvLastAirDate,
 }) {
   const actorId = actor.id;
-  console.log(`ActorId is ${actorId}:`);
   const actorDetails = await fetchActorData(actorId);
   const birthday = actorDetails?.birthday
     ? new Date(actorDetails?.birthday)

@@ -22,7 +22,7 @@ export default function SearchBar({ setResults }) {
 
   return (
     <>
-      <div className="w-100 text-indigo-950 py-4">
+      <div className="w-100 text-indigo-950 py-4 font-medium">
         <input
           placeholder="Enter movie, TV show, or actor name"
           type={'search'}

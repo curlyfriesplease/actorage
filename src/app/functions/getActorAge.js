@@ -5,7 +5,6 @@ export const getActorAge = (
   tvLastAirDate,
   deathday
 ) => {
-  console.log({ beeeeeeeerthday, releaseDate, tvFirstAirDate, tvLastAirDate });
   if (deathday < releaseDate) {
     return (
       <>
@@ -32,10 +31,15 @@ export const getActorAge = (
       const tvEndDate = tvLastAirDate ? new Date(tvLastAirDate) : new Date();
       const ageFrom = tvStartDate.getFullYear() - beeeeeeeerthday.getFullYear();
       const ageTo = tvEndDate.getFullYear() - beeeeeeeerthday.getFullYear();
+
+      // This is to prevent it saying things like "was -1 years old" when they're on
+      // something like SNL, which has a first_air_date long before when they were
+      // actually on it
+      if (ageFrom < 5) {
+        return;
+      }
+
       if (tvFirstAirDate && tvLastAirDate) {
-        console.log('fdsfsdfd');
-        console.log(tvFirstAirDate);
-        console.log(tvLastAirDate);
         if (ageFrom === ageTo) {
           return <h3 className="text-3xl">was {ageFrom}</h3>;
         } else {
@@ -46,6 +50,8 @@ export const getActorAge = (
           );
         }
       }
+
+      // Generally for TV shows without an end date, like Conan and SNL etc
       if (tvFirstAirDate) {
         return <h3 className="text-3xl">was {ageFrom}</h3>;
       }

@@ -1,13 +1,14 @@
-import "./globals.css";
-import "tailwindcss/tailwind.css";
-import { Inter } from "next/font/google";
-import NavBar from "@/components/NavBar/NavBar";
-import Footer from "@/components/Footer/Footer";
-import { dosis } from "./fonts";
+import './globals.css';
+import 'tailwindcss/tailwind.css';
+import { Inter } from 'next/font/google';
+import NavBar from '@/components/NavBar/NavBar';
+import Footer from '@/components/Footer/Footer';
+import { dosis } from './fonts';
 
 export const metadata = {
-  title: "How old was that actor?",
-  description: "Find the ages of your favourite actors in your least favourite performances",
+  title: 'How old was that actor?',
+  description:
+    'Find the ages of your favourite actors in your least favourite performances',
 };
 
 export default function RootLayout({ children }) {
@@ -21,9 +22,6 @@ export default function RootLayout({ children }) {
           py-2
           min-h-screen`}
       >
-        <header>
-          <NavBar />
-        </header>
         <main
           className="
         grow 

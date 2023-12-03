@@ -2,7 +2,6 @@ import { checkEnvironment } from '../../functions/checkEnv';
 
 export async function fetchPersonCombinedCreditsData(value) {
   if (value.length) {
-    console.log('fetchPersonCombinedCreditsData value received: ' + value);
     try {
       const response = await fetch(
         checkEnvironment().concat(`/api/actor?query=${value}/combined_credits`)

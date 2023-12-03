@@ -1,5 +1,5 @@
-import { fetchActorData } from "../ActorLineItem/fetchActorData";
-import { getActorAge } from "@/src/app/functions/getActorAge";
+import { fetchActorData } from '../ActorLineItem/fetchActorData';
+import { getActorAge } from '@/src/app/functions/getActorAge';
 
 export default async function DirectorDetails({ id, releaseDate }) {
   if (!id) {
@@ -10,14 +10,14 @@ export default async function DirectorDetails({ id, releaseDate }) {
   const birthday = DirectorDetails?.birthday
     ? new Date(DirectorDetails?.birthday)
     : null;
-  const directorName = DirectorDetails?.name ?? "some wiseguy";
-// TODO: BRING BACK IN DIRECTOR AGE BELOW, CAUSING INFINITE LOOP A LOT OF THE TIME
+  const directorName = DirectorDetails?.name ?? 'some wiseguy';
+  // TODO: BRING BACK IN DIRECTOR AGE BELOW, CAUSING INFINITE LOOP A LOT OF THE TIME
 
   return (
     <>
-      <h3 className="text-pink-200 break-normal text-lg">
+      <h3 className="text-pink-500 break-normal text-lg">
         Director {directorName}
-      </h3>{" "}
+      </h3>{' '}
       {getActorAge(birthday, releaseDate)}
     </>
   );

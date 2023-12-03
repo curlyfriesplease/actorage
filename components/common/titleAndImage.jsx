@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import DirectorDetails from '@/components/Misc/Director';
-
+// TODO: Remove isMobile
 export const TitleAndImage = ({
   mediaType,
   imagePath,
@@ -23,12 +23,18 @@ export const TitleAndImage = ({
     max-h-96
     max-w-screen-md
     py-7
-    px-3
+    px-4
     m-1
     gap-6
-    rounded-lg
+    rounded-2xl
+    shadow-2xl
     max-w-1/2     
+    backdrop-blur-sm
+    backdrop-opacity-70
+    backdrop-contrast-200
+    backdrop-brightness-50
     bg-gradient-to-b from-rose-200 via-indigo-100 to-violet-200
+  
         
     `}
     >
@@ -59,25 +65,16 @@ export const TitleAndImage = ({
           flex-col
           items-center
           justify-center
-           backdrop-blur-sm
-           backdrop-opacity-80
-           backdrop-contrast-200
-           backdrop-brightness-50
            py-2
            px-2
             w-10/12
-          rounded-lg
-          backdrop-blur-sm
-          backdrop-opacity-80
-          backdrop-contrast-200
-          backdrop-brightness-50
-            shadow-xl
+           rounded-lg
            "
         >
-          <h2 id="movie-year" className="text-blue-300 text-3xl py-2">
+          <h2 id="movie-year" className="text-blue-500 text-3xl py-2">
             {title}
           </h2>
-          <h3 className="text-pink-200 py-2 text-base">
+          <h3 className="text-pink-500 py-2 text-base">
             {furtherData.genres?.map((genre) => genre?.name).join(', ')},&nbsp;
             {furtherData.runtime} mins{' '}
           </h3>
@@ -85,7 +82,7 @@ export const TitleAndImage = ({
             id={directorId}
             releaseDate={furtherData.release_date}
           />
-          <h3 className="text-pink-200 text-xl py-5">
+          <h3 className="text-pink-500 text-xl py-5">
             {`At the time of release ${formattedReleaseDate}:`}
           </h3>
         </div>
@@ -101,26 +98,17 @@ export const TitleAndImage = ({
         flex-col
         items-center
         justify-center
-        backdrop-blur-sm
-        backdrop-opacity-80
-        backdrop-contrast-200
-        backdrop-brightness-50
         py-2
         px-2
         w-6/12
         rounded-lg
-        backdrop-blur-sm
-        backdrop-opacity-80
-        backdrop-contrast-200
-        backdrop-brightness-50
-          shadow-xl
-      "
+        "
         >
-          <h2 className="text-blue-200 text-5xl py-3">{title}</h2>
-          <h3 className="text-pink-200 text-2xl py-3">
+          <h2 className="text-blue-500 text-5xl py-3">{title}</h2>
+          <h3 className="text-pink-500 text-2xl py-3">
             {furtherData.number_of_seasons} Seasons
           </h3>
-          <h3 className="text-pink-200 py-5">
+          <h3 className="text-pink-500 py-5">
             {'When broadcast between '}
             {furtherData?.first_air_date?.slice(0, 4)}
             {' and '}
@@ -143,23 +131,15 @@ export const TitleAndImage = ({
           items-center
           justify-center
           backdrop-blur-sm
-          backdrop-opacity-80
-          backdrop-contrast-200
-          backdrop-brightness-50
           py-2
           px-2
           w-10/12
           rounded-lg
-          backdrop-blur-sm
-          backdrop-opacity-80
-          backdrop-contrast-200
-          backdrop-brightness-50
-          shadow-xl
         "
         >
-          <h2 className="text-blue-300 text-3xl py-2">{title}</h2>
-          <h3 className="text-pink-200 py-5">{furtherData.place_of_birth}</h3>
-          <h2 className="text-amber-300 text-lg px-2">{age}</h2>
+          <h2 className="text-blue-500 text-3xl py-2">{title}</h2>
+          <h3 className="text-pink-500 py-5">{furtherData.place_of_birth}</h3>
+          <h2 className="text-amber-600 text-lg px-2">{age}</h2>
         </div>
       )}
     </div>

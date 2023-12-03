@@ -42,7 +42,11 @@ export const TitleAndImage = ({
           alt="Film poster"
           width={isMobile ? 300 : 200}
           height={isMobile ? 400 : 300}
-          className="rounded-lg"
+          className="
+          rounded-lg
+          shadow-xl
+          shadow-inner
+          "
         />
       </div>
 
@@ -50,6 +54,7 @@ export const TitleAndImage = ({
         <div
           id="film-title-and-extra-details"
           className="
+          min-h-[250px]
           flex 
           flex-col
           items-center
@@ -66,9 +71,10 @@ export const TitleAndImage = ({
           backdrop-opacity-80
           backdrop-contrast-200
           backdrop-brightness-50
+            shadow-xl
            "
         >
-          <h2 id="movie-year" className="text-blue-400 text-3xl py-2">
+          <h2 id="movie-year" className="text-blue-300 text-3xl py-2">
             {title}
           </h2>
           <h3 className="text-pink-200 py-2 text-base">
@@ -89,6 +95,7 @@ export const TitleAndImage = ({
         <div
           id="tv-title"
           className="
+        min-h-[300px]
         flex-grow
         flex 
         flex-col
@@ -106,9 +113,10 @@ export const TitleAndImage = ({
         backdrop-opacity-80
         backdrop-contrast-200
         backdrop-brightness-50
+          shadow-xl
       "
         >
-          <h2 className="text-blue-400 text-5xl py-3">{title}</h2>
+          <h2 className="text-blue-200 text-5xl py-3">{title}</h2>
           <h3 className="text-pink-200 text-2xl py-3">
             {furtherData.number_of_seasons} Seasons
           </h3>
@@ -128,6 +136,7 @@ export const TitleAndImage = ({
         <div
           id="actor-title"
           className="
+          min-h-[212px]
           flex-grow
           flex 
           flex-col
@@ -145,11 +154,12 @@ export const TitleAndImage = ({
           backdrop-opacity-80
           backdrop-contrast-200
           backdrop-brightness-50
+          shadow-xl
         "
         >
-          <h2 className="text-blue-400 text-3xl py-2">{title}</h2>
+          <h2 className="text-blue-300 text-3xl py-2">{title}</h2>
           <h3 className="text-pink-200 py-5">{furtherData.place_of_birth}</h3>
-          <h2 className="text-amber-600 text-lg px-2">{age}</h2>
+          <h2 className="text-amber-300 text-lg px-2">{age}</h2>
         </div>
       )}
     </div>

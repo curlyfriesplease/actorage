@@ -69,7 +69,7 @@ export default function MediaLineItem({
         "
         >
           <Suspense fallback={<p>Loading media title...</p>}>
-            <h2 className="text-blue-400 text-2xl py-2">{mediaTitle}</h2>
+            <h2 className="text-blue-300 text-2xl py-2">{mediaTitle}</h2>
           </Suspense>
           {character && (
             <div className="flex gap-2">

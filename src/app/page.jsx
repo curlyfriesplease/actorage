@@ -1,4 +1,5 @@
-import SearchContainer from "@/components/Search/SearchContainer";
+import { MainLogo } from '@/components/Misc/MainLogo';
+import SearchContainer from '@/components/Search/SearchContainer';
 
 export default function Home() {
   return (
@@ -6,7 +7,7 @@ export default function Home() {
       className="
     flex 
     flex-col 
-    min-h-screen 
+    h32
     items-center 
     justify-between 
     p-9
@@ -14,6 +15,7 @@ export default function Home() {
     max-w-screen-md
     "
     >
+      <MainLogo />
       <SearchContainer />
     </main>
   );

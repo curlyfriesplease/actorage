@@ -1,8 +1,11 @@
+'use client';
+
+import { motion } from 'framer-motion';
+
 import { Suspense, useMemo } from 'react';
 import { SearchResult } from './SearchResult';
 
 export const SearchResultsList = ({ results }) => {
-
   const transformResults = (results) => {
     return results.results.map((result) => {
       const { media_type, title, name, release_date, first_air_date, id } =
@@ -28,11 +31,19 @@ export const SearchResultsList = ({ results }) => {
 
   return (
     <Suspense fallback={<div>Loading...</div>}>
-      <div id="results-list">
+      <motion.div
+        id="results-list"
+        initial="initial"
+        animate="animate"
+        variants={{
+          initial: { opacity: 0 },
+          animate: { opacity: 1, transition: { staggerChildren: 0.15 } },
+        }}
+      >
         {memoizedTransformedResults.map((result, id) => {
           return <SearchResult result={result} key={id} />;
         })}
-      </div>
+      </motion.div>
     </Suspense>
   );
 };

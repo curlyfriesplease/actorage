@@ -58,9 +58,8 @@ export default async function ActorLineItem({
                 : '/images/PlaceholderActor.png'
             }
             alt="Actor poster"
-            width={150}
-            height={150}
-            layout="responsive"
+            width={208}
+            height={312}
             className="
           rounded-lg 
           "

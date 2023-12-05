@@ -1,5 +1,9 @@
+'use client';
+
 import Image from 'next/image';
 import DirectorDetails from '@/components/Misc/Director';
+import { motion } from 'framer-motion';
+
 // TODO: Remove isMobile
 export const TitleAndImage = ({
   mediaType,
@@ -12,7 +16,7 @@ export const TitleAndImage = ({
   age,
 }) => {
   return (
-    <div
+    <motion.div
       id="title-and-image-container"
       className={`
     flex 
@@ -34,10 +38,11 @@ export const TitleAndImage = ({
     backdrop-opacity-70
     backdrop-contrast-200
     backdrop-brightness-50
-    bg-gradient-to-b from-rose-200 via-indigo-100 to-violet-200
-  
-        
+    bg-gradient-to-b from-rose-200 via-indigo-100 to-violet-200      
     `}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 1.5, type: 'spring', bounce: 0.5 }}
     >
       <div id="film-title-poster" className="px 4">
         <Image
@@ -143,6 +148,6 @@ export const TitleAndImage = ({
           <h2 className="text-amber-600 text-lg px-2">{age}</h2>
         </div>
       )}
-    </div>
+    </motion.div>
   );
 };

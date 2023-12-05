@@ -7,9 +7,9 @@ export default function Home() {
       className="
     flex 
     flex-col 
-    h32
+    h-screen
     items-center 
-    justify-between 
+    justify-start 
     p-9
     w-screen
     max-w-screen-md

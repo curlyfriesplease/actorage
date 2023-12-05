@@ -39,7 +39,7 @@ export default async function IdPage({ params }) {
     return <div>Loading...</div>;
   }
 
-  const firstTwentyCastResults = creditsData.cast.slice(0, 20);
+  const firstTwentyOneCastResults = creditsData.cast.slice(0, 21);
 
   const dateString = movieData.release_date;
   const date = new Date(dateString);
@@ -82,7 +82,7 @@ export default async function IdPage({ params }) {
           gap-5
       "
       >
-        {firstTwentyCastResults.map((actor) => (
+        {firstTwentyOneCastResults.map((actor) => (
           <ActorLineItem
             key={actor.id}
             actor={actor}

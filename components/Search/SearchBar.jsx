@@ -28,7 +28,17 @@ export default function SearchBar({ setResults }) {
           type={'search'}
           value={input}
           onChange={(e) => handleChange(e.target.value)}
-          className="bg-white h32 px-5 py-4 w-full rounded-full text-sm focus:outline-none"
+          className="
+          bg-white 
+          h32 
+          px-5 
+          py-4 
+          w-full 
+          rounded-full 
+          text-base 
+          text-center
+          focus:outline-none
+          "
         />
       </div>
     </>

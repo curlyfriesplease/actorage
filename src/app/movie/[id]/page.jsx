@@ -1,6 +1,7 @@
 import ActorLineItem from '@/components/ActorLineItem/ActorLineItem';
 import { fetchMovieData } from './fetchMovieData';
 import { fetchCreditsData } from './fetchCreditsData';
+import { fetchActorData } from '@/components/ActorLineItem/fetchActorData';
 import { TitleAndImage } from '@/components/common/titleAndImage';
 import NavBar from '@/components/NavBar/NavBar';
 
@@ -48,6 +49,22 @@ export default async function IdPage({ params }) {
 
   const firstTwentyOneCastResults = creditsData.cast.slice(0, 21);
 
+  const fetchAllActorData = async () => {
+    const actorDataPromises = firstTwentyOneCastResults.map((actor) =>
+      fetchActorData(actor.id)
+    );
+    const actorDataResults = await Promise.all(actorDataPromises);
+
+    return firstTwentyOneCastResults.map((actor, index) => ({
+      ...actor,
+      ...actorDataResults[index],
+    }));
+  };
+
+  const combinedActorData = await fetchAllActorData();
+
+  const directorDetails = await fetchActorData(directorId);
+
   const dateString = movieData.release_date;
   const date = new Date(dateString);
   const formattedDate = (date) => {
@@ -74,6 +91,7 @@ export default async function IdPage({ params }) {
         furtherData={movieData}
         isMobile={isMobile}
         directorId={directorId}
+        directorDetails={directorDetails}
         formattedReleaseDate={formattedDate(date)}
       />
       <div
@@ -89,7 +107,7 @@ export default async function IdPage({ params }) {
           gap-5
       "
       >
-        {firstTwentyOneCastResults.map((actor) => (
+        {combinedActorData.map((actor) => (
           <ActorLineItem
             key={actor.id}
             actor={actor}

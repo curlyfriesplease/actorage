@@ -1,6 +1,7 @@
 import ActorLineItem from '@/components/ActorLineItem/ActorLineItem';
 import { fetchTvData } from './fetchTvData';
 import { fetchCreditsData } from './fetchCreditsData';
+import { fetchActorData } from '@/components/ActorLineItem/fetchActorData';
 import { TitleAndImage } from '@/components/common/titleAndImage';
 import NavBar from '@/components/NavBar/NavBar';
 
@@ -24,11 +25,33 @@ export default async function IdPage({ params }) {
   }
 
   if (!tvData) {
-    return <div className="
+    return (
+      <div
+        className="
     text-slate-700
     h-screen
-    ">Loading...</div>;
+    "
+      >
+        Loading...
+      </div>
+    );
   }
+
+  const firstTwentyOneCastResults = creditsData.cast.slice(0, 21);
+
+  const fetchAllActorData = async () => {
+    const actorDataPromises = firstTwentyOneCastResults.map((actor) =>
+      fetchActorData(actor.id)
+    );
+    const actorDataResults = await Promise.all(actorDataPromises);
+
+    return firstTwentyOneCastResults.map((actor, index) => ({
+      ...actor,
+      ...actorDataResults[index],
+    }));
+  };
+
+  const combinedActorData = await fetchAllActorData();
 
   return (
     <>
@@ -58,7 +81,7 @@ export default async function IdPage({ params }) {
           gap-5
          "
       >
-        {firstTwentyCastResults.map((actor) => (
+        {combinedActorData.map((actor) => (
           <ActorLineItem
             key={actor.id}
             actor={actor}

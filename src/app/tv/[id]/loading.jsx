@@ -1,5 +1,12 @@
 'use client';
 
 export default function Loading() {
-  return <h1 className="text-pink-200">Loading TV data...</h1>;
+  return (
+    <h1
+      className="    text-slate-700
+  h-screen"
+    >
+      Loading TV data...
+    </h1>
+  );
 }

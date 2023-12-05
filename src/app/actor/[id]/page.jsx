@@ -17,7 +17,14 @@ export default async function IdPage({ params }) {
   }
 
   if (!personData) {
-    return <div>Loading...</div>;
+    return (
+      <div
+        className="    text-slate-700
+    h-screen"
+      >
+        Loading...
+      </div>
+    );
   }
 
   const firstFiftyCreditResults = personCombinedCredits.slice(0, 50);

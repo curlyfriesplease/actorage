@@ -1,5 +1,5 @@
 "use client";
 
 export default function Loading() {
-  return <h1>Loading actor career...</h1>;
+  return <h1 className="text-slate-700">Loading actor career...</h1>;
 }

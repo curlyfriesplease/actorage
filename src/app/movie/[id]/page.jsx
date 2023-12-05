@@ -36,7 +36,14 @@ export default async function IdPage({ params }) {
   }
 
   if (!movieData) {
-    return <div>Loading...</div>;
+    return (
+      <div
+        className="    text-slate-700
+    h-screen"
+      >
+        Loading...
+      </div>
+    );
   }
 
   const firstTwentyOneCastResults = creditsData.cast.slice(0, 21);

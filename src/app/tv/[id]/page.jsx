@@ -24,7 +24,10 @@ export default async function IdPage({ params }) {
   }
 
   if (!tvData) {
-    return <div className="text-pink-400">Loading...</div>;
+    return <div className="
+    text-slate-700
+    h-screen
+    ">Loading...</div>;
   }
 
   return (

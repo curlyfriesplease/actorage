@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faFilm,
@@ -91,7 +92,18 @@ export const SearchResult = ({ result }) => {
   };
 
   return (
-    <div onClick={handleOnClick} className="flex justify-between px-3 py-2">
+    <motion.div
+      onClick={handleOnClick}
+      className="flex justify-between px-3 py-2"
+      variants={{
+        initial: { opacity: 0, x: -150 },
+        animate: { opacity: 1, x: 0 },
+      }}
+      transition={{
+        type: 'spring',
+        bounce: 0.45, // Adjust this value to control the bounciness
+      }}
+    >
       <div id="icon_and_year_container" className="flex items-center">
         {getIcon(result.media_type)}
         <h4 className="text-amber-600 font-medium px-7 text-center">
@@ -99,6 +111,6 @@ export const SearchResult = ({ result }) => {
         </h4>
       </div>
       <h3 className="text-right font-medium text-sky-900">{result.title}</h3>
-    </div>
+    </motion.div>
   );
 };

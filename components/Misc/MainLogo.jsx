@@ -13,7 +13,7 @@ export const MainLogo = () => (
     pb-full
    "
     whileHover={{ scale: 1.1 }}
-    whileTap={{ scale: 0.9 }}
+    whileTap={{ scale: 0.7 }}
     initial={{ opacity: 0 }}
     animate={{ opacity: 1, rotate: 360 }}
     transition={{ duration: 1.75, type: 'spring', bounce: 0.5 }}

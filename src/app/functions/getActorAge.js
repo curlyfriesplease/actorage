@@ -57,7 +57,6 @@ export const getActorAge = (
       }
     }
   } else {
-    console.log(`birthday value  ${beeeeeeeerthday} is falsy`);
     return <h3 className="text-3xl">Age unknown</h3>;
   }
 };

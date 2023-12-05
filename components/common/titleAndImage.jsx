@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import DirectorDetails from '@/components/Misc/Director';
 import { motion } from 'framer-motion';
+import { fetchActorData } from '../ActorLineItem/fetchActorData';
 
 // TODO: Remove isMobile
 export const TitleAndImage = ({
@@ -12,6 +13,7 @@ export const TitleAndImage = ({
   furtherData,
   isMobile,
   directorId,
+  directorDetails,
   formattedReleaseDate,
   age,
 }) => {
@@ -87,6 +89,7 @@ export const TitleAndImage = ({
           <DirectorDetails
             id={directorId}
             releaseDate={furtherData.release_date}
+            directorDetails={directorDetails}
           />
           <h3 className="text-pink-500 text-xl py-5">
             {`At the time of release ${formattedReleaseDate}:`}

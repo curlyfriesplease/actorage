@@ -1,16 +1,15 @@
 import { fetchActorData } from '../ActorLineItem/fetchActorData';
 import { getActorAge } from '@/src/app/functions/getActorAge';
 
-export default async function DirectorDetails({ id, releaseDate }) {
+export default function DirectorDetails({ id, releaseDate, directorDetails }) {
   if (!id) {
     return <p>NO IDEA WHO THE DIRECTOR IS MATE</p>;
   }
 
-  const DirectorDetails = await fetchActorData(id);
-  const birthday = DirectorDetails?.birthday
-    ? new Date(DirectorDetails?.birthday)
+  const birthday = directorDetails?.birthday
+    ? new Date(directorDetails?.birthday)
     : null;
-  const directorName = DirectorDetails?.name ?? 'some wiseguy';
+  const directorName = directorDetails?.name ?? 'some wiseguy';
 
   return (
     <>

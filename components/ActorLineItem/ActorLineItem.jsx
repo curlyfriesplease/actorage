@@ -1,25 +1,24 @@
+'use client';
+
 import Image from 'next/image';
 import Link from 'next/link';
 import { Suspense } from 'react';
-import { fetchActorData } from './fetchActorData';
 import { getActorAge } from '@/src/app/functions/getActorAge';
+import { motion } from 'framer-motion';
 
-export default async function ActorLineItem({
+export default function ActorLineItem({
   actor,
   releaseDate,
   tvFirstAirDate,
   tvLastAirDate,
 }) {
   const actorId = actor.id;
-  const actorDetails = await fetchActorData(actorId);
-  const birthday = actorDetails?.birthday
-    ? new Date(actorDetails?.birthday)
-    : null;
-  const deathday = actorDetails?.deathday;
+  const birthday = actor?.birthday ? new Date(actor?.birthday) : null;
+  const deathday = actor?.deathday;
 
   return (
     <Link href={`/actor/${actor.id}`}>
-      <div
+      <motion.div
         id="ActorLineItemOuterContainer"
         className="
       container 
@@ -42,6 +41,11 @@ export default async function ActorLineItem({
       fade-edges
       overflow-auto
     "
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.7 }}
+        initial={{ opacity: 0, rotate: -25 }}
+        animate={{ opacity: 1, rotate: 0 }}
+        transition={{ duration: 1.5, type: 'spring', bounce: 0.7 }}
       >
         <div
           id="actorImageContainer"
@@ -53,8 +57,8 @@ export default async function ActorLineItem({
         >
           <Image
             src={
-              actorDetails?.profile_path
-                ? `https://image.tmdb.org/t/p/w200${actorDetails.profile_path}`
+              actor?.profile_path
+                ? `https://image.tmdb.org/t/p/w200${actor.profile_path}`
                 : '/images/PlaceholderActor.png'
             }
             alt="Actor poster"
@@ -91,7 +95,7 @@ export default async function ActorLineItem({
           "
         >
           <Suspense fallback={<p>Loading actor name...</p>}>
-            <h2 className="text-blue-200 text-2xl">{actorDetails?.name}</h2>
+            <h2 className="text-blue-200 text-2xl">{actor?.name}</h2>
           </Suspense>
           <div className="flex gap-2">
             <h3> as </h3>
@@ -122,7 +126,7 @@ export default async function ActorLineItem({
             </div>
           </Suspense>
         </div>
-      </div>
+      </motion.div>
     </Link>
   );
 }

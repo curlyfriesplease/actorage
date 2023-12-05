@@ -16,7 +16,7 @@ export const TitleAndImage = ({
   age,
 }) => {
   return (
-    <div
+    <motion.div
       id="title-and-image-container"
       className={`
     flex 
@@ -41,8 +41,8 @@ export const TitleAndImage = ({
     bg-gradient-to-b from-rose-200 via-indigo-100 to-violet-200      
     `}
       initial={{ opacity: 0 }}
-      animate={{ opacity: 1, rotate: 360 }}
-      transition={{ duration: 1.75, type: 'spring', bounce: 0.5 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 1.5, type: 'spring', bounce: 0.5 }}
     >
       <div id="film-title-poster" className="px 4">
         <Image
@@ -148,6 +148,6 @@ export const TitleAndImage = ({
           <h2 className="text-amber-600 text-lg px-2">{age}</h2>
         </div>
       )}
-    </div>
+    </motion.div>
   );
 };

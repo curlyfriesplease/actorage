@@ -60,7 +60,6 @@ export default async function ActorLineItem({
             alt="Actor poster"
             width={150}
             height={150}
-            layout="responsive"
             className="
           rounded-lg 
           "

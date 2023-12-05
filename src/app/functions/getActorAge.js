@@ -8,7 +8,7 @@ export const getActorAge = (
   if (deathday < releaseDate) {
     return (
       <>
-        <h3 className="text-red-600 text-3xl">Deddybones</h3>
+        <h3 className="text-red-400 text-3xl">Deddybones</h3>
       </>
     );
   }
@@ -58,6 +58,6 @@ export const getActorAge = (
     }
   } else {
     console.log(`birthday value  ${beeeeeeeerthday} is falsy`);
-    return <h3 className=" text-3xl">Age unknown</h3>;
+    return <h3 className="text-3xl">Age unknown</h3>;
   }
 };

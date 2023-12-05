@@ -37,6 +37,7 @@ export default async function ActorLineItem({
       py-4
       bg-gradient-to-b from-rose-200 via-indigo-100 to-violet-200
       rounded-xl
+      shadow-2xl
       hover:bg-zinc-700
       fade-edges
       overflow-auto
@@ -85,6 +86,9 @@ export default async function ActorLineItem({
           backdrop-opacity-80
           backdrop-contrast-200
           backdrop-brightness-50
+          bg-gradient-to-b
+          from-transparent
+          to-black
           "
         >
           <Suspense fallback={<p>Loading actor name...</p>}>
@@ -97,7 +101,18 @@ export default async function ActorLineItem({
             </h3>
           </div>
           <Suspense fallback={<p>Loading actor age...</p>}>
-            <div className="text-rose-200">
+            <div
+              className="
+            text-rose-200
+            bg-gradient-to-b
+            from-transparent
+            to-black
+            py-1
+            px-3
+            rounded-full
+                backdrop-opacity-10
+            "
+            >
               {getActorAge(
                 birthday,
                 releaseDate,

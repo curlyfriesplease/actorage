@@ -30,7 +30,7 @@ export const TitleAndImage = ({
     rounded-2xl
     shadow-2xl
     max-w-1/2     
-    backdrop-blur-sm
+    backdrop-blur-md
     backdrop-opacity-70
     backdrop-contrast-200
     backdrop-brightness-50

@@ -64,6 +64,7 @@ export default function MediaLineItem({
           px-2
           w-10/12
           rounded-lg
+          shadow-2xl
           backdrop-blur-sm
           backdrop-opacity-80
           backdrop-contrast-200

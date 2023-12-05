@@ -79,10 +79,13 @@ export const TitleAndImage = ({
            rounded-lg
            "
         >
-          <h2 id="movie-year" className="text-blue-500 text-3xl py-2">
+          <h2
+            id="movie-year"
+            className="text-blue-500 text-3xl py-2 font-semibold"
+          >
             {title}
           </h2>
-          <h3 className="text-pink-500 py-2 text-base">
+          <h3 className="text-pink-500 py-2 text-bas font-medium">
             {furtherData.genres?.map((genre) => genre?.name).join(', ')},&nbsp;
             {furtherData.runtime} mins{' '}
           </h3>
@@ -91,7 +94,7 @@ export const TitleAndImage = ({
             releaseDate={furtherData.release_date}
             directorDetails={directorDetails}
           />
-          <h3 className="text-pink-500 text-xl py-5">
+          <h3 className="text-pink-500 text-xl py-5 font-semibold">
             {`At the time of release ${formattedReleaseDate}:`}
           </h3>
         </div>

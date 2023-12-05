@@ -13,10 +13,12 @@ export default function DirectorDetails({ id, releaseDate, directorDetails }) {
 
   return (
     <>
-      <h3 className="text-pink-500 break-normal text-lg">
+      <h3 className="text-pink-500 break-normal text-lg font-semibold">
         Director {directorName}
       </h3>{' '}
-      <div className="text-pink-500">{getActorAge(birthday, releaseDate)}</div>
+      <div className="text-pink-500 font-semibold">
+        {getActorAge(birthday, releaseDate)}
+      </div>
     </>
   );
 }

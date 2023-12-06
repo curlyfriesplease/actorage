@@ -12,6 +12,7 @@ export const MainLogo = () => {
     if (clickCount > 7) {
       const audio = new Audio('/audio/quack.mp3');
       audio.play();
+      console.log("THE DUCK HAS AWOKEN")
     }
   }, [clickCount]);
 

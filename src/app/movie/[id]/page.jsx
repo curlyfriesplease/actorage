@@ -15,9 +15,9 @@ let creditsData = {};
 let directorId;
 
 function getDirectorId(crew) {
-  console.log('WHADDUP');
   for (const crewMember of crew) {
     if (crewMember.job === 'Director') {
+      console.log(`Director id is ${crewMember.id}`)
       return crewMember.id;
     }
   }

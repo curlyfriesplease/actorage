@@ -8,7 +8,14 @@ import { motion } from 'framer-motion';
 
 export default function NavBar() {
   return (
-    <nav className="flex justify-between w-full">
+    <nav
+      className="
+    flex 
+    justify-between 
+    w-full
+    py-4
+    "
+    >
       <div id="blank-spacer-div" style={{ width: '30px' }}></div>
       <motion.div id="header-logo">
         <Image
@@ -28,6 +35,7 @@ export default function NavBar() {
             icon={faXmark}
             width={50}
             height={50}
+            size="2x"
             className={'text-sky-800'}
           />
         </Link>

@@ -5,7 +5,7 @@ export async function fetchCreditsData(value) {
     console.log('fetchCreditsData (tv) value received: ' + value);
     try {
       const response = await fetch(
-        checkEnvironment().concat(`/api/tv?query=${value}/credits`)
+        checkEnvironment().concat(`/api/tv?query=${value}/aggregate_credits`)
       );
       const data = await response.json();
       return data;

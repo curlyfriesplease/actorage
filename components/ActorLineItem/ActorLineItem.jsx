@@ -12,7 +12,6 @@ export default function ActorLineItem({
   tvFirstAirDate,
   tvLastAirDate,
 }) {
-  const actorId = actor.id;
   const birthday = actor?.birthday ? new Date(actor?.birthday) : null;
   const deathday = actor?.deathday;
 
@@ -100,7 +99,7 @@ export default function ActorLineItem({
           <div className="flex gap-2">
             <h3> as </h3>
             <h3 className="text-pink-300 break-normal m-0 p-0">
-              {actor.character}
+              {actor.character || actor.roles[0].character}
             </h3>
           </div>
           <Suspense fallback={<p>Loading actor age...</p>}>

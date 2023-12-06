@@ -25,7 +25,7 @@ export default function Home() {
         className="
     flex 
     flex-col 
-    h-screen
+    h-100
     items-center 
     justify-start 
     p-9

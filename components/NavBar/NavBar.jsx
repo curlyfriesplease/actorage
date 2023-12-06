@@ -18,16 +18,18 @@ export default function NavBar() {
     >
       <div id="blank-spacer-div" style={{ width: '30px' }}></div>
       <motion.div id="header-logo">
-        <Image
-          src="/images/HOWTA_png_small_title_compressed.png"
-          alt="navbarlogo"
-          width={200}
-          height={100}
-          className="cursor-pointer"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1, rotate: 360 }}
-          transition={{ duration: 1.75, type: 'spring', bounce: 0.5 }}
-        />
+        <Link href="/">
+          <Image
+            src="/images/HOWTA_png_small_title_compressed.png"
+            alt="navbarlogo"
+            width={200}
+            height={100}
+            className="cursor-pointer"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1, rotate: 360 }}
+            transition={{ duration: 1.75, type: 'spring', bounce: 0.5 }}
+          />
+        </Link>
       </motion.div>
       <div id="return-to-home" className="self-center">
         <Link href="/">

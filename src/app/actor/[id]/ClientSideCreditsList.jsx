@@ -2,6 +2,7 @@
 import MediaLineItem from '@/components/MediaLineItem/MediaLineItem';
 import { useState } from 'react';
 import { Switch } from '@headlessui/react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 // The purpose of this compo is to be like the normal credits list, but it's
 // client side so that a switch can be used for sorting, which relies on local state
@@ -27,7 +28,7 @@ export const ClientSideCreditsList = ({
 
   return (
     <>
-      <div
+      <motion.div
         className="
         flex
         flex-row
@@ -39,6 +40,9 @@ export const ClientSideCreditsList = ({
         text-blue-500
         pt-7"
         id="data-sort-switch-row"
+        initial={{ opacity: 0, scale: 0.7 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 2 }}
       >
         <p className="w-1/6 text-right">DATE SORT</p>
         <Switch
@@ -61,35 +65,48 @@ export const ClientSideCreditsList = ({
           />
         </Switch>
         <p className="w-1/6 text-left">POPULARITY SORT</p>
-      </div>
-      <div
-        id="actors-list"
-        className="
-        flex
-        flex-row
-        flex-wrap
-        items-center
-        justify-center  
-        py-5
-        px-5
-        gap-5
+      </motion.div>
+      <AnimatePresence>
+        <motion.div
+          id="actors-list"
+          className="
+          flex
+          flex-row
+          flex-wrap
+          items-center
+          justify-center  
+          py-5
+          px-5
+          gap-5
         "
-      >
-        {sortedDataForMap.map((credit) => (
-          <MediaLineItem
-            key={credit.id}
-            id={credit.id}
-            imagePath={credit.poster_path}
-            mediaTitle={credit.title || credit.original_title || credit.name}
-            releaseDate={credit.release_date}
-            tvFirstAirDate={credit.first_air_date}
-            tvLastAirDate={credit.last_air_date}
-            character={credit.character}
-            actorBirthday={birthday}
-            mediaType={credit.media_type}
-          />
-        ))}
-      </div>
+          layout
+        >
+          {sortedDataForMap.map((credit) => (
+            <motion.div
+              key={credit.id}
+              layout
+              initial={{ opacity: 0, scale: 0 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0 }}
+              transition={{ duration: 0.4, bounce: 1 }}
+            >
+              <MediaLineItem
+                id={credit.id}
+                imagePath={credit.poster_path}
+                mediaTitle={
+                  credit.title || credit.original_title || credit.name
+                }
+                releaseDate={credit.release_date}
+                tvFirstAirDate={credit.first_air_date}
+                tvLastAirDate={credit.last_air_date}
+                character={credit.character}
+                actorBirthday={birthday}
+                mediaType={credit.media_type}
+              />
+            </motion.div>
+          ))}
+        </motion.div>
+      </AnimatePresence>
     </>
   );
 };

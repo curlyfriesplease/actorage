@@ -69,6 +69,9 @@ export default function MediaLineItem({
           backdrop-opacity-80
           backdrop-contrast-200
           backdrop-brightness-50
+          bg-gradient-to-b
+          from-transparent
+          to-black
         "
         >
           <Suspense fallback={<p>Loading media title...</p>}>

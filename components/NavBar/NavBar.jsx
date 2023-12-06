@@ -12,7 +12,7 @@ export default function NavBar() {
       <div id="blank-spacer-div" style={{ width: '30px' }}></div>
       <motion.div id="header-logo">
         <Image
-          src="/images/HOWTA_png_small_title.png"
+          src="/images/HOWTA_png_small_title_compressed.png"
           alt="navbarlogo"
           width={200}
           height={100}

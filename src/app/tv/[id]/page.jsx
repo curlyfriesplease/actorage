@@ -12,7 +12,6 @@ let tvData = {
 };
 
 let creditsData = {};
-let firstTwentyCastResults = {};
 
 export default async function IdPage({ params }) {
   const id = params.id;

@@ -19,7 +19,7 @@ export const MainLogo = () => (
     transition={{ duration: 1.75, type: 'spring', bounce: 0.5 }}
   >
     <Image
-      src="/images/HOWTA_png_full_size.png"
+      src="/images/HOWTA_png_full_size_compressed.png"
       alt="navbarlogo"
       width={200} // replace with your image's width
       height={200} // replace with your image's height

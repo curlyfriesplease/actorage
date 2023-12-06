@@ -3,6 +3,7 @@ import { fetchPersonCombinedCreditsData } from './fetchPersonCombinedCreditsData
 import MediaLineItem from '@/components/MediaLineItem/MediaLineItem';
 import { TitleAndImage } from '@/components/common/titleAndImage';
 import NavBar from '@/components/NavBar/NavBar';
+import { ClientSideCreditsList } from './ClientSideCreditsList';
 
 const isMobile = typeof window !== 'undefined' && window.innerWidth <= 768;
 
@@ -27,7 +28,10 @@ export default async function IdPage({ params }) {
     );
   }
 
-  const firstFiftyCreditResults = personCombinedCredits.slice(0, 50);
+  const firstFiftyCreditResultsSortedByPopularity = personCombinedCredits.slice(
+    0,
+    50
+  );
   const birthday = new Date(personData.birthday);
 
   const calculateCurrentAge = () => {
@@ -72,34 +76,12 @@ export default async function IdPage({ params }) {
         formattedReleaseDate={null}
         age={calculateCurrentAge()}
       />
-      <div
-        id="actors-list"
-        className="
-        flex
-        flex-row
-        flex-wrap
-        items-center
-        justify-center  
-        py-5
-        px-5
-        gap-5
-        "
-      >
-        {firstFiftyCreditResults.map((credit) => (
-          <MediaLineItem
-            key={credit.id}
-            id={credit.id}
-            imagePath={credit.poster_path}
-            mediaTitle={credit.title || credit.original_title || credit.name}
-            releaseDate={credit.release_date}
-            tvFirstAirDate={credit.first_air_date}
-            tvLastAirDate={credit.last_air_date}
-            character={credit.character}
-            actorBirthday={birthday}
-            mediaType={credit.media_type}
-          />
-        ))}
-      </div>
+      <ClientSideCreditsList
+        firstFiftyCreditResultsSortedByPopularity={
+          firstFiftyCreditResultsSortedByPopularity
+        }
+        birthday={birthday}
+      />
     </>
   );
 }

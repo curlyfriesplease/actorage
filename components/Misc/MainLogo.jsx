@@ -12,7 +12,7 @@ export const MainLogo = () => {
     if (clickCount > 7) {
       const audio = new Audio('/audio/quack.mp3');
       audio.play();
-      console.log("THE DUCK HAS AWOKEN")
+      console.log('THE DUCK HAS AWOKEN');
     }
   }, [clickCount]);
 
@@ -23,6 +23,7 @@ export const MainLogo = () => {
     relative 
     w-2/3
     pb-full
+    py-10
    "
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.7 }}
@@ -34,8 +35,8 @@ export const MainLogo = () => {
       <Image
         src="/images/HOWTA_png_full_size_compressed.png"
         alt="navbarlogo"
-        width={200} 
-        height={200} 
+        width={200}
+        height={200}
         layout="responsive"
         objectFit="contain"
         className="cursor-pointer"

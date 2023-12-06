@@ -73,11 +73,11 @@ export const TitleAndImage = ({
           flex-col
           items-center
           justify-center
-           py-2
-           px-2
-            w-10/12
-           rounded-lg
-           "
+          py-2
+          px-2
+          w-10/12
+          rounded-lg
+          "
         >
           <h2
             id="movie-year"
@@ -114,13 +114,14 @@ export const TitleAndImage = ({
         px-2
         w-6/12
         rounded-lg
+        font-medium
         "
         >
           <h2 className="text-blue-500 text-5xl py-3">{title}</h2>
           <h3 className="text-pink-500 text-2xl py-3">
             {furtherData.number_of_seasons} Seasons
           </h3>
-          <h3 className="text-pink-500 py-5">
+          <h3 className="text-pink-500 py-5 font-medium">
             {'When broadcast between '}
             {furtherData?.first_air_date?.slice(0, 4)}
             {' and '}
@@ -147,11 +148,14 @@ export const TitleAndImage = ({
           px-2
           w-10/12
           rounded-lg
+          font-medium
         "
         >
-          <h2 className="text-blue-500 text-3xl py-2">{title}</h2>
-          <h3 className="text-pink-500 py-5">{furtherData.place_of_birth}</h3>
-          <h2 className="text-amber-600 text-lg px-2">{age}</h2>
+          <h2 className="text-blue-500 text-3xl py-2 font-medium">{title}</h2>
+          <h3 className="text-pink-500 py-5 font-medium">
+            {furtherData.place_of_birth}
+          </h3>
+          <h2 className="text-amber-600 text-lg px-2 font-medium">{age}</h2>
         </div>
       )}
     </motion.div>

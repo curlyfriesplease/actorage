@@ -77,6 +77,7 @@ export const SearchResult = ({ result, handleOnClick }) => {
 
   return (
     <motion.div
+      id="search-result-line"
       onClick={() => {
         handleOnClick(result.id, result.media_type);
       }}
@@ -88,6 +89,19 @@ export const SearchResult = ({ result, handleOnClick }) => {
       transition={{
         type: 'spring',
         bounce: 0.45, // Adjust this value to control the bounciness
+      }}
+      whileHover={{ scale: 1.02 }}
+      style={{
+        borderRadius: '25px',
+        cursor: 'pointer',
+      }}
+      onMouseOver={(e) => {
+        // e.currentTarget.style.border = '3px solid lightgrey';
+        e.currentTarget.style.backgroundColor = '#f8f8f8';
+      }}
+      onMouseOut={(e) => {
+        e.currentTarget.style.border = 'none';
+        e.currentTarget.style.backgroundColor = 'transparent';
       }}
     >
       <div id="icon_and_year_container" className="flex items-center">

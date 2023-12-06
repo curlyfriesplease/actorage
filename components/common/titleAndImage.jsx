@@ -33,7 +33,7 @@ export const TitleAndImage = ({
     m-1
     mt-5
     gap-6
-    rounded-2xl
+    rounded-3xl
     shadow-2xl
     max-w-1/2     
     backdrop-blur-md
@@ -85,7 +85,7 @@ export const TitleAndImage = ({
           >
             {title}
           </h2>
-          <h3 className="text-pink-500 py-2 text-bas font-medium">
+          <h3 className="text-sky-600 py-2 text-bas font-medium">
             {furtherData.genres?.map((genre) => genre?.name).join(', ')},&nbsp;
             {furtherData.runtime} mins{' '}
           </h3>
@@ -94,7 +94,7 @@ export const TitleAndImage = ({
             releaseDate={furtherData.release_date}
             directorDetails={directorDetails}
           />
-          <h3 className="text-pink-500 text-xl py-5 font-semibold">
+          <h3 className="text-sky-600 text-lg py-5 font-semibold">
             {`At the time of release ${formattedReleaseDate}:`}
           </h3>
         </div>

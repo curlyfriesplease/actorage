@@ -8,18 +8,28 @@ export default function aboutPage() {
         date is a data point that&apos;s available, whereas the exact dates a
         production was made is not something widely recorded.
       </h3>
+      <h3>
+        The popularity score metric is calculated by TMDB, and explained{' '}
+        <a href="https://developer.themoviedb.org/docs/popularity-and-trending">
+          here
+        </a>
+      </h3>
       <br />
       <div>
         <a target="_blank" href="https://icons8.com/icon/44827/movie-projector">
           Movie
         </a>{' '}
-        icon by{' '}
+        Favicon by{' '}
         <a target="_blank" href="https://icons8.com">
           Icons8
         </a>
       </div>
       <div>
         Movie data courtesy of <a href="https://www.themoviedb.org/">TMDb</a>
+      </div>
+      <div>
+        Loading spinner courtesy of{' '}
+        <a href="https://loading.io//">Loading.io</a>
       </div>
     </div>
   );

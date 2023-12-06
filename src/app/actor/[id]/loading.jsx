@@ -1,5 +1,7 @@
 'use client';
 
+import Image from 'next/image';
+
 export default function Loading() {
   return (
     <div
@@ -11,7 +13,12 @@ export default function Loading() {
     justify-center
   "
     >
-      <h1 className="text-slate-700">Loading data...</h1>
+      <Image
+        src="/images/LoadingBalls.gif"
+        width={200}
+        height={200}
+        alt="loading spinner"
+      />
     </div>
   );
 }

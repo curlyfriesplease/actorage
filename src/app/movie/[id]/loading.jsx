@@ -1,5 +1,17 @@
 'use client';
 
 export default function Loading() {
-  return <h1 className="text-blue-900">Loading movie data...</h1>;
+  return (
+    <div
+      className="
+    text-slate-700
+    h-screen
+    flex
+    items-center
+    justify-center
+  "
+    >
+      <h1 className="text-slate-700">Loading data...</h1>
+    </div>
+  );
 }

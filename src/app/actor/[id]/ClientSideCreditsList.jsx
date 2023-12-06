@@ -44,7 +44,7 @@ export const ClientSideCreditsList = ({
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 2 }}
       >
-        <p className="w-1/6 text-right">DATE SORT</p>
+        <p className="w-1/6 text-center">DATE SORT</p>
         <Switch
           checked={sortByPopularity}
           onChange={setSortByPopularity}
@@ -64,7 +64,7 @@ export const ClientSideCreditsList = ({
             } inline-block h-4 w-4 transform rounded-full bg-white transition`}
           />
         </Switch>
-        <p className="w-1/6 text-left">POPULARITY SORT</p>
+        <p className="w-1/6 text-center">POPULARITY SORT</p>
       </motion.div>
       <AnimatePresence>
         <motion.div

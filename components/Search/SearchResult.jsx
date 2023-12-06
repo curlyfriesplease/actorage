@@ -7,7 +7,7 @@ import {
   faStarOfLife,
 } from '@fortawesome/free-solid-svg-icons';
 
-export const SearchResult = ({ result }) => {
+export const SearchResult = ({ result, handleOnClick }) => {
   const getIcon = (type) => {
     const iconSize = 30;
     const iconColor =
@@ -75,25 +75,11 @@ export const SearchResult = ({ result }) => {
     }
   };
 
-  const handleOnClick = () => {
-    switch (result.media_type) {
-      case 'movie':
-        window.location.href = `/movie/${result.id}`;
-        break;
-      case 'tv':
-        window.location.href = `/tv/${result.id}`;
-        break;
-      case 'person':
-        window.location.href = `/actor/${result.id}`;
-        break;
-      default:
-        break;
-    }
-  };
-
   return (
     <motion.div
-      onClick={handleOnClick}
+      onClick={() => {
+        handleOnClick(result.id, result.media_type);
+      }}
       className="flex justify-between px-3 py-2"
       variants={{
         initial: { opacity: 0, x: -150 },

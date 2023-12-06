@@ -2,11 +2,16 @@
 
 export default function Loading() {
   return (
-    <h1
-      className="    text-slate-700
-  h-screen"
+    <div
+      className="
+    text-slate-700
+    h-screen
+    flex
+    items-center
+    justify-center
+  "
     >
-      Loading TV data...
-    </h1>
+      <h1 className="text-slate-700">Loading data...</h1>
+    </div>
   );
 }

@@ -117,7 +117,7 @@ export const TitleAndImage = ({
         font-medium
         "
         >
-          <h2 className="text-blue-500 text-5xl py-3">{title}</h2>
+          <h2 className="text-blue-500 text-3xl py-3">{title}</h2>
           <h3 className="text-pink-500 text-2xl py-3">
             {furtherData.number_of_seasons} Seasons
           </h3>

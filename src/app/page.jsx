@@ -9,19 +9,18 @@ export default function Home() {
       <Head>
         <title>How Old Was That Actor?</title>
       </Head>
-      <Script
-        src="https://www.googletagmanager.com/gtag/js?id=G-FTXF5FMKJZ"
-        strategy="afterInteractive"
-      />
-      <Script id="google-analytics" strategy="afterInteractive">
-        {`
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){window.dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'GA_MEASUREMENT_ID');
-    `}
-      </Script>
+      <div className="container">
+        <Script src="https://www.googletagmanager.com/gtag/js?id=G-FTXF5FMKJZ" />
+        <Script id="google-analytics">
+          {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+ 
+          gtag('config', 'G-FTXF5FMKJZ');
+        `}
+        </Script>
+      </div>
       <main
         className="
     flex 

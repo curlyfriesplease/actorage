@@ -13,17 +13,6 @@ export const ClientSideCreditsList = ({
 }) => {
   const [sortByPopularity, setSortByPopularity] = useState(true);
 
-  //   const firstFiftyCreditsSortedByAge =
-  //     firstFiftyCreditResultsSortedByPopularity.sort((a, b) => {
-  //       const aDate = new Date(a.release_date || a.first_air_date);
-  //       const bDate = new Date(b.release_date || b.first_air_date);
-  //       return aDate - bDate;
-  //     });
-
-  //   const dataForMap = sortByPopularity
-  //     ? firstFiftyCreditResultsSortedByPopularity
-  //     : firstFiftyCreditsSortedByAge;
-
   const sortedDataForMap = [...firstFiftyCreditResultsSortedByPopularity].sort(
     (a, b) => {
       if (sortByPopularity) {
@@ -38,20 +27,41 @@ export const ClientSideCreditsList = ({
 
   return (
     <>
-      <Switch
-        checked={sortByPopularity}
-        onChange={setSortByPopularity}
-        className={`${
-          sortByPopularity ? 'bg-blue-600' : 'bg-gray-200'
-        } relative inline-flex h-6 w-11 items-center rounded-full`}
+      <div
+        className="
+        flex
+        flex-row
+        justify-center
+        items-center
+        gap-6 
+        w-full
+        text-center
+        text-blue-500
+        pt-7"
+        id="data-sort-switch-row"
       >
-        <span className="sr-only">Enable notifications</span>
-        <span
-          className={`${
-            sortByPopularity ? 'translate-x-6' : 'translate-x-1'
-          } inline-block h-4 w-4 transform rounded-full bg-white transition`}
-        />
-      </Switch>
+        <p className="w-1/6 text-right">DATE SORT</p>
+        <Switch
+          checked={sortByPopularity}
+          onChange={setSortByPopularity}
+          className={`${sortByPopularity ? 'bg-rose-200' : 'bg-violet-200'} 
+          shadow-3xl
+          relative 
+          inline-flex 
+          h-6 
+          w-11 
+          items-center 
+          rounded-full`}
+        >
+          <span className="sr-only">Enable notifications</span>
+          <span
+            className={`${
+              sortByPopularity ? 'translate-x-6' : 'translate-x-1'
+            } inline-block h-4 w-4 transform rounded-full bg-white transition`}
+          />
+        </Switch>
+        <p className="w-1/6 text-left">POPULARITY SORT</p>
+      </div>
       <div
         id="actors-list"
         className="

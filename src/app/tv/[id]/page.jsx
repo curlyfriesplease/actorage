@@ -20,7 +20,6 @@ export default async function IdPage({ params }) {
     console.log("Hi there, there's a tv id");
     tvData = await fetchTvData(id);
     creditsData = await fetchCreditsData(id);
-    firstTwentyCastResults = creditsData.cast.slice(0, 20);
   }
 
   if (!tvData) {

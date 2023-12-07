@@ -1,6 +1,5 @@
 import { fetchPersonData } from './fetchPersonData';
 import { fetchPersonCombinedCreditsData } from './fetchPersonCombinedCreditsData';
-import MediaLineItem from '@/components/MediaLineItem/MediaLineItem';
 import { TitleAndImage } from '@/components/common/titleAndImage';
 import NavBar from '@/components/NavBar/NavBar';
 import { ClientSideCreditsList } from './ClientSideCreditsList';

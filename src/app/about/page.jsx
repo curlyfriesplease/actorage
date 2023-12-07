@@ -67,7 +67,7 @@ export default function aboutPage() {
         </div>
         <div>
           Loading spinner courtesy of{' '}
-          <a href="https://loading.io//" className="font-extrabold">
+          <a href="https://loading.io/" className="font-extrabold">
             Loading.io
           </a>
         </div>

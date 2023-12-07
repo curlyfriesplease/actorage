@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
 import { Suspense, useMemo } from 'react';
 import { SearchResult } from './SearchResult';
+import Image from 'next/image';
 
 export const SearchResultsList = ({ results }) => {
   const [isResultsVisible, setIsResultsVisible] = useState(true);
@@ -77,6 +78,22 @@ export const SearchResultsList = ({ results }) => {
               );
             })}
           </motion.div>
+        )}
+        {!isResultsVisible && (
+          <div
+            className="
+        flex
+        justify-center
+        w-full
+        "
+          >
+            <Image
+              src="/images/LoadingEclipse.gif"
+              alt="Loading"
+              width={200}
+              height={200}
+            />
+          </div>
         )}
       </AnimatePresence>
     </Suspense>

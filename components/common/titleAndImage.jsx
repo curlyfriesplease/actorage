@@ -3,7 +3,6 @@
 import Image from 'next/image';
 import DirectorDetails from '@/components/Misc/Director';
 import { motion } from 'framer-motion';
-import { fetchActorData } from '../ActorLineItem/fetchActorData';
 
 // TODO: Remove isMobile
 export const TitleAndImage = ({
@@ -17,6 +16,7 @@ export const TitleAndImage = ({
   formattedReleaseDate,
   age,
 }) => {
+  console.log('age', age);
   return (
     <motion.div
       id="title-and-image-container"

@@ -33,10 +33,16 @@ export default async function IdPage({ params }) {
     50
   );
   const birthday = new Date(personData.birthday);
+  console.log('personData.birthday', personData.birthday);
 
   const calculateCurrentAge = () => {
     const today = new Date();
     let age;
+
+    if (personData.birthday === null) {
+      return `Age unknown`;
+    }
+
     if (personData.deathday) {
       const deathday = new Date(personData.deathday);
       age = deathday.getFullYear() - birthday.getFullYear();

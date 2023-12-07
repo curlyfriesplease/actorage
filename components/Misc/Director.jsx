@@ -10,7 +10,6 @@ export default function DirectorDetails({ id, releaseDate, directorDetails }) {
     ? new Date(directorDetails?.birthday)
     : null;
   const directorName = directorDetails?.name ?? 'some wiseguy';
-
   return (
     <>
       <h3 className="text-pink-500 break-normal text-lg font-semibold">

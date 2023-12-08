@@ -82,6 +82,7 @@ export const SearchResultsList = ({ results }) => {
         {!isResultsVisible && (
           <div
             className="
+            py-10
         flex
         justify-center
         w-full

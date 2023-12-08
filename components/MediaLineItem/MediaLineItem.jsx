@@ -1,7 +1,10 @@
+'use client';
+
 import Image from 'next/image';
 import Link from 'next/link';
 import { Suspense } from 'react';
 import { getActorAge } from '@/src/app/functions/getActorAge';
+import { useState } from 'react';
 
 export default function MediaLineItem({
   id,
@@ -16,11 +19,17 @@ export default function MediaLineItem({
 }) {
   const linkUrl = mediaType === 'movie' ? `/movie/${id}` : `/tv/${id}`;
 
+  const [loading, setLoading] = useState(false);
+
+  const handleOnClick = () => {
+    setLoading(true);
+    window.location.href = `${linkUrl}`;
+  };
+
   return (
-    <Link href={linkUrl}>
-      <div
-        id="MediaLineItemOuterContainer"
-        className="
+    <div
+      id="MediaLineItemOuterContainer"
+      className="
         relative
         flex
         space-between
@@ -35,23 +44,27 @@ export default function MediaLineItem({
         text-center
         fade-edges
         overflow-auto
+        cursor-pointer
       "
-      >
-        <Image
-          src={
-            imagePath
-              ? `https://image.tmdb.org/t/p/w200${imagePath}`
-              : '/images/PlaceholderFilmPoster.png'
-          }
-          alt="Media poster"
-          width={100}
-          height={100}
-          layout="fixed"
-          className="rounded-lg"
-        />
-        <div
-          id="media-title"
-          className="
+      onClick={handleOnClick}
+    >
+      {!loading && (
+        <>
+          <Image
+            src={
+              imagePath
+                ? `https://image.tmdb.org/t/p/w200${imagePath}`
+                : '/images/PlaceholderFilmPoster.png'
+            }
+            alt="Media poster"
+            width={100}
+            height={100}
+            layout="fixed"
+            className="rounded-lg"
+          />
+          <div
+            id="media-title"
+            className="
           flex 
           flex-col
           items-center
@@ -73,29 +86,49 @@ export default function MediaLineItem({
           from-transparent
           to-black
         "
+          >
+            <Suspense fallback={<p>Loading media title...</p>}>
+              <h2 className="text-blue-300 text-2xl py-2">{mediaTitle}</h2>
+            </Suspense>
+            {character && (
+              <div className="flex gap-2">
+                <h3> as </h3>
+                <h3 className="text-pink-200">{character}</h3>
+              </div>
+            )}
+            <Suspense fallback={<p>Loading actor age...</p>}>
+              <div className="text-rose-200">
+                {getActorAge(
+                  actorBirthday,
+                  releaseDate,
+                  tvFirstAirDate,
+                  tvLastAirDate
+                )}
+              </div>
+            </Suspense>
+          </div>
+        </>
+      )}
+      {loading && (
+        <div
+          id="loading-spinner-container"
+          className="
+          flex
+          justify-center
+          w-full
+          "
+          style={{ height: '155px' }}
         >
-          <Suspense fallback={<p>Loading media title...</p>}>
-            <h2 className="text-blue-300 text-2xl py-2">{mediaTitle}</h2>
-          </Suspense>
-          {character && (
-            <div className="flex gap-2">
-              <h3> as </h3>
-              <h3 className="text-pink-200">{character}</h3>
-            </div>
-          )}
-          <Suspense fallback={<p>Loading actor age...</p>}>
-            <div className="text-rose-200">
-              {getActorAge(
-                actorBirthday,
-                releaseDate,
-                tvFirstAirDate,
-                tvLastAirDate
-              )}
-            </div>
-          </Suspense>
+          <Image
+            src="/images/LoadingEclipse.gif"
+            alt="Loading"
+            layout="fill"
+            objectFit="contain"
+            style={{ height: '100%', width: '100%' }}
+          />
         </div>
-      </div>
-    </Link>
+      )}
+    </div>
   );
 }
 

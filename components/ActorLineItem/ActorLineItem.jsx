@@ -1,10 +1,10 @@
 'use client';
 
 import Image from 'next/image';
-import Link from 'next/link';
 import { Suspense } from 'react';
 import { getActorAge } from '@/src/app/functions/getActorAge';
 import { motion } from 'framer-motion';
+import { useState } from 'react';
 
 export default function ActorLineItem({
   actor,
@@ -15,11 +15,17 @@ export default function ActorLineItem({
   const birthday = actor?.birthday ? new Date(actor?.birthday) : null;
   const deathday = actor?.deathday;
 
+  const [loading, setLoading] = useState(false);
+
+  const handleOnClick = () => {
+    setLoading(true);
+    window.location.href = `/actor/${actor.id}`;
+  };
+
   return (
-    <Link href={`/actor/${actor.id}`}>
-      <motion.div
-        id="ActorLineItemOuterContainer"
-        className="
+    <motion.div
+      id="ActorLineItemOuterContainer"
+      className="
       container 
       relative
       justify-center
@@ -39,38 +45,42 @@ export default function ActorLineItem({
       hover:bg-zinc-700
       fade-edges
       overflow-auto
+      cursor-pointer
     "
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.7 }}
-        initial={{ opacity: 0, rotate: -25 }}
-        animate={{ opacity: 1, rotate: 0 }}
-        transition={{ duration: 1.5, type: 'spring', bounce: 0.7 }}
-      >
-        <div
-          id="actorImageContainer"
-          className="
+      whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 0.7 }}
+      initial={{ opacity: 0, rotate: -25 }}
+      animate={{ opacity: 1, rotate: 0 }}
+      transition={{ duration: 1.5, type: 'spring', bounce: 0.7 }}
+      onClick={handleOnClick}
+    >
+      {!loading && (
+        <>
+          <div
+            id="actorImageContainer"
+            className="
         h-full
         w-full
         static
         "
-        >
-          <Image
-            src={
-              actor?.profile_path
-                ? `https://image.tmdb.org/t/p/w200${actor.profile_path}`
-                : '/images/PlaceholderActor.png'
-            }
-            alt="Actor poster"
-            width={208}
-            height={312}
-            className="
+          >
+            <Image
+              src={
+                actor?.profile_path
+                  ? `https://image.tmdb.org/t/p/w200${actor.profile_path}`
+                  : '/images/PlaceholderActor.png'
+              }
+              alt="Actor poster"
+              width={208}
+              height={312}
+              className="
           rounded-lg 
           "
-          />
-        </div>
-        <div
-          id="actor-name-character-and-age"
-          className="
+            />
+          </div>
+          <div
+            id="actor-name-character-and-age"
+            className="
           flex 
           flex-col
           items-center
@@ -92,19 +102,19 @@ export default function ActorLineItem({
           from-transparent
           to-black
           "
-        >
-          <Suspense fallback={<p>Loading actor name...</p>}>
-            <h2 className="text-blue-200 text-2xl">{actor?.name}</h2>
-          </Suspense>
-          <div className="flex gap-2">
-            <h3> as </h3>
-            <h3 className="text-pink-300 break-normal m-0 p-0">
-              {actor.character || actor.roles[0].character}
-            </h3>
-          </div>
-          <Suspense fallback={<p>Loading actor age...</p>}>
-            <div
-              className="
+          >
+            <Suspense fallback={<p>Loading actor name...</p>}>
+              <h2 className="text-blue-200 text-2xl">{actor?.name}</h2>
+            </Suspense>
+            <div className="flex gap-2">
+              <h3> as </h3>
+              <h3 className="text-pink-300 break-normal m-0 p-0">
+                {actor.character || actor.roles[0].character}
+              </h3>
+            </div>
+            <Suspense fallback={<p>Loading actor age...</p>}>
+              <div
+                className="
             text-rose-200
             bg-gradient-to-b
             from-transparent
@@ -114,19 +124,39 @@ export default function ActorLineItem({
             rounded-full
                 backdrop-opacity-10
             "
-            >
-              {getActorAge(
-                birthday,
-                releaseDate,
-                tvFirstAirDate,
-                tvLastAirDate,
-                deathday
-              )}
-            </div>
-          </Suspense>
+              >
+                {getActorAge(
+                  birthday,
+                  releaseDate,
+                  tvFirstAirDate,
+                  tvLastAirDate,
+                  deathday
+                )}
+              </div>
+            </Suspense>
+          </div>
+        </>
+      )}
+      {loading && (
+        <div
+          id="loading-spinner-container"
+          className="
+          flex
+          justify-center
+          w-full
+          "
+          style={{ height: '311px' }}
+        >
+          <Image
+            src="/images/LoadingEclipse.gif"
+            alt="Loading"
+            layout="fill"
+            objectFit="contain"
+            style={{ height: '100%', width: '100%' }}
+          />
         </div>
-      </motion.div>
-    </Link>
+      )}
+    </motion.div>
   );
 }
 

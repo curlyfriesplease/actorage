@@ -4,6 +4,7 @@ import { fetchCreditsData } from './fetchCreditsData';
 import { fetchActorData } from '@/components/ActorLineItem/fetchActorData';
 import { TitleAndImage } from '@/components/common/titleAndImage';
 import NavBar from '@/components/NavBar/NavBar';
+import Script from 'next/script';
 
 const isMobile = typeof window !== 'undefined' && window.innerWidth <= 768;
 
@@ -17,7 +18,7 @@ let directorId;
 function getDirectorId(crew) {
   for (const crewMember of crew) {
     if (crewMember.job === 'Director') {
-      console.log(`Director id is ${crewMember.id}`)
+      console.log(`Director id is ${crewMember.id}`);
       return crewMember.id;
     }
   }
@@ -81,6 +82,18 @@ export default async function IdPage({ params }) {
   };
   return (
     <>
+      <div className="container">
+        <Script src="https://www.googletagmanager.com/gtag/js?id=G-FTXF5FMKJZ" />
+        <Script id="google-analytics">
+          {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+ 
+          gtag('config', 'G-FTXF5FMKJZ');
+        `}
+        </Script>
+      </div>
       <header className="w-full">
         <NavBar />
       </header>

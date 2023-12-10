@@ -2,6 +2,7 @@ import ActorLineItem from '@/components/ActorLineItem/ActorLineItem';
 import { fetchTvData } from './fetchTvData';
 import { fetchCreditsData } from './fetchCreditsData';
 import { fetchActorData } from '@/components/ActorLineItem/fetchActorData';
+import { fetchAllSeasonsAggregateCredits } from './fetchAllSeasonsAggregateCredits';
 import { TitleAndImage } from '@/components/common/titleAndImage';
 import NavBar from '@/components/NavBar/NavBar';
 import Script from 'next/script';
@@ -37,20 +38,41 @@ export default async function IdPage({ params }) {
   }
 
   const firstTwentyOneCastResults = creditsData.cast.slice(0, 21);
+  const isASoap = tvData.genres.some((genre) => genre.name === 'Soap');
 
-  const fetchAllActorData = async () => {
-    const actorDataPromises = firstTwentyOneCastResults.map((actor) =>
-      fetchActorData(actor.id)
+  const moreThanTwentySeasons = tvData.number_of_seasons > 20;
+
+  const lastSeasonNumber = tvData.number_of_seasons;
+  const firstSeasonNumber = moreThanTwentySeasons
+    ? tvData.number_of_seasons - 19
+    : 1;
+  const mostCommonTwentyOneActorsFromTheFirstTwentySeasonsAggregateCredits =
+    await fetchAllSeasonsAggregateCredits(
+      id,
+      firstSeasonNumber,
+      lastSeasonNumber
     );
-    const actorDataResults = await Promise.all(actorDataPromises);
 
-    return firstTwentyOneCastResults.map((actor, index) => ({
-      ...actor,
-      ...actorDataResults[index],
-    }));
-  };
+  // Add in further details for each actor, which includes their birthdays.
+  const combinedActorData = await Promise.all(
+    mostCommonTwentyOneActorsFromTheFirstTwentySeasonsAggregateCredits.map(
+      async (actor) => {
+        const actorData = await fetchActorData(actor.id);
+        return { ...actor, ...actorData };
+      }
+    )
+  );
 
-  const combinedActorData = await fetchAllActorData();
+  // a function that can be passed a season number and returns the date of the first episode of that season
+  function findAirDateBySeasonNumber(seasonNumber) {
+    const season = tvData.seasons.find(
+      (season) => season.season_number === seasonNumber
+    );
+    return season ? season.air_date : null;
+  }
+
+  console.log(combinedActorData.slice(0, 2));
+  // console.log('combinedActorData', combinedActorData);
 
   return (
     <>
@@ -79,6 +101,7 @@ export default async function IdPage({ params }) {
         formattedReleaseDate={null}
         age={null}
       />
+      {isASoap && <p>It's a soap</p>}
       <div
         id="actors-list"
         className="
@@ -96,8 +119,8 @@ export default async function IdPage({ params }) {
           <ActorLineItem
             key={actor.id}
             actor={actor}
-            tvFirstAirDate={tvData.first_air_date}
-            tvLastAirDate={tvData.last_air_date}
+            tvFirstAirDate={findAirDateBySeasonNumber(actor.seasonNumberLow)}
+            tvLastAirDate={findAirDateBySeasonNumber(actor.seasonNumberHigh)}
           />
         ))}
       </div>

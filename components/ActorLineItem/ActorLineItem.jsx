@@ -14,12 +14,19 @@ export default function ActorLineItem({
 }) {
   const birthday = actor?.birthday ? new Date(actor?.birthday) : null;
   const deathday = actor?.deathday;
+  const isTVactor = actor?.total_episode_count;
 
   const [loading, setLoading] = useState(false);
 
   const handleOnClick = () => {
     setLoading(true);
     window.location.href = `/actor/${actor.id}`;
+  };
+
+  const getTvActorAdditionalText = () => {
+    return actor.seasonNumberLow === actor.seasonNumberHigh
+      ? `Season ${actor.seasonNumberLow}`
+      : `Seasons ${actor.seasonNumberLow} - ${actor.seasonNumberHigh}`;
   };
 
   return (
@@ -63,7 +70,24 @@ export default function ActorLineItem({
         w-full
         static
         "
+            style={{ position: 'relative' }}
           >
+            {tvFirstAirDate && (
+              <p
+                id="tv-seasons-text"
+                style={{ position: 'absolute', top: 0, left: 0 }}
+                className="
+                px-2
+                bg-gradient-to-b
+                from-pink-200
+                to-blue-300
+                rounded-br-xl
+                border-r-4 border-b-4 border-pink-200
+                "
+              >
+                {getTvActorAdditionalText()}
+              </p>
+            )}
             <Image
               src={
                 actor?.profile_path
@@ -107,7 +131,7 @@ export default function ActorLineItem({
               <h2 className="text-blue-200 text-2xl">{actor?.name}</h2>
             </Suspense>
             <div className="flex gap-2">
-              <h3> as </h3>
+              <h3>as</h3>
               <h3 className="text-pink-300 break-normal m-0 p-0">
                 {actor.character || actor.roles[0].character}
               </h3>
@@ -133,6 +157,10 @@ export default function ActorLineItem({
                   deathday
                 )}
               </div>
+              <div
+                className="text-blue-200 text-xs"
+                id="tv-actor-additional-text"
+              ></div>
             </Suspense>
           </div>
         </>

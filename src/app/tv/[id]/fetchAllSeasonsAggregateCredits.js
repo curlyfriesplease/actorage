@@ -51,7 +51,7 @@ export async function fetchAllSeasonsAggregateCredits(
 
   // Flatten aggregateCreditsResponses into a single array that contains all the actors.
   const allActors = aggregateCreditsResponses.flatMap((response) =>
-    response?.cast.map((actor) => ({
+    response?.cast?.map((actor) => ({
       ...actor,
       season_number: response.season_number,
     }))

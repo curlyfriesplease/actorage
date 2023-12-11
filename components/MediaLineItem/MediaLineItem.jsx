@@ -108,7 +108,9 @@ export default function MediaLineItem({
             {character && (
               <div className="flex gap-2">
                 <h3> as </h3>
-                <h3 className="text-pink-200">{character}</h3>
+                <h3 className="text-pink-200">
+                  {Array.isArray(character) ? character.join(', ') : character}
+                </h3>
               </div>
             )}
             <Suspense fallback={<p>Loading actor age...</p>}>

@@ -45,7 +45,7 @@ export async function fetchAllSeasonsAggregateCredits(
         }
       });
     } else {
-      console.error('response.cast is not an array:', response.cast);
+      console.error('response.cast is not an array:', response?.cast);
     }
   });
 

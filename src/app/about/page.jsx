@@ -40,6 +40,23 @@ export default function aboutPage() {
             here
           </a>
         </h3>
+        <h3 className="italic text-sky-700 pt-3">
+          Why are there sometimes more seasons than the actors appear in?
+        </h3>
+        <h3>
+          Specials are sometimes counted as their own season in the grand total.
+          This can lead to a TV show displaying something like &quot;11
+          seasons&quot; when the actors show as starring in numbered seasons
+          &quot;1 - 10&quot;.
+        </h3>
+        <h3 className="italic text-sky-700 pt-3">
+          Why is there a limit of 21 actors per movie/show?
+        </h3>
+        <h3>
+          To limit the amount of data that is fetched from TMDB. They kindly
+          provide a free service offering the data, but it also means we are
+          limited in how much can be obtained at once.
+        </h3>
         <div>
           <h1 className="text-center text-xl text-sky-800 font-extrabold pt-7">
             Thanks to

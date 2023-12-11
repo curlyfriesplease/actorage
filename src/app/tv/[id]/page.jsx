@@ -6,6 +6,7 @@ import { fetchAllSeasonsAggregateCredits } from './fetchAllSeasonsAggregateCredi
 import { TitleAndImage } from '@/components/common/titleAndImage';
 import NavBar from '@/components/NavBar/NavBar';
 import Script from 'next/script';
+import { LargeTVShowWarning } from '@/components/Misc/LargeTVShowWarning';
 
 const isMobile = typeof window !== 'undefined' && window.innerWidth <= 768;
 
@@ -38,8 +39,8 @@ export default async function IdPage({ params }) {
   }
 
   const firstTwentyOneCastResults = creditsData.cast.slice(0, 21);
-  const isASoap = tvData.genres.some((genre) => genre.name === 'Soap');
 
+  const isASoap = tvData.genres.some((genre) => genre.name === 'Soap');
   const moreThanTwentySeasons = tvData.number_of_seasons > 20;
 
   const lastSeasonNumber = tvData.number_of_seasons;
@@ -71,7 +72,7 @@ export default async function IdPage({ params }) {
     return season ? season.air_date : null;
   }
 
-  console.log(combinedActorData.slice(0, 2));
+  // console.log(combinedActorData.slice(0, 2));
   // console.log('combinedActorData', combinedActorData);
 
   return (
@@ -101,7 +102,12 @@ export default async function IdPage({ params }) {
         formattedReleaseDate={null}
         age={null}
       />
-      {isASoap && <p>It's a soap</p>}
+      {(isASoap || moreThanTwentySeasons) && (
+        <LargeTVShowWarning
+          isASoap={isASoap}
+          moreThanTwentySeasons={moreThanTwentySeasons}
+        />
+      )}
       <div
         id="actors-list"
         className="

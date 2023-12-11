@@ -78,6 +78,7 @@ export default function ActorLineItem({
                 style={{ position: 'absolute', top: 0, left: 0 }}
                 className="
                 px-2
+                text-blue-600
                 bg-gradient-to-b
                 from-pink-200
                 to-blue-300
@@ -88,6 +89,7 @@ export default function ActorLineItem({
                 {getTvActorAdditionalText()}
               </p>
             )}
+
             <Image
               src={
                 actor?.profile_path
@@ -102,6 +104,7 @@ export default function ActorLineItem({
           "
             />
           </div>
+
           <div
             id="actor-name-character-and-age"
             className="
@@ -128,9 +131,9 @@ export default function ActorLineItem({
           "
           >
             <Suspense fallback={<p>Loading actor name...</p>}>
-              <h2 className="text-blue-200 text-2xl">{actor?.name}</h2>
+              <h2 className="text-blue-200 text-xl">{actor?.name}</h2>
             </Suspense>
-            <div className="flex gap-2">
+            <div className="flex gap-2 text-sm">
               <h3>as</h3>
               <h3 className="text-pink-300 break-normal m-0 p-0">
                 {actor.character || actor.roles[0].character}
@@ -142,11 +145,11 @@ export default function ActorLineItem({
             text-rose-200
             bg-gradient-to-b
             from-transparent
-            to-black
+            to-blackx
             py-1
             px-3
             rounded-full
-                backdrop-opacity-10
+            backdrop-opacity-10
             "
               >
                 {getActorAge(
@@ -157,10 +160,6 @@ export default function ActorLineItem({
                   deathday
                 )}
               </div>
-              <div
-                className="text-blue-200 text-xs"
-                id="tv-actor-additional-text"
-              ></div>
             </Suspense>
           </div>
         </>

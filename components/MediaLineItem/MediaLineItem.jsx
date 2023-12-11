@@ -50,6 +50,21 @@ export default function MediaLineItem({
     >
       {!loading && (
         <>
+          <p
+            id="media-year-text"
+            style={{ position: 'absolute', top: 0, left: 0 }}
+            className="
+                px-2
+                pt-1
+                text-blue-600
+                bg-pink-200
+                rounded-br-xl
+                border-r-1 border-b-1 border-pink-200
+                "
+          >
+            {releaseDate && releaseDate.slice(0, 4)}
+            {tvFirstAirDate && tvFirstAirDate.slice(0, 4)}
+          </p>
           <Image
             src={
               imagePath

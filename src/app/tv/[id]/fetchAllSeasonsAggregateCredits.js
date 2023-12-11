@@ -33,7 +33,7 @@ export async function fetchAllSeasonsAggregateCredits(
 
   // For each response, add the cast to the aggregateCreditsData array.
   aggregateCreditsResponses.forEach((response) => {
-    if (Array.isArray(response.cast)) {
+    if (Array.isArray(response?.cast)) {
       response.cast.forEach((actor) => {
         const existingActor = aggregateCreditsData.find(
           (a) => a.id === actor.id

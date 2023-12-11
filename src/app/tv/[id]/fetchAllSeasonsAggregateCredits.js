@@ -51,7 +51,7 @@ export async function fetchAllSeasonsAggregateCredits(
 
   // Flatten aggregateCreditsResponses into a single array that contains all the actors.
   const allActors = aggregateCreditsResponses.flatMap((response) =>
-    response.cast.map((actor) => ({
+    response?.cast.map((actor) => ({
       ...actor,
       season_number: response.season_number,
     }))
@@ -59,17 +59,17 @@ export async function fetchAllSeasonsAggregateCredits(
 
   // Group the actors by their id (or any unique identifier for an actor).
   const groupedActors = allActors.reduce((groups, actor) => {
-    if (!groups[actor.id]) {
-      groups[actor.id] = [];
+    if (!groups[actor?.id]) {
+      groups[actor?.id] = [];
     }
-    groups[actor.id].push(actor);
+    groups[actor?.id].push(actor);
     return groups;
   }, {});
 
   // For each group of actors, find the minimum and maximum season_number and assign these
   // to seasonNumberLow and seasonNumberHigh respectively.
   const finalActors = Object.values(groupedActors).map((group) => {
-    const seasonNumbers = group.map((actor) => actor.season_number);
+    const seasonNumbers = group.map((actor) => actor?.season_number);
     const seasonNumberLow = Math.min(...seasonNumbers);
     const seasonNumberHigh = Math.max(...seasonNumbers);
     return { ...group[0], seasonNumberLow, seasonNumberHigh };

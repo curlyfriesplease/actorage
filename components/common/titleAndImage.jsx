@@ -119,7 +119,10 @@ export const TitleAndImage = ({
         >
           <h2 className="text-blue-500 text-3xl py-3">{title}</h2>
           <h3 className="text-pink-500 text-2xl py-3">
-            {furtherData.number_of_seasons} Seasons
+            {Math.max(
+              ...furtherData.seasons.map((season) => season.season_number)
+            )}{' '}
+            Seasons
           </h3>
           <h3 className="text-pink-500 py-5 font-medium">
             {'When broadcast between '}

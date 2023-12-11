@@ -34,6 +34,7 @@ export const LargeTVShowWarning = ({ isASoap, moreThanTwentySeasons }) => {
         bg-gradient-to-b 
         from-amber-300 
         to-yellow-300
+        border-4 border-amber-400
         "
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}

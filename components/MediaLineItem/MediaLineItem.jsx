@@ -109,7 +109,10 @@ export default function MediaLineItem({
               <div className="flex gap-2">
                 <h3> as </h3>
                 <h3 className="text-pink-200">
-                  {Array.isArray(character) ? character.join(', ') : character}
+                  {Array.isArray(character)
+                    ? character.slice(0, 3).join(', ') +
+                      (character.length > 3 ? ' & more' : '')
+                    : character}
                 </h3>
               </div>
             )}
@@ -122,7 +125,7 @@ export default function MediaLineItem({
                   tvLastAirDate
                 )}
               </div>
-              <p>{id}</p>
+              {/* <p>{id}</p> */}
             </Suspense>
           </div>
         </>

@@ -28,6 +28,8 @@ const idsToBeExcluded = [
   8621, // Late night with Jimmy Fallon
   1900, // Live with Kelly and Mark
   10029, // Great performances
+  1489, // Jimmy Kimmel Live!
+  4419, // Real time with Bill Maher
 ];
 
 export async function fetchPersonCombinedCreditsData(value) {

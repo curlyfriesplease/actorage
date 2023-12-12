@@ -23,12 +23,6 @@ export default function ActorLineItem({
     window.location.href = `/actor/${actor.id}`;
   };
 
-  const getTvActorAdditionalText = () => {
-    return actor.seasonNumberLow === actor.seasonNumberHigh
-      ? `Season ${actor.seasonNumberLow}`
-      : `Seasons ${actor.seasonNumberLow} - ${actor.seasonNumberHigh}`;
-  };
-
   return (
     <motion.div
       id="ActorLineItemOuterContainer"
@@ -86,7 +80,7 @@ export default function ActorLineItem({
                 border-r-4 border-b-4 border-pink-200
                 "
               >
-                {getTvActorAdditionalText()}
+                {actor.seasonNumbersText}
               </p>
             )}
 

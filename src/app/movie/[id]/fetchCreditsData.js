@@ -2,7 +2,6 @@ import { checkEnvironment } from '../../functions/checkEnv';
 
 export async function fetchCreditsData(value) {
   if (value.length) {
-    console.log('fetchCreditsData (movie) value received: ' + value);
     try {
       const response = await fetch(
         checkEnvironment().concat(`/api/movie?query=${value}/credits`)

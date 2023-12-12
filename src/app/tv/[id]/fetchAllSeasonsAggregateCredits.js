@@ -15,7 +15,8 @@ export async function fetchAllSeasonsAggregateCredits(
     seasonNumbers.push(i);
   }
 
-  // Create an array of promises, each one being a fetch request for the aggregate credits data for each season within the range of seasons provided.
+  // Create an array of promises, each one being a fetch request for
+  // the aggregate credits data for each season within the range of seasons provided.
   const aggregateCreditsPromises = seasonNumbers.map((season_number) => {
     const seasonNumberPromise = fetchCreditsData(
       `${id}/season/${season_number}`
@@ -67,12 +68,41 @@ export async function fetchAllSeasonsAggregateCredits(
   }, {});
 
   // For each group of actors, find the minimum and maximum season_number and assign these
-  // to seasonNumberLow and seasonNumberHigh respectively.
+  // to seasonNumberLow and seasonNumberHigh respectively. Then, create a string that
+  // describes the range of seasons, e.g. "Seasons 1-3, 5, 7-9".
   const finalActors = Object.values(groupedActors).map((group) => {
-    const seasonNumbers = group.map((actor) => actor?.season_number);
-    const seasonNumberLow = Math.min(...seasonNumbers);
-    const seasonNumberHigh = Math.max(...seasonNumbers);
-    return { ...group[0], seasonNumberLow, seasonNumberHigh };
+    const seasonNumbers = group.map((actor) => actor.season_number);
+    seasonNumbers.sort((a, b) => a - b);
+
+    const seasonRanges = [];
+    let currentRange = [seasonNumbers[0]];
+
+    for (let i = 1; i < seasonNumbers.length; i++) {
+      if (seasonNumbers[i] === currentRange[currentRange.length - 1] + 1) {
+        currentRange.push(seasonNumbers[i]);
+      } else {
+        seasonRanges.push(currentRange);
+        currentRange = [seasonNumbers[i]];
+      }
+    }
+    seasonRanges.push(currentRange);
+
+    const seasonNumbersText = seasonRanges
+      .map((range) =>
+        range.length > 1
+          ? `${range[0]}-${range[range.length - 1]}`
+          : `${range[0]}`
+      )
+      .join(', ');
+
+    const seasonText = seasonNumbers.length > 1 ? 'Seasons' : 'Season';
+
+    return {
+      ...group[0],
+      seasonNumberLow: Math.min(...seasonNumbers),
+      seasonNumberHigh: Math.max(...seasonNumbers),
+      seasonNumbersText: `${seasonText} ${seasonNumbersText}`,
+    };
   });
 
   // Sort the actors by popularity

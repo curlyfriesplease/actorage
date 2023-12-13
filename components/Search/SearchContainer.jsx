@@ -11,13 +11,13 @@ export default function SearchContainer() {
   console.dir(results);
   return (
     <motion.div
-      className="h-200 w-full max-w-lg pt-9"
+      className="h-200 w-full max-w-lg pt-9 flex justify-center"
       initial={{ opacity: 0, scale: 0.5 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 1.5, type: 'spring', bounce: 0.75 }}
     >
       <SearchBar setResults={setResults} />
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<div>Loading...</div>} className="relative">
         {results && results.results?.length > 0 && (
           <SearchResultsList results={results} />
         )}

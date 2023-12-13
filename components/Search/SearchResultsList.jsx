@@ -67,6 +67,14 @@ export const SearchResultsList = ({ results }) => {
                 transition: { staggerChildren: 0.15 },
               },
             }}
+            className="
+            absolute 
+            z-10 
+            flex-col 
+            items-center
+            justify-center
+            mt-20
+            "
           >
             {memoizedTransformedResults.map((result, id) => {
               return (

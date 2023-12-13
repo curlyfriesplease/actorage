@@ -81,7 +81,14 @@ export const SearchResult = ({ result, handleOnClick }) => {
       onClick={() => {
         handleOnClick(result.id, result.media_type);
       }}
-      className="flex justify-between px-3 py-2"
+      className="
+      flex 
+      justify-between 
+      px-3 
+      py-2 
+      bg-white 
+      max-w-[90vw]
+      "
       variants={{
         initial: { opacity: 0, x: -150 },
         animate: { opacity: 1, x: 0 },
@@ -97,11 +104,11 @@ export const SearchResult = ({ result, handleOnClick }) => {
       }}
       onMouseOver={(e) => {
         // e.currentTarget.style.border = '3px solid lightgrey';
-        e.currentTarget.style.backgroundColor = '#f8f8f8';
+        e.currentTarget.style.backgroundColor = '#f8e8ee';
       }}
       onMouseOut={(e) => {
         e.currentTarget.style.border = 'none';
-        e.currentTarget.style.backgroundColor = 'transparent';
+        e.currentTarget.style.backgroundColor = '#f8f8f8';
       }}
     >
       <div id="icon_and_year_container" className="flex items-center">

@@ -2,7 +2,6 @@
 
 import { useState, useCallback } from 'react';
 import { fetchSearchData } from './fetchSearchData';
-import { MagnifyingGlassIcon } from './icons';
 
 export default function SearchBar({ setResults }) {
   const [input, setInput] = useState('');
@@ -22,7 +21,7 @@ export default function SearchBar({ setResults }) {
 
   return (
     <>
-      <div className="w-100 text-indigo-950 py-4 font-medium">
+      <div className="w-full text-indigo-950 py-4 font-medium">
         <input
           placeholder="Enter movie, TV show, or actor name"
           type={'search'}

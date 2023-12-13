@@ -1,8 +1,5 @@
 import './globals.css';
 import 'tailwindcss/tailwind.css';
-import { Inter } from 'next/font/google';
-import NavBar from '@/components/NavBar/NavBar';
-import Footer from '@/components/Footer/Footer';
 import { dosis } from './fonts';
 
 export const metadata = {
@@ -31,7 +28,6 @@ export default function RootLayout({ children }) {
         >
           {children}
         </main>
-        <Footer />
       </body>
     </html>
   );

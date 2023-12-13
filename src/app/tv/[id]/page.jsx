@@ -30,7 +30,9 @@ export default async function IdPage({ params }) {
       <div
         className="
     text-slate-700
-    h-screen
+    flex items-center
+     justify-center 
+     min-h-screen
     "
       >
         Loading...

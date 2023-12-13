@@ -20,8 +20,12 @@ export default async function IdPage({ params }) {
   if (!personData) {
     return (
       <div
-        className="    text-slate-700
-    h-screen"
+        className="
+      text-slate-700
+      flex items-center
+       justify-center 
+       min-h-screen
+      "
       >
         Loading...
       </div>

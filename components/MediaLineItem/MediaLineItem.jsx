@@ -1,10 +1,10 @@
 'use client';
 
 import Image from 'next/image';
-import Link from 'next/link';
 import { Suspense } from 'react';
 import { getActorAge } from '@/src/app/functions/getActorAge';
 import { useState } from 'react';
+import { GetMediaLineItemIcon } from './GetMediaLineItemIcon';
 
 export default function MediaLineItem({
   id,
@@ -12,7 +12,6 @@ export default function MediaLineItem({
   mediaTitle,
   releaseDate,
   tvFirstAirDate,
-  tvLastAirDate,
   character,
   actorBirthday,
   mediaType,
@@ -59,12 +58,35 @@ export default function MediaLineItem({
                 text-blue-600
                 bg-pink-200
                 rounded-br-xl
-                border-r-1 border-b-1 border-pink-200
+                border-r-1 
+                border-b-1 
+                border-pink-200
                 "
           >
             {releaseDate && releaseDate.slice(0, 4)}
             {tvFirstAirDate && tvFirstAirDate.slice(0, 4)}
           </p>
+          <div
+            id="media-type-icon"
+            style={{
+              position: 'absolute',
+              top: 0,
+              right: 0,
+              opacity: 1,
+              zIndex: 1,
+            }}
+            className="
+                px-2
+                py-1
+                m-1
+                rounded-xl
+                border-pink-800
+                bg-pink-200
+                bg-opacity-100
+                "
+          >
+            {GetMediaLineItemIcon(mediaType)}
+          </div>
           <Image
             src={
               imagePath

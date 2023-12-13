@@ -71,7 +71,7 @@ export async function fetchAllSeasonsAggregateCredits(
   // to seasonNumberLow and seasonNumberHigh respectively. Then, create a string that
   // describes the range of seasons, e.g. "Seasons 1-3, 5, 7-9".
   const finalActors = Object.values(groupedActors).map((group) => {
-    const seasonNumbers = group.map((actor) => actor.season_number);
+    const seasonNumbers = group.map((actor) => actor?.season_number);
     seasonNumbers.sort((a, b) => a - b);
 
     const seasonRanges = [];

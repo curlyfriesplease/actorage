@@ -8,10 +8,18 @@ import { SearchResultsList } from './SearchResultsList';
 
 export default function SearchContainer() {
   const [results, setResults] = useState([]);
-  console.dir(results);
   return (
     <motion.div
-      className="h-200 w-full max-w-lg pt-9 flex justify-center"
+      id="search-container"
+      className="
+      h-200 
+      w-full 
+      max-w-lg 
+      pt-9 
+      flex-col 
+      justify-center
+      relative
+      "
       initial={{ opacity: 0, scale: 0.5 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 1.5, type: 'spring', bounce: 0.75 }}

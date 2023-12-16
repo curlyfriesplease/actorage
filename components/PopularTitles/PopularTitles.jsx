@@ -18,7 +18,7 @@ export const PopularTitles = () => {
     w-full 
     max-w-[80%]
     h-2/5
-    max-h-[30vh]
+    max-h-[35vh]
     flex-1
     text-center
     text-md
@@ -39,8 +39,7 @@ export const PopularTitles = () => {
         grid-rows-2
         gap-3 
         justify-items-stretch
-        h-full
-        md:max-h-[30vh]
+        h-auto
         w-full
           "
       >
@@ -48,8 +47,10 @@ export const PopularTitles = () => {
           <motion.div
             key={title.id}
             className="
-              px-4 
-              py-4 
+              md:px-3
+              md:py-3
+              px-2
+              py-2
               bg-gradient-to-b 
               from-rose-200 
               via-indigo-100 
@@ -60,7 +61,6 @@ export const PopularTitles = () => {
               fade-edges 
               overflow-auto 
               cursor-pointer
-              relative
             "
             onClick={() => {
               handleOnClick(title.id);
@@ -68,9 +68,12 @@ export const PopularTitles = () => {
             whileHover={{ scale: 1.05 }}
           >
             <Image
+              id="popular-titles-image"
               src={`https://image.tmdb.org/t/p/w200${title.img}`}
-              layout="fill"
-              objectFit="cover"
+              width={200}
+              height={300}
+              layout="responsive"
+              objectFit="contain"
               alt={title.name}
             />
           </motion.div>

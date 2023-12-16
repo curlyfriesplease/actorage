@@ -63,17 +63,18 @@ export const SearchResultsList = ({ results }) => {
               animate: { opacity: 1, transition: { staggerChildren: 0.15 } },
               exit: {
                 opacity: 0,
-                x: 150,
+                x: 200,
                 transition: { staggerChildren: 0.15 },
               },
             }}
             className="
             absolute 
             z-10 
+            w-full
             flex-col 
             items-center
             justify-center
-            mt-20
+            mt-1
             "
           >
             {memoizedTransformedResults.map((result, id) => {

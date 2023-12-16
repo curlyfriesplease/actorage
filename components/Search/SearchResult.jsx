@@ -88,6 +88,7 @@ export const SearchResult = ({ result, handleOnClick }) => {
       py-2 
       bg-white 
       max-w-[90vw]
+      rounded-2xl
       "
       variants={{
         initial: { opacity: 0, x: -150 },
@@ -95,15 +96,13 @@ export const SearchResult = ({ result, handleOnClick }) => {
       }}
       transition={{
         type: 'spring',
-        bounce: 0.45, // Adjust this value to control the bounciness
+        bounce: 0.35,
       }}
       whileHover={{ scale: 1.02 }}
       style={{
-        borderRadius: '25px',
         cursor: 'pointer',
       }}
       onMouseOver={(e) => {
-        // e.currentTarget.style.border = '3px solid lightgrey';
         e.currentTarget.style.backgroundColor = '#f8e8ee';
       }}
       onMouseOut={(e) => {
@@ -113,11 +112,13 @@ export const SearchResult = ({ result, handleOnClick }) => {
     >
       <div id="icon_and_year_container" className="flex items-center">
         {getIcon(result.media_type)}
-        <h4 className="text-amber-600 font-medium px-7 text-center">
+        <h4 className="text-amber-600 font-medium px-5 text-center">
           {result.release_date}
         </h4>
       </div>
-      <h3 className="text-right font-medium text-sky-900">{result.title}</h3>
+      <h3 className="text-right font-medium text-sky-900 pr-2">
+        {result.title}
+      </h3>
     </motion.div>
   );
 };

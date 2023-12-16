@@ -8,10 +8,12 @@ import { motion } from 'framer-motion';
 
 export const PopularTitles = () => {
   const handleOnClick = (url) => {
+    setLoading(true);
     window.location.href = `${url}`;
   };
 
   const [sixTitleIds, setTitleIds] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     setTitleIds(popularTitleIds.sort(() => 0.5 - Math.random()).slice(0, 6));
@@ -36,10 +38,32 @@ export const PopularTitles = () => {
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 2.25, type: 'spring', bounce: 0.75 }}
     >
-      <h2 className="py-3">Popular titles</h2>
-      <div
-        id="popular-titles-images"
-        className="
+      {loading && (
+        <div
+          id="loading-spinner-container"
+          className="
+                flex
+                justify-center
+                h-full
+                "
+          style={{ height: '155px' }}
+        >
+          <Image
+            src="/images/LoadingEclipse.gif"
+            alt="Loading"
+            width={150} // specify the width
+            height={100} // specify the height
+            objectFit="contain"
+          />
+        </div>
+      )}
+
+      {!loading && (
+        <>
+          <h2 className="py-3">Popular titles</h2>
+          <div
+            id="popular-titles-images"
+            className="
         grid
         grid-cols-3
         grid-rows-2
@@ -48,11 +72,11 @@ export const PopularTitles = () => {
         h-auto
         w-full
           "
-      >
-        {sixTitleIds.map((title) => (
-          <motion.div
-            key={title.id}
-            className="
+          >
+            {sixTitleIds.map((title) => (
+              <motion.div
+                key={title.id}
+                className="
               md:px-3
               md:py-3
               px-2
@@ -68,23 +92,25 @@ export const PopularTitles = () => {
               overflow-auto 
               cursor-pointer
             "
-            onClick={() => {
-              handleOnClick(title.id);
-            }}
-            whileHover={{ scale: 1.05 }}
-          >
-            <Image
-              id="popular-titles-image"
-              src={`https://image.tmdb.org/t/p/w200${title.img}`}
-              width={200}
-              height={300}
-              layout="responsive"
-              objectFit="contain"
-              alt={title.id}
-            />
-          </motion.div>
-        ))}
-      </div>
+                onClick={() => {
+                  handleOnClick(title.id);
+                }}
+                whileHover={{ scale: 1.05 }}
+              >
+                <Image
+                  id="popular-titles-image"
+                  src={`https://image.tmdb.org/t/p/w200${title.img}`}
+                  width={200}
+                  height={300}
+                  layout="responsive"
+                  objectFit="contain"
+                  alt={title.id}
+                />
+              </motion.div>
+            ))}
+          </div>
+        </>
+      )}
     </motion.div>
   );
 };

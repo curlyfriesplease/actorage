@@ -4,13 +4,11 @@ import Image from 'next/image';
 import DirectorDetails from '@/components/Misc/Director';
 import { motion } from 'framer-motion';
 
-// TODO: Remove isMobile
 export const TitleAndImage = ({
   mediaType,
   imagePath,
   title,
   furtherData,
-  isMobile,
   directorId,
   directorDetails,
   formattedReleaseDate,
@@ -21,14 +19,13 @@ export const TitleAndImage = ({
     <motion.div
       id="title-and-image-container"
       className={`
-    flex 
-    ${isMobile ? 'flex-col' : 'flex-row'}      
+    flex
     justify-center
     items-center
     text-center
     max-h-96
     max-w-screen-md
-    py-7
+    py-3
     px-4
     m-1
     mt-5
@@ -54,8 +51,8 @@ export const TitleAndImage = ({
               : '/images/PlaceholderFilmPoster.png'
           }
           alt="Film poster"
-          width={isMobile ? 300 : 200}
-          height={isMobile ? 400 : 300}
+          width={200}
+          height={300}
           className="
           rounded-lg
           shadow-xl
@@ -81,11 +78,24 @@ export const TitleAndImage = ({
         >
           <h2
             id="movie-year"
-            className="text-blue-500 text-3xl py-2 font-semibold"
+            className="
+            text-blue-500 
+            md:text-3xl
+            text-xl
+            py-2 
+            font-semibold"
           >
             {title}
           </h2>
-          <h3 className="text-sky-600 py-2 text-bas font-medium">
+          <h3
+            className="
+          text-sky-600
+           py-2 
+           text-sm 
+           md:text-lg
+           font-medium
+           "
+          >
             {furtherData.genres?.map((genre) => genre?.name).join(', ')},&nbsp;
             {furtherData.runtime} mins{' '}
           </h3>

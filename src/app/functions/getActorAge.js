@@ -8,7 +8,7 @@ export const getActorAge = (
   if (deathday < releaseDate) {
     return (
       <>
-        <h3 className="text-red-400 text-3xl">Deddybones</h3>
+        <h3 className="text-red-400 text-2xl">Deddybones</h3>
       </>
     );
   }
@@ -23,9 +23,27 @@ export const getActorAge = (
         (monthDifference === 0 &&
           movieRelease.getDate() < beeeeeeeerthday.getDate())
       ) {
-        return <h3 className="text-3xl">was {age - 1}</h3>;
+        return (
+          <h3
+            className="
+            md:text-3xl
+            text-2xl
+        "
+          >
+            was {age - 1}
+          </h3>
+        );
       }
-      return <h3 className="text-3xl">was {age}</h3>;
+      return (
+        <h3
+          className="
+          md:text-3xl
+            text-2xl
+      "
+        >
+          was {age}
+        </h3>
+      );
     } else {
       const tvStartDate = new Date(tvFirstAirDate);
       const tvEndDate = tvLastAirDate ? new Date(tvLastAirDate) : new Date();
@@ -39,12 +57,27 @@ export const getActorAge = (
         return;
       }
 
+      // For TV shows
       if (tvFirstAirDate && tvLastAirDate) {
         if (ageFrom === ageTo) {
-          return <h3 className="text-3xl">was {ageFrom}</h3>;
+          return (
+            <h3
+              className="
+              md:text-3xl
+              text-2xl
+          "
+            >
+              was {ageFrom}
+            </h3>
+          );
         } else {
           return (
-            <h3 className="text-3xl">
+            <h3
+              className="
+              md:text-3xl
+              text-2xl
+            "
+            >
               was {ageFrom} to {ageTo}
             </h3>
           );
@@ -53,10 +86,28 @@ export const getActorAge = (
 
       // Generally for TV shows without an end date, like Conan and SNL etc
       if (tvFirstAirDate) {
-        return <h3 className="text-3xl">was {ageFrom}</h3>;
+        return (
+          <h3
+            className="          
+            md:text-3xl
+            text-2xl
+            "
+          >
+            was {ageFrom}
+          </h3>
+        );
       }
     }
   } else {
-    return <h3 className="text-3xl">Age unknown</h3>;
+    return (
+      <h3
+        className="          
+        md:text-3xl
+        text-2xl
+        "
+      >
+        Age unknown
+      </h3>
+    );
   }
 };

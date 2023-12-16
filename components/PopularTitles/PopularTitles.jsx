@@ -36,7 +36,7 @@ export const PopularTitles = () => {
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 2.25, type: 'spring', bounce: 0.75 }}
     >
-      <h2 className="py-3">POPULAR TITLES</h2>
+      <h2 className="py-3">Popular titles</h2>
       <div
         id="popular-titles-images"
         className="

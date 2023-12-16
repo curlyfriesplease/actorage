@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import { useState, useEffect } from 'react';
 import { popularTitleIds } from './titleIds';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
@@ -10,7 +11,12 @@ export const PopularTitles = () => {
     window.location.href = `${url}`;
   };
 
-  const titleIds = popularTitleIds.sort(() => 0.5 - Math.random()).slice(0, 6);
+  const [sixTitleIds, setTitleIds] = useState([]);
+
+  useEffect(() => {
+    setTitleIds(popularTitleIds.sort(() => 0.5 - Math.random()).slice(0, 6));
+  }, []);
+
   return (
     <motion.div
       id="popular-titles"
@@ -43,7 +49,7 @@ export const PopularTitles = () => {
         w-full
           "
       >
-        {titleIds.map((title) => (
+        {sixTitleIds.map((title) => (
           <motion.div
             key={title.id}
             className="
@@ -74,7 +80,7 @@ export const PopularTitles = () => {
               height={300}
               layout="responsive"
               objectFit="contain"
-              alt={title.name}
+              alt={title.id}
             />
           </motion.div>
         ))}

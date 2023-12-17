@@ -53,7 +53,7 @@ export const SearchResultsList = ({ results }) => {
     <Suspense fallback={<div>Loading...</div>}>
       <AnimatePresence>
 
-        {isResultsVisible && (
+        {!isResultsVisible && (
           <motion.div
             id="results-list"
             initial="initial"
@@ -90,7 +90,7 @@ export const SearchResultsList = ({ results }) => {
           </motion.div>
         )}
 
-        {!isResultsVisible && (
+        {isResultsVisible && (
           <div
             className="
             absolute 
@@ -103,8 +103,8 @@ export const SearchResultsList = ({ results }) => {
             <Image
               src="/images/LoadingEclipse.gif"
               alt="Loading"
-              width={60}
-              height={60}
+              width={40}
+              height={40}
             />
           </div>
         )}

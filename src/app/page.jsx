@@ -22,6 +22,7 @@ export default function Home() {
       </Head>
       <div
         className="
+        id='flex-column-for-main-content-and-footer'
         main-container
         flex 
         flex-col
@@ -40,6 +41,7 @@ export default function Home() {
         </Script>
 
         <main
+        id='main-content'
           className="
           flex 
           flex-col
@@ -52,14 +54,15 @@ export default function Home() {
           max-w-screen-md
           h-full
             "
-        >
+        > 
           <div
             id="logo-and-search"
             className="
             flex 
             flex-col 
+            flex-grow
             items-center 
-            h-1/2
+            max-h-[40%]
             w-full
                 "
           >
@@ -67,9 +70,11 @@ export default function Home() {
             <SearchContainer />
           </div>
           <PopularTitles />
+          <Footer />
         </main>
+
       </div>
-      <Footer />
+
     </div>
   );
 }

@@ -20,10 +20,12 @@ export const MainLogo = () => {
     <motion.div
       id="main-full-size-logo"
       className="
-    relative 
-    w-2/3
-    pb-full
-    py-10
+      flex 
+      flex-grow
+      relative 
+      w-2/3
+      pb-full
+      py-10
    "
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.7 }}
@@ -35,11 +37,9 @@ export const MainLogo = () => {
       <Image
         src="/images/HOWTA_png_full_size_compressed.png"
         alt="navbarlogo"
-        width={200}
-        height={200}
-        layout="responsive"
+        layout="fill"
         objectFit="contain"
-        className="cursor-pointer"
+        className="cursor-pointer max-w-full max-h-full"
       />
     </motion.div>
   );

@@ -24,15 +24,23 @@ export const PopularTitles = () => {
       id="popular-titles"
       className="
     w-full 
-    max-w-[80%]
-    h-2/5
-    max-h-[35vh]
+    max-w-[95%]
+    max-w-[450px]
+    flex-grow
+    max-h-[40vh]
     flex-1
     text-center
     text-md
     md:text-xl
     text-sky-600
     text-bold
+    overflow-hidden
+    no-scrollbar
+    flex
+    flex-col
+    justify-center
+    items-center
+    rounded-xl
     "
       initial={{ opacity: 0, scale: 0.5 }}
       animate={{ opacity: 1, scale: 1 }}
@@ -64,48 +72,63 @@ export const PopularTitles = () => {
           <div
             id="popular-titles-images"
             className="
-        grid
-        grid-cols-3
-        grid-rows-2
-        gap-3 
-        justify-items-stretch
-        h-auto
-        w-full
+            grid
+            grid-cols-3
+            gap-3 
+            justify-items-stretch
+            w-full
+            h-full
+            overflow-auto
+            no-scrollbar
+            rounded-xl
           "
           >
             {sixTitleIds.map((title) => (
               <motion.div
+              id='popular-titles-image-container'
                 key={title.id}
                 className="
-              md:px-3
-              md:py-3
-              px-2
-              py-2
-              bg-gradient-to-b 
+ 
+              bg-transparent
+              hover:bg-gradient-to-b 
               from-rose-200 
               via-indigo-100 
               to-violet-200
-              hover:bg-zinc-900 
               rounded-xl 
               text-center 
               fade-edges 
-              overflow-auto 
+              overflow-hidden
               cursor-pointer
+              relative
+              flex
+              items-center
+              justify-center
             "
                 onClick={() => {
                   handleOnClick(title.id);
                 }}
                 whileHover={{ scale: 1.05 }}
               >
+              <div 
+              id='weird-div'
+              className="
+              w-64 
+              lg:w-80
+              h-96 
+              px-1 
+              lg:p-2
+              max-h-full
+              ">
+              <div className="w-full h-full relative">
                 <Image
                   id="popular-titles-image"
                   src={`https://image.tmdb.org/t/p/w200${title.img}`}
-                  width={200}
-                  height={300}
-                  layout="responsive"
+                  layout="fill"
                   objectFit="contain"
                   alt={title.id}
                 />
+                  </div>
+                </div>
               </motion.div>
             ))}
           </div>

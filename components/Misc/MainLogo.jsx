@@ -26,6 +26,8 @@ export const MainLogo = () => {
       w-2/3
       pb-full
       py-10
+      w-[300px]
+      h-[300px]
    "
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.7 }}

@@ -24,8 +24,7 @@ export const PopularTitles = () => {
       id="popular-titles"
       className="
     w-full 
-    max-w-[95%]
-    max-w-[450px]
+    max-w-[400px]
     flex-grow
     max-h-[40vh]
     flex-1

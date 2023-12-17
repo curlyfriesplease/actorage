@@ -13,7 +13,10 @@ export default async function handler(req, res) {
   try {
     const response = await fetch(searchEndpoint, options);
     const data = await response.json();
-    data.results = data.results.filter((result) => result.popularity >= 15);
+
+    // Set the popularity score, filter below this value
+    data.results = data.results.filter((result) => result.popularity >= 10);
+
     res.status(200).json(data);
   } catch (error) {
     console.error(error);

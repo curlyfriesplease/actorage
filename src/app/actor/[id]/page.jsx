@@ -73,6 +73,17 @@ export default async function IdPage({ params }) {
 
   return (
     <>
+      <Head>
+        <title>{`How old was ${personData.name} in all their performances?`}</title>
+        <meta
+          name="description"
+          content={`Find out how old ${personData.name} was when they made all their movies and TV shows.`}
+        />
+        <meta
+          name="keywords"
+          content="actor ages, TV, movies, celebrity ages, cast ages, Hollywood"
+        ></meta>
+      </Head>
       <div className="container">
         <Script src="https://www.googletagmanager.com/gtag/js?id=G-FTXF5FMKJZ" />
         <Script id="google-analytics">

@@ -20,6 +20,23 @@ export default function Home() {
       <Head>
         <title>How Old Was That Actor?</title>
       </Head>
+      <meta
+        name="description"
+        content="See the ages of castmembers from film and TV shows. Search for any film, TV show, or actor."
+      />
+      <meta
+        name="keywords"
+        content="actors, entertainment, ages, old, young, hollywood, film, movies tv"
+      />
+      <meta property="og:title" content="How Old Was That Actor?" />
+      <meta
+        property="og:description"
+        content="See the ages of castmembers from film and TV shows. Search for any film, TV show, or actor."
+      />
+      <meta
+        property="og:image"
+        content="/images/HOWTA_png_full_size_compressed.png"
+      />
       <div
         className="
         id='flex-column-for-main-content-and-footer'
@@ -41,7 +58,7 @@ export default function Home() {
         </Script>
 
         <main
-        id='main-content'
+          id="main-content"
           className="
           flex 
           flex-col
@@ -54,7 +71,7 @@ export default function Home() {
           max-w-screen-md
           h-full
             "
-        > 
+        >
           <div
             id="logo-and-search"
             className="
@@ -72,9 +89,7 @@ export default function Home() {
           <PopularTitles />
           <Footer />
         </main>
-
       </div>
-
     </div>
   );
 }

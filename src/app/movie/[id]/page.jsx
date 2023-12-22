@@ -3,6 +3,7 @@ import { fetchMovieData } from './fetchMovieData';
 import { fetchCreditsData } from './fetchCreditsData';
 import { fetchActorData } from '@/components/ActorLineItem/fetchActorData';
 import { TitleAndImage } from '@/components/common/titleAndImage';
+import Head from 'next/head';
 import NavBar from '@/components/NavBar/NavBar';
 import Script from 'next/script';
 

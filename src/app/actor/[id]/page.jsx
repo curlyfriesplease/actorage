@@ -2,6 +2,7 @@ import { fetchPersonData } from './fetchPersonData';
 import { fetchPersonCombinedCreditsData } from './fetchPersonCombinedCreditsData';
 import { TitleAndImage } from '@/components/common/titleAndImage';
 import NavBar from '@/components/NavBar/NavBar';
+import Head from 'next/head';
 import { ClientSideCreditsList } from './ClientSideCreditsList';
 import Script from 'next/script';
 

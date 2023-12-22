@@ -168,7 +168,9 @@ export const TitleAndImage = ({
           <h3 className="text-pink-500 py-5 font-medium">
             {furtherData.place_of_birth}
           </h3>
-          <h2 className="text-amber-600 text-lg px-2 font-medium">{age}</h2>
+          <h2 className="text-amber-600 text-lg px-2 font-medium">
+            {age ? age : 'Age unknown'}
+          </h2>
         </div>
       )}
     </motion.div>

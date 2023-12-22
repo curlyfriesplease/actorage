@@ -130,7 +130,9 @@ export default function ActorLineItem({
             <div className="flex gap-2 text-sm">
               <h3>as</h3>
               <h3 className="text-pink-300 break-normal m-0 p-0">
-                {actor.character || actor.roles[0].character}
+                {actor?.character ||
+                  actor?.roles?.[0]?.character ||
+                  'Unknown character'}
               </h3>
             </div>
             <Suspense fallback={<p>Loading actor age...</p>}>

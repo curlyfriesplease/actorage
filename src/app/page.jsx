@@ -20,6 +20,7 @@ export default function Home() {
       <Head>
         <title>How Old Was That Actor?</title>
       </Head>
+      <link rel="canonical" href="https://www.howoldwasthat.actor"></link>
       <meta
         name="description"
         content="See the ages of castmembers from film and TV shows. Search for any film, TV show, or actor."

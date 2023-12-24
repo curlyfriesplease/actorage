@@ -1,8 +1,21 @@
 import NavBar from '@/components/NavBar/NavBar';
+import Head from 'next/head';
 
 export default function aboutPage() {
   return (
     <>
+      <Head>
+        <title>About: How Old Was That Actor?</title>
+      </Head>
+      <link rel="canonical" href="https://www.howoldwasthat.actor"></link>
+      <meta
+        name="description"
+        content="About page for How Old Was That Actor?"
+      />
+      <meta
+        name="keywords"
+        content="actors, entertainment, ages, old, young, hollywood, film, movies tv"
+      />
       <NavBar />
       <div
         id="about-page-main-div"

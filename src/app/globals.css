@@ -18,14 +18,22 @@
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb)) 100vh
-    )
-    rgb(var(--background-start-rgb));
-  background-attachment: fixed;
+  background: linear-gradient(-45deg, #ffbe93, #a7c7e7, #ffbe93, #a7c7e7);
+  background-size: 400% 400%;
+  animation: gradient 8s ease infinite;
+  height: 100vh;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 #MediaLineItemOuterContainer::before,

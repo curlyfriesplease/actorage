@@ -1,8 +1,8 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
 ## Actor age app
 
 An app to show you how old an actor was, at the time of release of a movie or TV show.
+
+See this app online here: https://www.howoldwasthat.actor
 
 ## Config
 

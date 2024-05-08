@@ -5,7 +5,7 @@ import { dosis } from './fonts';
 export const metadata = {
   title: 'How old was that actor?',
   description:
-    'Find the ages of your favourite actors in your least favourite performances',
+    'Find the ages of your favourite actors in your favourite movies and TV shows',
 };
 
 export default function RootLayout({ children }) {

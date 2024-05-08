@@ -129,7 +129,7 @@ export default function MediaLineItem({
             </Suspense>
             {character && (
               <div className="flex gap-2">
-                <h3> as </h3>
+                <h3 className="text-pink-100"> as </h3>
                 <h3 className="text-pink-200">
                   {Array.isArray(character)
                     ? character.slice(0, 3).join(', ') +

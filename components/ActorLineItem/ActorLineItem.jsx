@@ -128,7 +128,7 @@ export default function ActorLineItem({
               <h2 className="text-blue-200 text-xl">{actor?.name}</h2>
             </Suspense>
             <div className="flex gap-2 text-sm">
-              <h3>as</h3>
+              <h3 className="text-pink-100">as</h3>
               <h3 className="text-pink-300 break-normal m-0 p-0">
                 {actor?.character ||
                   actor?.roles?.[0]?.character ||

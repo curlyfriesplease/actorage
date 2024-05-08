@@ -131,7 +131,7 @@ export const PopularTitles = () => {
               </motion.div>
             ))}
           </div>
-          <div id="new-game-button-container" className="mt-5 mb-2">
+          <div id="new-game-button-container" className="mt-5 mb-3">
             <button
               className="
             flex 

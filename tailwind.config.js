@@ -25,10 +25,12 @@ module.exports = {
           '0%, 100%': {
             'background-size': '400% 400%',
             'background-position': 'center top',
+            transform: 'rotate(-2deg)',
           },
           '50%': {
             'background-size': '200% 200%',
             'background-position': 'center right',
+            transform: 'rotate(2deg)',
           },
         },
       },

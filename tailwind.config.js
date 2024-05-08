@@ -20,6 +20,21 @@ module.exports = {
       fontFamily: {
         dosis: ['var(--font-dosis)', 'sans-serif'],
       },
+      keyframes: {
+        spinning: {
+          '0%, 100%': {
+            'background-size': '400% 400%',
+            'background-position': 'center top',
+          },
+          '50%': {
+            'background-size': '200% 200%',
+            'background-position': 'center right',
+          },
+        },
+      },
+      animation: {
+        spinning: 'spinning 2.5s ease infinite',
+      },
     },
   },
   plugins: [],

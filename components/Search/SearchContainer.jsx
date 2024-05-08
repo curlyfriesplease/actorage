@@ -24,6 +24,10 @@ export default function SearchContainer() {
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 1.5, type: 'spring', bounce: 0.75 }}
     >
+      <p className="w-[90%] text-sky-700 italic text-center text-base">
+        Discover the ages of the top billed cast from any movie or TV show, or
+        an actor&apos;s ages across their career performances
+      </p>
       <SearchBar setResults={setResults} />
       <Suspense fallback={<div>Loading...</div>} className="relative">
         {results && results.results?.length > 0 && (

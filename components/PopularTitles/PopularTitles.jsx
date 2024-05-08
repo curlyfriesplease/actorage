@@ -131,6 +131,38 @@ export const PopularTitles = () => {
               </motion.div>
             ))}
           </div>
+          <div id="new-game-button-container" className="mt-5 mb-2">
+            <button
+              className="
+            flex 
+            flex-row 
+            align-middle 
+            justify-center 
+            items-center 
+            gap-2 
+            ring-8 
+            ring-blue-100 
+            rounded-full 
+            px-8 py-2 mt-2 
+            bg-gradient-to-r 
+            from-pink-400
+            via-red-400
+            to-yellow-400
+            hover:bg-gradient-to-t from-rose-400 via-indigo-100 to-violet-400 
+            mt-7
+            animate-spinning
+            "
+              onClick={() =>
+                (window.location.href = 'https://game.howoldwasthat.actor')
+              }
+            >
+              <p className="text-2xl text-yellow-400 text-3xl font-black">
+                NEW!
+              </p>
+              <p className="text-2xl text-blue-600">Try the</p>
+              <p className="text-3xl text-red-600 font-black">GAME</p>
+            </button>
+          </div>
         </>
       )}
     </motion.div>

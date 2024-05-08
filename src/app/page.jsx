@@ -80,7 +80,7 @@ export default function Home() {
             flex-col 
             flex-grow
             items-center 
-            max-h-[40%]
+            max-h-[50%]
             w-full
                 "
           >

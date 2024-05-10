@@ -12,7 +12,8 @@ See this app online here: https://www.howoldwasthat.actor
 
 The site is made up of these three repos:
 
-![actorAgeDiagram](https://github.com/curlyfriesplease/actorage/assets/81927768/cdcd745e-118e-4e26-a3b9-4adea27c150a)
+
+![actorAgeDiagram](https://github.com/curlyfriesplease/actorage/assets/81927768/a12477d1-3460-4d8b-b431-063d58cd74e3)
 
 
 ## Config

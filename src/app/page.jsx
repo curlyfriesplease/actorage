@@ -10,7 +10,7 @@ export default function Home() {
     <div
       id="the-big-biscuit"
       className="
-      h-screen 
+      h-full
       flex 
       flex-col
       justify-between 
@@ -67,7 +67,6 @@ export default function Home() {
           justify-around 
           pl-7
           pr-7
-          pb-8
           w-screen
           max-w-screen-md
           h-full

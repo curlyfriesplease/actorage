@@ -15,14 +15,11 @@ export default function RootLayout({ children }) {
         className={`${dosis.className}
           flex flex-col 
           items-center
-          px-4
-          py-2
           min-h-screen`}
       >
         <main
           className="
         grow 
-        py-3 
         max-w-screen-lg
         "
         >

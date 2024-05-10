@@ -143,7 +143,7 @@ export const PopularTitles = () => {
             ring-8 
             ring-blue-100 
             rounded-full 
-            px-8 py-2 mt-2 
+            px-6 py-2 mt-2 
             bg-gradient-to-r 
             from-pink-400
             via-red-400

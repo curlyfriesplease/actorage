@@ -23,7 +23,7 @@ export const PopularTitles = () => {
     <motion.div
       id="popular-titles"
       className="
-        w-full 
+        w-full
         max-w-[430px]
         flex-grow
         max-h-[40vh]
@@ -73,7 +73,7 @@ export const PopularTitles = () => {
             className="
             grid
             grid-cols-3
-            gap-3 
+            gap-3
             justify-items-stretch
             w-full
             h-full
@@ -88,13 +88,13 @@ export const PopularTitles = () => {
                 key={title.id}
                 className="
                   bg-transparent
-                  hover:bg-gradient-to-b 
-                  from-rose-200 
-                  via-indigo-100 
+                  hover:bg-gradient-to-b
+                  from-rose-200
+                  via-indigo-100
                   to-violet-200
-                  rounded-xl 
-                  text-center 
-                  fade-edges 
+                  rounded-xl
+                  text-center
+                  fade-edges
                   overflow-hidden
                   cursor-pointer
                   relative
@@ -110,10 +110,10 @@ export const PopularTitles = () => {
                 <div
                   id="weird-div"
                   className="
-                    w-64 
+                    w-64
                     lg:w-80
-                    h-96 
-                    px-1 
+                    h-96
+                    px-1
                     lg:p-2
                     max-h-full
                     "
@@ -134,26 +134,26 @@ export const PopularTitles = () => {
           <div id="new-game-button-container" className="mt-5 mb-3">
             <button
               className="
-            flex 
-            flex-row 
-            align-middle 
-            justify-center 
-            items-center 
-            gap-2 
-            ring-8 
-            ring-blue-100 
-            rounded-full 
-            px-6 py-2 mt-2 
-            bg-gradient-to-r 
+            flex
+            flex-row
+            align-middle
+            justify-center
+            items-center
+            gap-2
+            ring-8
+            ring-blue-100
+            rounded-full
+            px-6 py-2 mt-2
+            bg-gradient-to-r
             from-pink-400
             via-red-400
             to-yellow-400
-            hover:bg-gradient-to-t from-rose-400 via-indigo-100 to-violet-400 
+            hover:bg-gradient-to-t from-rose-400 via-indigo-100 to-violet-400
             mt-7
             animate-spinning
             "
               onClick={() =>
-                (window.location.href = 'https://game.howoldwasthat.actor')
+                (window.location.href = 'https://actorgame.jonmulhern.co.uk')
               }
             >
               <p className="text-2xl text-yellow-400 text-3xl font-black">

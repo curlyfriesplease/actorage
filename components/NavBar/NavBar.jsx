@@ -10,8 +10,8 @@ export default function NavBar() {
   return (
     <nav
       className="
-    flex 
-    justify-between 
+    flex
+    justify-between
     w-full
     py-4
     "
@@ -19,8 +19,8 @@ export default function NavBar() {
       <div id="blank-spacer-div" style={{ width: '30px' }}></div>
       <div
         id="logo-and-buttons"
-        className="    flex-col 
-      items-center 
+        className="    flex-col
+      items-center
       justify-around
       "
       >
@@ -42,7 +42,7 @@ export default function NavBar() {
           <button
             className="bg-blue-100 bg-opacity-80 font-josttext-sky-900 text-sm rounded p-2 w-[40%] h-[35px] hover:bg-blue-400"
             onClick={() =>
-              (window.location.href = 'https://game.howoldwasthat.actor')
+              (window.location.href = 'https://actorgame.jonmulhern.co.uk')
             }
           >
             GAME

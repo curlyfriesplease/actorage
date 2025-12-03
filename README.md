@@ -6,7 +6,7 @@
 
 An app to show you how old an actor was, at the time of release of a movie or TV show.
 
-See this app online here: https://www.howoldwasthat.actor
+See this app online here: https://actor.jonmulhern.co.uk
 
 ## Overall site setup
 
